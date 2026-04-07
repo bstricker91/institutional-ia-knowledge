@@ -1087,6 +1087,131 @@
     }
     .dl-note-box strong { color: #555; }
 
+    /* ═══════════════════════════════
+       PERSONA MODAL
+    ═══════════════════════════════ */
+    .persona-modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.35);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+    }
+    .persona-modal-backdrop.open {
+      display: flex;
+    }
+    .persona-modal {
+      background: #FDFCFB;
+      border-radius: 16px;
+      width: 580px;
+      max-height: 85vh;
+      overflow-y: auto;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.18);
+      position: relative;
+    }
+    .persona-modal__header {
+      padding: 28px 28px 0;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .persona-modal__num {
+      font-size: 10px;
+      font-weight: 700;
+      color: #C0BDB8;
+      margin-bottom: 2px;
+    }
+    .persona-modal__name {
+      font-size: 20px;
+      font-weight: 700;
+      color: #1A1A1A;
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+    .persona-modal__close {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      border: 1px solid #E4E0DC;
+      background: #fff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      color: #999;
+      flex-shrink: 0;
+    }
+    .persona-modal__close:hover {
+      background: #F0EDEA;
+      color: #555;
+    }
+    .persona-modal__roles {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      padding: 0 28px;
+      margin-bottom: 20px;
+    }
+    .persona-modal__body {
+      padding: 0 28px;
+    }
+    .persona-modal__voice {
+      font-size: 14px;
+      color: #444;
+      line-height: 1.65;
+      font-style: italic;
+      background: #F4F2EE;
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-bottom: 20px;
+    }
+    .persona-modal__detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .persona-modal__detail {
+      background: #fff;
+      border: 1px solid #E8E4E0;
+      border-radius: 10px;
+      padding: 14px 16px;
+    }
+    .persona-modal__detail-label {
+      font-size: 9.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #AAA;
+      margin-bottom: 6px;
+    }
+    .persona-modal__detail-value {
+      font-size: 12.5px;
+      color: #444;
+      line-height: 1.5;
+    }
+    .persona-modal__footer {
+      padding: 16px 28px 24px;
+      border-top: 1px solid #E8E4E0;
+      margin-top: 8px;
+    }
+    .persona-modal__examples {
+      font-size: 11.5px;
+      color: #999;
+      line-height: 1.5;
+    }
+    .persona-modal__examples strong {
+      color: #666;
+      font-weight: 600;
+    }
+
+    .persona-card { cursor: pointer; transition: border-color 0.15s ease, box-shadow 0.15s ease; }
+    .persona-card:hover { border-color: #D0CCC6; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+
   </style>
 </head>
 <body>
@@ -1104,12 +1229,12 @@
     <div class="nav-group">
       <div class="nav-item active" onclick="showSection('start')">
         <div class="nav-item-icon nav-item-icon--purple">▸</div>
-        <span class="nav-item-label">Start</span>
+        <span class="nav-item-label">Overview</span>
       </div>
     </div>
 
     <div class="nav-group">
-      <div class="nav-group-label">Overview</div>
+      <div class="nav-group-label">Foundations</div>
       <div class="nav-item" onclick="showSection('personas')">
         <div class="nav-item-icon nav-item-icon--gray">Pe</div>
         <span class="nav-item-label">Personas</span>
@@ -1211,10 +1336,159 @@
     ────────────────────────────────── -->
     <section class="section active" id="start">
       <div class="section-header">
-        <div class="section-breadcrumb">Start</div>
         <h1 class="section-title">Luno Institutional IA</h1>
-        <p class="section-desc">To come</p>
+        <p style="font-size: 15px; color: #666; margin-bottom: 16px;">Information Architecture &amp; Product Reference</p>
+        <span class="page-tag page-tag--amber">Research Phase</span>
+        <p class="section-desc">The source-of-truth reference for Luno Institutional — a B2B crypto exchange product built for institutional and professional clients. This document covers the role model, platform configurations, permissions, workflows, and site architecture. Use it to align on product decisions, test role-level behaviour, or onboard new team members.</p>
       </div>
+
+      <!-- WHERE TO START -->
+      <div style="margin-bottom: 48px;">
+        <h2 style="font-size: 16px; font-weight: 700; color: #1A1A1A; margin-bottom: 20px;">Where to start</h2>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+
+          <div style="background: #fff; border: 1px solid #E4E0DC; border-left: 3px solid var(--purple); border-radius: 10px; padding: 20px 20px 18px; cursor: pointer;" onclick="showSection('role-permissions')">
+            <div style="font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--purple); margin-bottom: 10px;">⬡ Testing a role</div>
+            <p style="font-size: 13px; color: #555; line-height: 1.55; margin-bottom: 14px;">Start with Role Permissions to understand what each role can and can't do, then use Role Workflows to walk through the task flows.</p>
+            <span style="font-size: 12px; font-weight: 600; color: var(--purple);">→ Role Permissions</span>
+          </div>
+
+          <div style="background: #fff; border: 1px solid #E4E0DC; border-left: 3px solid var(--green); border-radius: 10px; padding: 20px 20px 18px; cursor: pointer;" onclick="showSection('platform-configurations')">
+            <div style="font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--green); margin-bottom: 10px;">◈ Reviewing the product model</div>
+            <p style="font-size: 13px; color: #555; line-height: 1.55; margin-bottom: 14px;">Start with Platform Configurations to understand the four configuration types, then review the Configuration Matrix for capability mapping.</p>
+            <span style="font-size: 12px; font-weight: 600; color: var(--green);">→ Platform Configurations</span>
+          </div>
+
+          <div style="background: #fff; border: 1px solid #E4E0DC; border-left: 3px solid var(--amber); border-radius: 10px; padding: 20px 20px 18px; cursor: pointer;" onclick="showSection('personas')">
+            <div style="font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--amber); margin-bottom: 10px;">☉ Understanding who we're building for</div>
+            <p style="font-size: 13px; color: #555; line-height: 1.55; margin-bottom: 14px;">Start with Personas to see the real-world actors, then Role Matrix to see how they map to platform roles.</p>
+            <span style="font-size: 12px; font-weight: 600; color: var(--amber);">→ Personas</span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- DOCUMENT MAP -->
+      <div style="margin-bottom: 48px;">
+        <h2 style="font-size: 16px; font-weight: 700; color: #1A1A1A; margin-bottom: 20px;">Document map</h2>
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+
+          <!-- Foundations -->
+          <div>
+            <div style="font-size: 9.5px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; color: #44445A; margin-bottom: 10px;">Foundations</div>
+            <div style="background: #fff; border: 1px solid #E4E0DC; border-radius: 10px; overflow: hidden;">
+              <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; cursor: pointer; border-bottom: 1px solid #F0EDEA;" onclick="showSection('personas')">
+                <div><span style="font-size: 13px; font-weight: 600; color: #1A1A1A;">Personas</span><span style="font-size: 12px; color: #999; margin-left: 10px;">Real-world actors and the roles they map to</span></div>
+                <span style="color: #C8C4BE; font-size: 14px;">→</span>
+              </div>
+              <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; cursor: pointer; border-bottom: 1px solid #F0EDEA;" onclick="showSection('role-matrix')">
+                <div><span style="font-size: 13px; font-weight: 600; color: #1A1A1A;">Role Matrix</span><span style="font-size: 12px; color: #999; margin-left: 10px;">The five platform roles and their scope</span></div>
+                <span style="color: #C8C4BE; font-size: 14px;">→</span>
+              </div>
+              <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; cursor: pointer;" onclick="showSection('platform-configurations')">
+                <div><span style="font-size: 13px; font-weight: 600; color: #1A1A1A;">Platform Configurations</span><span style="font-size: 12px; color: #999; margin-left: 10px;">The four configuration types and what they bundle</span></div>
+                <span style="color: #C8C4BE; font-size: 14px;">→</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Permissions -->
+          <div>
+            <div style="font-size: 9.5px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; color: #44445A; margin-bottom: 10px;">Permissions</div>
+            <div style="background: #fff; border: 1px solid #E4E0DC; border-radius: 10px; overflow: hidden;">
+              <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; cursor: pointer; border-bottom: 1px solid #F0EDEA;" onclick="showSection('role-permissions')">
+                <div><span style="font-size: 13px; font-weight: 600; color: #1A1A1A;">Role Permissions</span><span style="font-size: 12px; color: #999; margin-left: 10px;">What each role can do — the testable permission layer</span></div>
+                <span style="color: #C8C4BE; font-size: 14px;">→</span>
+              </div>
+              <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; cursor: pointer;" onclick="showSection('config-matrix')">
+                <div><span style="font-size: 13px; font-weight: 600; color: #1A1A1A;">Configuration Matrix</span><span style="font-size: 12px; color: #999; margin-left: 10px;">Capabilities mapped by configuration type</span></div>
+                <span style="color: #C8C4BE; font-size: 14px;">→</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Workflows — Configuration -->
+          <div>
+            <div style="font-size: 9.5px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; color: #44445A; margin-bottom: 10px;">Workflows — Configuration</div>
+            <div style="background: #fff; border: 1px solid #E4E0DC; border-radius: 10px; overflow: hidden;">
+              <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; cursor: pointer; border-bottom: 1px solid #F0EDEA;" onclick="showSection('wf-dm')">
+                <div><span style="font-size: 13px; font-weight: 600; color: #1A1A1A;">Discretionary Manager</span><span style="font-size: 12px; color: #999; margin-left: 10px;">End-to-end flow for asset management firms</span></div>
+                <span style="color: #C8C4BE; font-size: 14px;">→</span>
+              </div>
+              <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; cursor: pointer; border-bottom: 1px solid #F0EDEA;" onclick="showSection('wf-ifa')">
+                <div><span style="font-size: 13px; font-weight: 600; color: #1A1A1A;">Wealth Advisor / IFA</span><span style="font-size: 12px; color: #999; margin-left: 10px;">Advisory and client portfolio management flow</span></div>
+                <span style="color: #C8C4BE; font-size: 14px;">→</span>
+              </div>
+              <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; cursor: pointer; border-bottom: 1px solid #F0EDEA;" onclick="showSection('wf-po')">
+                <div><span style="font-size: 13px; font-weight: 600; color: #1A1A1A;">Programmatic Operator</span><span style="font-size: 12px; color: #999; margin-left: 10px;">API-first, automated trading operations flow</span></div>
+                <span style="color: #C8C4BE; font-size: 14px;">→</span>
+              </div>
+              <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; cursor: pointer;" onclick="showSection('wf-gc')">
+                <div><span style="font-size: 13px; font-weight: 600; color: #1A1A1A;">Governance + Compliance</span><span style="font-size: 12px; color: #999; margin-left: 10px;">Oversight, audit and approval flow</span></div>
+                <span style="color: #C8C4BE; font-size: 14px;">→</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Workflows — Role -->
+          <div>
+            <div style="font-size: 9.5px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; color: #44445A; margin-bottom: 10px;">Workflows — Role</div>
+            <div style="background: #fff; border: 1px solid #E4E0DC; border-radius: 10px; overflow: hidden;">
+              <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; cursor: pointer; border-bottom: 1px solid #F0EDEA;" onclick="showSection('wf-principal')">
+                <div><span style="font-size: 13px; font-weight: 600; color: #1A1A1A;">Principal</span><span style="font-size: 12px; color: #999; margin-left: 10px;">Mandate setup, approval and ongoing governance</span></div>
+                <span style="color: #C8C4BE; font-size: 14px;">→</span>
+              </div>
+              <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; cursor: pointer; border-bottom: 1px solid #F0EDEA;" onclick="showSection('wf-trader')">
+                <div><span style="font-size: 13px; font-weight: 600; color: #1A1A1A;">Trader</span><span style="font-size: 12px; color: #999; margin-left: 10px;">Trade execution and position management</span></div>
+                <span style="color: #C8C4BE; font-size: 14px;">→</span>
+              </div>
+              <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; cursor: pointer; border-bottom: 1px solid #F0EDEA;" onclick="showSection('wf-client')">
+                <div><span style="font-size: 13px; font-weight: 600; color: #1A1A1A;">Client</span><span style="font-size: 12px; color: #999; margin-left: 10px;">Onboarding, portfolio access and co-trading</span></div>
+                <span style="color: #C8C4BE; font-size: 14px;">→</span>
+              </div>
+              <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; cursor: pointer; border-bottom: 1px solid #F0EDEA;" onclick="showSection('wf-observer')">
+                <div><span style="font-size: 13px; font-weight: 600; color: #1A1A1A;">Observer / Compliance</span><span style="font-size: 12px; color: #999; margin-left: 10px;">Compliance review, escalation and reporting</span></div>
+                <span style="color: #C8C4BE; font-size: 14px;">→</span>
+              </div>
+              <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; cursor: pointer;" onclick="showSection('wf-admin')">
+                <div><span style="font-size: 13px; font-weight: 600; color: #1A1A1A;">Platform Admin</span><span style="font-size: 12px; color: #999; margin-left: 10px;">Firm onboarding, user management and offboarding</span></div>
+                <span style="color: #C8C4BE; font-size: 14px;">→</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Institutional IA -->
+          <div>
+            <div style="font-size: 9.5px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; color: #44445A; margin-bottom: 10px;">Institutional IA</div>
+            <div style="background: #fff; border: 1px solid #E4E0DC; border-radius: 10px; overflow: hidden;">
+              <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; cursor: pointer;" onclick="showSection('site-map')">
+                <div><span style="font-size: 13px; font-weight: 600; color: #1A1A1A;">Site Map</span><span style="font-size: 12px; color: #999; margin-left: 10px;">Full feature map across Account Management and Platform spaces</span></div>
+                <span style="color: #C8C4BE; font-size: 14px;">→</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reference -->
+          <div>
+            <div style="font-size: 9.5px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; color: #44445A; margin-bottom: 10px;">Reference</div>
+            <div style="background: #fff; border: 1px solid #E4E0DC; border-radius: 10px; overflow: hidden;">
+              <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; cursor: pointer; border-bottom: 1px solid #F0EDEA;" onclick="showSection('glossary')">
+                <div><span style="font-size: 13px; font-weight: 600; color: #1A1A1A;">Glossary</span><span style="font-size: 12px; color: #999; margin-left: 10px;">Defined terms for roles, configurations and platform concepts</span></div>
+                <span style="color: #C8C4BE; font-size: 14px;">→</span>
+              </div>
+              <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; cursor: pointer;" onclick="showSection('doc-links')">
+                <div><span style="font-size: 13px; font-weight: 600; color: #1A1A1A;">Document Links</span><span style="font-size: 12px; color: #999; margin-left: 10px;">Source documents, artefacts and external references</span></div>
+                <span style="color: #C8C4BE; font-size: 14px;">→</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- FOOTER NOTE -->
+      <p style="font-size: 12px; color: #AAA; text-align: center; margin-top: 24px;">Last updated: April 2026 · Luno Institutional · Internal working document</p>
+
     </section>
 
 
@@ -1223,14 +1497,14 @@
     ────────────────────────────────── -->
     <section class="section" id="personas">
       <div class="section-header">
-        <div class="section-breadcrumb">Overview</div>
+        <div class="section-breadcrumb">Foundations</div>
         <h1 class="section-title">Personas</h1>
         <p class="section-desc">The real-world actors this product serves. Each persona maps to one or more platform roles — understanding the persona helps clarify why each role is scoped the way it is.</p>
       </div>
 
       <div class="persona-grid">
 
-        <div class="persona-card">
+        <div class="persona-card" onclick="openPersonaModal(0)">
           <div class="persona-card__num">01</div>
           <div class="persona-card__name">Asset Manager</div>
           <div class="persona-card__desc">Manages pooled client funds across strategies.</div>
@@ -1239,7 +1513,7 @@
           </div>
         </div>
 
-        <div class="persona-card">
+        <div class="persona-card" onclick="openPersonaModal(1)">
           <div class="persona-card__num">02</div>
           <div class="persona-card__name">Fund Manager</div>
           <div class="persona-card__desc">Runs a specific fund or sleeve; may trade directly.</div>
@@ -1249,7 +1523,7 @@
           </div>
         </div>
 
-        <div class="persona-card">
+        <div class="persona-card" onclick="openPersonaModal(2)">
           <div class="persona-card__num">03</div>
           <div class="persona-card__name">Family Office</div>
           <div class="persona-card__desc">Manages wealth for a single family or small group.</div>
@@ -1258,7 +1532,7 @@
           </div>
         </div>
 
-        <div class="persona-card">
+        <div class="persona-card" onclick="openPersonaModal(3)">
           <div class="persona-card__num">04</div>
           <div class="persona-card__name">Corporate Treasury</div>
           <div class="persona-card__desc">Manages company's own cash and FX exposure.</div>
@@ -1268,7 +1542,7 @@
           </div>
         </div>
 
-        <div class="persona-card">
+        <div class="persona-card" onclick="openPersonaModal(4)">
           <div class="persona-card__num">05</div>
           <div class="persona-card__name">Independent Financial Advisor (IFA)</div>
           <div class="persona-card__desc">Advises retail clients; executes on their behalf.</div>
@@ -1278,7 +1552,7 @@
           </div>
         </div>
 
-        <div class="persona-card">
+        <div class="persona-card" onclick="openPersonaModal(5)">
           <div class="persona-card__num">06</div>
           <div class="persona-card__name">Retail Client of IFA</div>
           <div class="persona-card__desc">End investor whose funds are being managed.</div>
@@ -1287,7 +1561,7 @@
           </div>
         </div>
 
-        <div class="persona-card">
+        <div class="persona-card" onclick="openPersonaModal(6)">
           <div class="persona-card__num">07</div>
           <div class="persona-card__name">Arbitrage / Algo Trader</div>
           <div class="persona-card__desc">High-frequency or systematic trader, often API-first.</div>
@@ -1296,7 +1570,7 @@
           </div>
         </div>
 
-        <div class="persona-card">
+<div class="persona-card" onclick="openPersonaModal(7)">
           <div class="persona-card__num">08</div>
           <div class="persona-card__name">Multi-Manager Firm — Senior Management</div>
           <div class="persona-card__desc">Oversees multiple strategies and traders.</div>
@@ -1305,7 +1579,7 @@
           </div>
         </div>
 
-        <div class="persona-card">
+<div class="persona-card" onclick="openPersonaModal(8)">
           <div class="persona-card__num">09</div>
           <div class="persona-card__name">Multi-Manager Firm — Trader</div>
           <div class="persona-card__desc">Executes within an assigned strategy mandate.</div>
@@ -1314,7 +1588,7 @@
           </div>
         </div>
 
-        <div class="persona-card">
+<div class="persona-card" onclick="openPersonaModal(9)">
           <div class="persona-card__num">10</div>
           <div class="persona-card__name">Algorithmic / Bot Operator</div>
           <div class="persona-card__desc">Deploys automated trading systems at scale.</div>
@@ -1323,7 +1597,7 @@
           </div>
         </div>
 
-        <div class="persona-card">
+<div class="persona-card" onclick="openPersonaModal(10)">
           <div class="persona-card__num">11</div>
           <div class="persona-card__name">Sub-account Holder</div>
           <div class="persona-card__desc">Has economic interest in a specific sub-account or sleeve.</div>
@@ -1332,7 +1606,7 @@
           </div>
         </div>
 
-        <div class="persona-card">
+<div class="persona-card" onclick="openPersonaModal(11)">
           <div class="persona-card__num">12</div>
           <div class="persona-card__name">Custodian</div>
           <div class="persona-card__desc">Holds assets on behalf of clients; may require settlement access.</div>
@@ -1342,7 +1616,7 @@
           </div>
         </div>
 
-        <div class="persona-card">
+<div class="persona-card" onclick="openPersonaModal(12)">
           <div class="persona-card__num">13</div>
           <div class="persona-card__name">Institutional Broker / Desk</div>
           <div class="persona-card__desc">Executes large block trades for institutional clients.</div>
@@ -1352,7 +1626,7 @@
           </div>
         </div>
 
-        <div class="persona-card">
+<div class="persona-card" onclick="openPersonaModal(13)">
           <div class="persona-card__num">14</div>
           <div class="persona-card__name">Compliance Officer / Fund Administrator</div>
           <div class="persona-card__desc">Oversight and audit role; no trading access.</div>
@@ -1374,7 +1648,7 @@
     ────────────────────────────────── -->
     <section class="section" id="role-matrix">
       <div class="section-header">
-        <div class="section-breadcrumb">Overview</div>
+        <div class="section-breadcrumb">Foundations</div>
         <h1 class="section-title">Role Matrix</h1>
         <p class="section-desc">How the 14 original personas map across four platform roles, organised by fund movement and structural control.</p>
       </div>
@@ -1394,7 +1668,7 @@
         </div>
         <div class="matrix-card card--trader">
           <div class="matrix-card-title">Trader / Executor</div>
-          <div class="matrix-card-subtitle">Executes trades and manages positions</div>
+          <div class="matrix-card-subtitle">Executes trades and manages positions within the limits set by the Principal. Operates inside defined mandates — asset pairs, position sizes, and order types are bounded by the account's trading policy. In multi-trader firms this is a dedicated execution role; in smaller setups the same person may also hold the Principal role. Includes API-driven execution for programmatic operators where trades are placed by bots rather than manually.</div>
           <ul class="matrix-card-list">
             <li>Multi-trader firms — traders (9)</li>
             <li>Algo / bot traders (10)</li>
@@ -1405,7 +1679,7 @@
         </div>
         <div class="matrix-card card--client">
           <div class="matrix-card-title">Client / End Investor</div>
-          <div class="matrix-card-subtitle">Owns funds; may have limited platform access</div>
+          <div class="matrix-card-subtitle">The end owner of the funds on the platform. Typically has limited or view-only access — can see balances, transaction history, and portfolio performance but cannot alter account structure or execute trades unless explicitly granted co-trading permissions by the Principal. In advisory configurations the client may never log in directly; in others they have a scoped dashboard for monitoring their own holdings. The platform must clearly separate the client's view from the managing party's operational interface.</div>
           <ul class="matrix-card-list">
             <li>Indirect customers of advisory firms (2)</li>
             <li>IFA's retail clients (3)</li>
@@ -1416,7 +1690,7 @@
         </div>
         <div class="matrix-card card--observer">
           <div class="matrix-card-title">Observer / Compliance</div>
-          <div class="matrix-card-subtitle">Read-only oversight; no trade or fund access</div>
+          <div class="matrix-card-subtitle">Provides read-only oversight across accounts without any trade execution or fund movement capability. Monitors activity logs, reviews compliance status, and flags policy breaches or suspicious transactions for escalation. In multi-signature setups the Observer may also act as an approval gate — able to approve or reject pending actions without being able to initiate them. This role ensures separation of duties: the people watching the activity are structurally prevented from performing it.</div>
           <ul class="matrix-card-list">
             <li>Fund administrators (14)</li>
             <li>Compliance officers (14)</li>
@@ -1467,7 +1741,7 @@
     ────────────────────────────────── -->
     <section class="section" id="platform-configurations">
       <div class="section-header">
-        <div class="section-breadcrumb">Overview</div>
+        <div class="section-breadcrumb">Foundations</div>
         <h1 class="section-title">Platform Configurations</h1>
         <p class="section-desc">Four discrete configurations that each carry their own navigation, permissions, and mental model. A user may hold more than one configuration, scoped to specific accounts.</p>
       </div>
@@ -4225,6 +4499,240 @@
       // Scroll to top of main
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+  </script>
+
+  <!-- Persona Modal -->
+  <div class="persona-modal-backdrop" id="personaModalBackdrop" onclick="closePersonaModal(event)">
+    <div class="persona-modal" id="personaModal">
+      <div class="persona-modal__header">
+        <div>
+          <div class="persona-modal__num" id="pmNum"></div>
+          <div class="persona-modal__name" id="pmName"></div>
+        </div>
+        <button class="persona-modal__close" onclick="closePersonaModal(event, true)">✕</button>
+      </div>
+      <div class="persona-modal__roles" id="pmRoles"></div>
+      <div class="persona-modal__body">
+        <div class="persona-modal__voice" id="pmVoice"></div>
+        <div class="persona-modal__detail-grid" id="pmDetails"></div>
+      </div>
+      <div class="persona-modal__footer">
+        <div class="persona-modal__examples" id="pmExamples"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  (function() {
+    const PERSONAS = [
+      {
+        num: "01", name: "Asset Manager",
+        roles: [{ label: "Principal", cls: "principal" }],
+        voice: "I manage hundreds of client funds and need grouped sub-accounts so I can purchase bundles, individual assets, and earn products for my clients. My clients do not need access to Luno. Traders within my team execute the trades, while I manage allocations, fund performance, and reporting.",
+        details: [
+          { label: "Luno Model", value: "Client-Specific Wallets — multi-account / Segregated Management Account" },
+          { label: "Verification", value: "Full KYC on asset manager only" },
+          { label: "Fund Flow", value: "Funds pooled into business account → traded → distributed to clients" },
+          { label: "Client Access", value: "Clients do not access Luno directly" }
+        ],
+        examples: "22 Capital, Halogen (multi-fund model)"
+      },
+      {
+        num: "02", name: "Fund Manager",
+        roles: [{ label: "Principal", cls: "principal" }, { label: "Trader", cls: "trader" }],
+        voice: "I run multiple funds — for example, BTC, ETH, and Stablecoin funds. I need complete segregation between those funds, ensuring deposits and withdrawals remain within each fund. Clients send deposits directly into the fund account, and I execute trades, redemptions, and reporting per fund. Each fund operates independently to maintain clear audit trails.",
+        details: [
+          { label: "Luno Model", value: "Multiple Business Accounts / Segregated Management Account, or Client Sub-Accounts with full KYC + bank verification" },
+          { label: "Verification", value: "Business KYC + controlled deposits per fund" },
+          { label: "Fund Flow", value: "Clients deposit to fund-specific accounts; withdrawals via business. Each account may represent a specific client with dedicated deposit and withdrawal flows." },
+          { label: "Client Access", value: "Clients do not access accounts — the fund manager's team executes trades on their behalf" }
+        ],
+        examples: "Halogen, ELM Trading — covers both segregated fund and client segregation models"
+      },
+      {
+        num: "03", name: "Family Office",
+        roles: [{ label: "Principal", cls: "principal" }],
+        voice: "I manage multiple family members, high-net-worth individuals, and businesses under one structure. Each entity or person needs a separate account for clear portfolio management and performance reporting. I actively manage trades, allocations, and cross-border transfers. Clients don't need access but may occasionally need ownership transfer of specific accounts or assets.",
+        details: [
+          { label: "Luno Model", value: "Business-to-Business Sharing / Multi-Entity Accounts" },
+          { label: "Verification", value: "Entity-level verification" },
+          { label: "Fund Flow", value: "Funds managed across multiple businesses or individuals; optional ownership transfer" },
+          { label: "Client Access", value: "Clients don't need access but may occasionally require ownership transfer" }
+        ],
+        examples: "CAPE, multi-entity private wealth structures"
+      },
+      {
+        num: "04", name: "Corporate Treasury",
+        roles: [{ label: "Principal", cls: "principal" }, { label: "Trader", cls: "trader" }],
+        voice: "I manage treasury operations across multiple subsidiaries and regions. Each entity requires its own sub-account for holding balances, executing payments, and managing exposure. We transfer funds between entities, handle stablecoin conversions, and manage yield. Approval policies must be enforced so withdrawals require multi-approver sign-off.",
+        details: [
+          { label: "Luno Model", value: "Business-to-Business Sharing" },
+          { label: "Verification", value: "Business verified" },
+          { label: "Fund Flow", value: "Multiple entities/subsidiaries with controlled transfers" },
+          { label: "Key Requirement", value: "Multi-approver withdrawal sign-off, stablecoin conversion, cross-entity transfers" }
+        ],
+        examples: "Multi-entity clients; corporate liquidity management"
+      },
+      {
+        num: "05", name: "Independent Financial Advisor (IFA)",
+        roles: [{ label: "Principal", cls: "principal" }, { label: "Trader", cls: "trader" }],
+        voice: "I manage clients who each have their own retail or sub-accounts. I want to trade on their behalf while allowing them to view their portfolios. Some clients want to trade themselves, others delegate full control to me. I need to view all client holdings, track performance, and manage trades across multiple clients easily.",
+        details: [
+          { label: "Luno Model", value: "Retail & Business Account Sharing — hybrid advisory + asset management model" },
+          { label: "Verification", value: "Client full KYC; advisor account optional" },
+          { label: "Fund Flow", value: "Clients hold accounts; advisor may trade via permissioned access" },
+          { label: "Client Access", value: "Varies — some clients view-only, others may co-trade" }
+        ],
+        examples: "Hybrid model — combination of advisory + asset management"
+      },
+      {
+        num: "06", name: "Retail Client of IFA",
+        roles: [{ label: "Client", cls: "client" }],
+        voice: "I'm a client of a financial advisory firm. My advisor manages my portfolio, but I want to see my holdings, check performance, and understand what's happening with my money. I may or may not want to place trades myself — either way, I need transparency into my own account.",
+        details: [
+          { label: "Luno Model", value: "Advisory Relationship (Shared/Indirect Customers)" },
+          { label: "Verification", value: "Clients fully KYC'd (Retail Luno Accounts)" },
+          { label: "Fund Flow", value: "Clients own retail accounts; advisors have view-only or data access" },
+          { label: "Client Access", value: "Direct access to own account; advisor has oversight layer" }
+        ],
+        examples: "Centric Wealth Advisory — advisory firm with hundreds of advisors and clients"
+      },
+      {
+        num: "07", name: "Arbitrage / Algo Trader",
+        roles: [{ label: "Trader", cls: "trader" }],
+        voice: "I'm an arbitrage trader managing thousands of client accounts. Each client requires their own verified sub-account with bank verification and basic KYC. Clients never log in — all deposits and withdrawals are third-party and handled programmatically through our API. I need to distribute and collect funds across thousands of sub-accounts in bulk, both in local and foreign currency, while maintaining full visibility and compliance.",
+        details: [
+          { label: "Luno Model", value: "Direct Deposits & Withdrawals (Client Sub-Accounts)" },
+          { label: "Verification", value: "Verified bank + basic KYC per client (name, ID, sanctions, PEP, adverse media)" },
+          { label: "Fund Flow", value: "Programmatic client deposits/withdrawals; no client access" },
+          { label: "Key Requirement", value: "Bulk fund distribution and collection across thousands of sub-accounts via API" }
+        ],
+        examples: "Future Forex, AIM, Shiftly"
+      },
+      {
+        num: "08", name: "Multi-Manager Firm — Senior Management",
+        roles: [{ label: "Principal", cls: "principal" }],
+        voice: "We're a firm with multiple traders and asset managers. Each trader should have access only to specific funds, while asset managers have broader visibility across selected funds. Administrators can see all funds, and approvers authorize final movements. We need layered access control across roles, funds, and transaction types to maintain governance.",
+        details: [
+          { label: "Luno Model", value: "Multi-User Access & Policy Management" },
+          { label: "Verification", value: "Business verified; users linked via policy controls" },
+          { label: "Fund Flow", value: "Segregation by user role: trader, manager, admin, approver" },
+          { label: "Key Requirement", value: "Layered access control — each trader sees only their assigned funds; approvers gate final movements" }
+        ],
+        examples: "ELM Trading, Top Infinity"
+      },
+      {
+        num: "09", name: "Multi-Manager Firm — Trader",
+        roles: [{ label: "Trader", cls: "trader" }],
+        voice: "I'm a trader at a multi-manager firm. I execute trades within the specific funds I've been assigned to — I shouldn't see or interact with funds outside my mandate. My positions, limits, and order types are defined by senior management, and I work within those boundaries to execute the strategy.",
+        details: [
+          { label: "Luno Model", value: "Multi-User Access & Policy Management (trader tier)" },
+          { label: "Verification", value: "Linked to business account via policy controls" },
+          { label: "Fund Flow", value: "Executes within assigned fund scope only" },
+          { label: "Key Requirement", value: "Scoped visibility — only sees assigned funds, not the full firm portfolio" }
+        ],
+        examples: "ELM Trading, Top Infinity — trader-level access within multi-manager structure"
+      },
+      {
+        num: "10", name: "Algorithmic / Bot Operator",
+        roles: [{ label: "Trader (automated)", cls: "trader" }],
+        voice: "I'm a trader running multiple bots and algorithmic strategies. I need separate wallets or sub-accounts per bot so I can test and track each strategy independently — for example, one BTC-only bot and another BTC-ETH bot. Each sub-account holds its own balance, history, and PnL. This structure allows me to measure performance, fine-tune bots, and manage strategies at scale.",
+        details: [
+          { label: "Luno Model", value: "Sub-Wallet Segregation (API)" },
+          { label: "Verification", value: "Business verified" },
+          { label: "Fund Flow", value: "API-only model; each wallet tied to strategy/bot for tracking" },
+          { label: "Key Requirement", value: "Per-bot wallet segregation for independent performance tracking and PnL" }
+        ],
+        examples: "Quant traders, internal prop desks"
+      },
+      {
+        num: "11", name: "Sub-account Holder",
+        roles: [{ label: "Client", cls: "client" }],
+        voice: "I'm an end investor with funds held in a sub-account managed by an asset manager or fund manager. I may not have direct access to Luno, but I have an economic interest in the performance of my specific sub-account or sleeve. My manager handles execution; I rely on reporting and statements to track how my investment is performing.",
+        details: [
+          { label: "Luno Model", value: "Client Sub-Accounts + Custom Bundles" },
+          { label: "Verification", value: "Manager verified; client verification may be optional" },
+          { label: "Fund Flow", value: "Programmatic fund allocation and rebalancing into bundles by the manager" },
+          { label: "Client Access", value: "Typically no direct platform access — relies on manager-provided reporting" }
+        ],
+        examples: "Clients of bundle-based asset managers (e.g. Kape), fund sub-account holders"
+      },
+      {
+        num: "12", name: "Custodian",
+        roles: [{ label: "Principal", cls: "principal" }, { label: "Observer", cls: "observer" }],
+        voice: "I'm a licensed custodian holding funds for clients. Each client needs a segregated sub-account for safekeeping. I don't trade, but I control deposits, withdrawals, and compliance checks. Each withdrawal must follow a strict policy and approval flow. My clients rely on me for security, audit trails, and record keeping.",
+        details: [
+          { label: "Luno Model", value: "Client-Specific Wallets + Policy Management" },
+          { label: "Verification", value: "Client KYC + withdrawal approval workflows" },
+          { label: "Fund Flow", value: "Segregated accounts; custodian holds control and approvals" },
+          { label: "Key Requirement", value: "Strict withdrawal policy and approval flow; full audit trail and record keeping" }
+        ],
+        examples: "Trust structures, high-compliance clients"
+      },
+      {
+        num: "13", name: "Institutional Broker / Desk",
+        roles: [{ label: "Principal", cls: "principal" }, { label: "Trader", cls: "trader" }],
+        voice: "I operate a brokerage desk managing trades for institutional or high-net-worth clients. Each client has a dedicated sub-account so we can track trades, balances, and exposure. Clients delegate execution rights to us, while we report performance and manage funds. We require consolidated reporting, segregated wallets, and compliance-approved withdrawal limits.",
+        details: [
+          { label: "Luno Model", value: "Client Sub-Accounts or Direct Retail Links" },
+          { label: "Verification", value: "Broker KYC + optional client verification" },
+          { label: "Fund Flow", value: "Broker executes trades and manages funds; clients view or receive reports" },
+          { label: "Key Requirement", value: "Consolidated reporting across all client sub-accounts with segregated wallets" }
+        ],
+        examples: "Institutional desk / crypto brokerages"
+      },
+      {
+        num: "14", name: "Compliance Officer / Fund Administrator",
+        roles: [{ label: "Observer", cls: "observer" }],
+        voice: "I'm a fund administrator responsible for reconciliation and oversight. I need read-only or limited access to multiple accounts and funds for auditing, valuation, and compliance reporting. I don't trade or move funds, but I ensure transactions are aligned with fund mandates and AML requirements.",
+        details: [
+          { label: "Luno Model", value: "View-Only Role Access within Segregated Accounts" },
+          { label: "Verification", value: "None (view-only access layer)" },
+          { label: "Fund Flow", value: "Oversight and reporting only — no execution or fund movement" },
+          { label: "Key Requirement", value: "Read-only access across multiple accounts for auditing, valuation, and compliance reporting" }
+        ],
+        examples: "Fund auditors, administrators, compliance officers"
+      }
+    ];
+
+    window.openPersonaModal = function(idx) {
+      const p = PERSONAS[idx];
+      if (!p) return;
+      document.getElementById('pmNum').textContent = 'Persona ' + p.num;
+      document.getElementById('pmName').textContent = p.name;
+      document.getElementById('pmVoice').textContent = '"' + p.voice + '"';
+
+      const rolesEl = document.getElementById('pmRoles');
+      rolesEl.innerHTML = p.roles.map(r =>
+        '<span class="persona-role-badge persona-role-badge--' + r.cls + '">' + r.label + '</span>'
+      ).join('');
+
+      const detailsEl = document.getElementById('pmDetails');
+      detailsEl.innerHTML = p.details.map(d =>
+        '<div class="persona-modal__detail">' +
+          '<div class="persona-modal__detail-label">' + d.label + '</div>' +
+          '<div class="persona-modal__detail-value">' + d.value + '</div>' +
+        '</div>'
+      ).join('');
+
+      document.getElementById('pmExamples').innerHTML =
+        '<strong>Example companies / notes:</strong> ' + p.examples;
+
+      document.getElementById('personaModalBackdrop').classList.add('open');
+    };
+
+    window.closePersonaModal = function(e, force) {
+      if (force || e.target === document.getElementById('personaModalBackdrop')) {
+        document.getElementById('personaModalBackdrop').classList.remove('open');
+      }
+    };
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        document.getElementById('personaModalBackdrop').classList.remove('open');
+      }
+    });
+  })();
   </script>
 
 </body>
