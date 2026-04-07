@@ -17,7 +17,10 @@
       "Bash(open \"/Users/bradstricker/Documents/Claude/Projects/Institutional IA/luno-institutional-ia.html\")",
       "Bash(gh repo:*)",
       "Bash(gh auth:*)",
-      "Bash(git --version)"
+      "Bash(git --version)",
+      "Bash(sed -i '' 's|<div class=\"\"persona-card\"\">$|PERSONA_PLACEHOLDER|g' index.html)",
+      "Read(//Users/bradstricker/Documents/Claude/Projects/Institutional IA/BEGIN{n=7} /PERSONA_PLACEHOLDER/**)",
+      "Bash(mv index.tmp index.html)"
     ]
   }
 }
