@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "Static File Server",
+      "runtimeExecutable": "ruby",
+      "runtimeArgs": ["-run", "-e", "httpd", "/Users/bradstricker/Documents/Claude/Projects/Institutional IA", "-p", "8000"],
+      "port": 8000
+    }
+  ]
+}

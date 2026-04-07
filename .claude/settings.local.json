@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p \"/Users/bradstricker/Documents/Claude/Projects/institutional-ia-knowledge\")",
+      "Bash(cp \"/Users/bradstricker/Documents/Claude/Projects/Institutional IA/luno-institutional-ia.html\" \"/Users/bradstricker/Documents/Claude/Projects/institutional-ia-knowledge/index.html\")",
+      "Bash(brew list:*)",
+      "Read(//usr/local/bin/**)",
+      "Bash(brew install:*)",
+      "Bash(/opt/homebrew/bin/gh auth:*)",
+      "Read(//Users/bradstricker/Documents/Claude/Projects/institutional-ia-knowledge/**)",
+      "Bash(/opt/homebrew/bin/gh repo:*)",
+      "Bash(/opt/homebrew/bin/gh api:*)",
+      "Bash(npx --version)",
+      "Read(//opt/homebrew/bin/**)",
+      "Bash(ls /usr/local/bin/python3*)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(open \"/Users/bradstricker/Documents/Claude/Projects/Institutional IA/luno-institutional-ia.html\")",
+      "Bash(gh repo:*)",
+      "Bash(gh auth:*)",
+      "Bash(git --version)"
+    ]
+  }
+}
