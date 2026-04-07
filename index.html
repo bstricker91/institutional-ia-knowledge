@@ -1051,6 +1051,59 @@
     }
     .sm-note strong { color: #555; }
 
+    /* ── Site Map Tabs ── */
+    .sm-tabs {
+      display: flex; gap: 0; margin-bottom: 28px;
+      border-bottom: 2px solid #E4E0DC;
+    }
+    .sm-tab {
+      padding: 10px 20px; font-size: 13px; font-weight: 600;
+      font-family: inherit; cursor: pointer; border: none;
+      background: transparent; color: #AAA; position: relative;
+      transition: color 0.15s;
+    }
+    .sm-tab:hover { color: #666; }
+    .sm-tab.sm-tab--active { color: #2A2A2A; }
+    .sm-tab.sm-tab--active::after {
+      content: ""; position: absolute; bottom: -2px; left: 0; right: 0;
+      height: 2px; background: #2A2A2A; border-radius: 2px 2px 0 0;
+    }
+    .sm-tab-panel { display: none; }
+    .sm-tab-panel.sm-tab-panel--active { display: block; }
+    .sm-tab-intro {
+      font-size: 12.5px; color: #888; line-height: 1.65; max-width: 680px; margin-bottom: 24px;
+    }
+
+    /* ── Role View (Permissions Site Map) ── */
+    .rv-role-bar { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+    .rv-role-btn {
+      padding: 7px 14px; border-radius: 99px; font-size: 12.5px;
+      font-family: inherit; cursor: pointer; border: 1.5px solid #D0CCC6;
+      background: transparent; color: #888; transition: all 0.15s;
+    }
+    .rv-role-btn:hover { background: #F0EDE8; color: #444; }
+    .rv-role-btn.rv-active { font-weight: 600; }
+
+    .rv-feat { display: flex; align-items: center; gap: 10px; padding: 5px 16px 5px 0; }
+    .rv-feat-name { font-size: 12px; color: #444; flex: 1; line-height: 1.35; }
+    .rv-feat.rv-none .rv-feat-name { color: #CCC; }
+    .rv-feat.rv-readonly .rv-feat-name { color: #999; }
+
+    .rv-access-dot {
+      width: 10px; height: 10px; border-radius: 50%; border: 1.5px solid;
+      display: inline-block; flex-shrink: 0;
+    }
+    .rv-access-label {
+      font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 8px;
+      border: 1.5px solid; flex-shrink: 0; min-width: 48px; text-align: center;
+    }
+
+    .rv-footer-note {
+      background: #EFEFED; border-radius: 10px; padding: 14px 18px;
+      font-size: 12px; color: #888; line-height: 1.65; max-width: 680px;
+      margin-top: 12px;
+    }
+
     /* ═══════════════════════════════
        DOCUMENT LINKS
     ═══════════════════════════════ */
@@ -4076,36 +4129,75 @@
         <p class="section-desc">Full platform feature inventory across both product spaces — Account Management and Platform. Use the role filter to see the feature scope for each platform configuration.</p>
       </div>
 
-      <div id="smRoleBar" class="sm-role-bar"></div>
-      <div id="smStats" class="sm-stats"></div>
-
-      <div class="sm-space sm-space--acct">
-        <div class="sm-space-header">
-          <div class="sm-space-icon">⚙</div>
-          <div class="sm-space-meta">
-            <div class="sm-space-title">Account Management</div>
-            <div class="sm-space-tagline">Global org setup — accessible from main platform, persists across all operational configurations</div>
-          </div>
-          <span class="sm-space-count" id="smAcctCount"></span>
-        </div>
-        <div class="sm-space-body" id="smAcctBody"></div>
+      <div class="sm-tabs">
+        <button class="sm-tab sm-tab--active" onclick="smSwitchTab('config')">Platform configuration site map</button>
+        <button class="sm-tab" onclick="smSwitchTab('role')">Role based site map</button>
       </div>
 
-      <div class="sm-space sm-space--platform">
-        <div class="sm-space-header">
-          <div class="sm-space-icon">◈</div>
-          <div class="sm-space-meta">
-            <div class="sm-space-title">Platform</div>
-            <div class="sm-space-tagline">Day-to-day operations — role-specific views and feature sets within a shared platform space</div>
+      <!-- Tab 1: Configuration site map -->
+      <div id="smTabConfig" class="sm-tab-panel sm-tab-panel--active">
+        <div id="smRoleBar" class="sm-role-bar"></div>
+        <div id="smStats" class="sm-stats"></div>
+
+        <div class="sm-space sm-space--acct">
+          <div class="sm-space-header">
+            <div class="sm-space-icon">⚙</div>
+            <div class="sm-space-meta">
+              <div class="sm-space-title">Account Management</div>
+              <div class="sm-space-tagline">Global org setup — accessible from main platform, persists across all operational configurations</div>
+            </div>
+            <span class="sm-space-count" id="smAcctCount"></span>
           </div>
-          <span class="sm-space-count" id="smPlatformCount"></span>
+          <div class="sm-space-body" id="smAcctBody"></div>
         </div>
-        <div class="sm-space-body" id="smPlatformBody"></div>
+
+        <div class="sm-space sm-space--platform">
+          <div class="sm-space-header">
+            <div class="sm-space-icon">◈</div>
+            <div class="sm-space-meta">
+              <div class="sm-space-title">Platform</div>
+              <div class="sm-space-tagline">Day-to-day operations — role-specific views and feature sets within a shared platform space</div>
+            </div>
+            <span class="sm-space-count" id="smPlatformCount"></span>
+          </div>
+          <div class="sm-space-body" id="smPlatformBody"></div>
+        </div>
+
+        <p class="sm-note">
+          <strong>Two-space model:</strong> Account Management handles org setup, onboarding, and billing — it is reachable from the main nav but operates as a distinct space. Platform houses all day-to-day operational features. Sections marked "shared" appear across all role configurations — only the feature subset and permission depth changes per role. Features marked ✦ were added beyond the feature boards, derived from workflow analysis.
+        </p>
       </div>
 
-      <p class="sm-note">
-        <strong>Two-space model:</strong> Account Management handles org setup, onboarding, and billing — it is reachable from the main nav but operates as a distinct space. Platform houses all day-to-day operational features. Sections marked "shared" appear across all role configurations — only the feature subset and permission depth changes per role. Features marked ✦ were added beyond the feature boards, derived from workflow analysis.
-      </p>
+      <!-- Tab 2: Role based site map -->
+      <div id="smTabRole" class="sm-tab-panel">
+        <p class="sm-tab-intro">How the platform breaks down by role. Use this to test what each role should see and interact with — independent of configuration. F = Full access, R = Read-only, N = Not accessible.</p>
+
+        <div id="rvRoleBar" class="rv-role-bar"></div>
+
+        <div class="sm-space sm-space--acct">
+          <div class="sm-space-header">
+            <div class="sm-space-icon">⚙</div>
+            <div class="sm-space-meta">
+              <div class="sm-space-title">Account Management</div>
+              <div class="sm-space-tagline">Global org setup — accessible from main platform, persists across all operational configurations</div>
+            </div>
+          </div>
+          <div class="sm-space-body" id="rvAcctBody"></div>
+        </div>
+
+        <div class="sm-space sm-space--platform">
+          <div class="sm-space-header">
+            <div class="sm-space-icon">◈</div>
+            <div class="sm-space-meta">
+              <div class="sm-space-title">Platform</div>
+              <div class="sm-space-tagline">Day-to-day operations — role-specific views and feature sets within a shared platform space</div>
+            </div>
+          </div>
+          <div class="sm-space-body" id="rvPlatformBody"></div>
+        </div>
+
+        <p class="rv-footer-note">Access states represent the intended IA baseline — gaps or disagreements identified during testing should be raised as IA issues.</p>
+      </div>
     </section>
 
 
@@ -4474,7 +4566,101 @@
       renderBody(PLATFORM, "smPlatformBody", "smPlatformCount");
     };
 
+    window.smSwitchTab = function(tab) {
+      document.querySelectorAll('.sm-tab').forEach(t => t.classList.remove('sm-tab--active'));
+      document.querySelectorAll('.sm-tab-panel').forEach(p => p.classList.remove('sm-tab-panel--active'));
+      if (tab === 'config') {
+        document.querySelector('.sm-tab:first-child').classList.add('sm-tab--active');
+        document.getElementById('smTabConfig').classList.add('sm-tab-panel--active');
+      } else {
+        document.querySelector('.sm-tab:last-child').classList.add('sm-tab--active');
+        document.getElementById('smTabRole').classList.add('sm-tab-panel--active');
+      }
+    };
+
     smRender();
+  })();
+  </script>
+
+  <!-- ── Role View (Permissions Site Map) ── -->
+  <script>
+  (function () {
+    const F = "F", R = "R", N = "N";
+
+    const RV_ROLES = [
+      { id:"principal", label:"Principal",      color:"#4A3F8A", bg:"#EEEAF8", border:"#7B6FC5" },
+      { id:"trader",    label:"Trader",         color:"#1F6B4A", bg:"#E3F2ED", border:"#2E8F62" },
+      { id:"client",    label:"Client",         color:"#1A5C96", bg:"#DDEEF9", border:"#5A9FCC" },
+      { id:"observer",  label:"Observer",       color:"#3A3A3A", bg:"#EFEFED", border:"#686870" },
+      { id:"admin",     label:"Platform Admin", color:"#1A5C96", bg:"#E8F2FB", border:"#5A9FCC" },
+    ];
+
+    const RV_ACCT = [
+      { label:"Onboarding",      principal:F, trader:N, client:R, observer:R, admin:F },
+      { label:"User Management", principal:F, trader:N, client:N, observer:R, admin:F },
+      { label:"Account Types",   principal:F, trader:R, client:R, observer:R, admin:F },
+      { label:"API & Systems",   principal:F, trader:F, client:N, observer:N, admin:F },
+      { label:"Billing",         principal:R, trader:N, client:N, observer:N, admin:F },
+    ];
+
+    const RV_PLATFORM = [
+      { label:"Dashboard",   principal:F, trader:F, client:R, observer:R, admin:N },
+      { label:"Portfolio",   principal:F, trader:F, client:R, observer:R, admin:N },
+      { label:"Trading",     principal:F, trader:F, client:R, observer:N, admin:N },
+      { label:"Funding",     principal:F, trader:R, client:R, observer:R, admin:N },
+      { label:"Wallets",     principal:F, trader:R, client:R, observer:R, admin:N },
+      { label:"Settlement",  principal:F, trader:R, client:N, observer:R, admin:N },
+      { label:"APIs",        principal:F, trader:F, client:N, observer:N, admin:F },
+      { label:"Governance",  principal:F, trader:R, client:N, observer:F, admin:R },
+    ];
+
+    let rvRole = "principal";
+
+    function renderRoleBar() {
+      document.getElementById("rvRoleBar").innerHTML = RV_ROLES.map(r =>
+        `<button class="rv-role-btn${rvRole===r.id?" rv-active":""}"
+          style="${rvRole===r.id?`background:${r.bg};color:${r.color};border-color:${r.border}`:""}"
+          onclick="rvSetRole('${r.id}')">${r.label}</button>`
+      ).join("");
+    }
+
+    function renderSpace(features, bodyId) {
+      const r = RV_ROLES.find(x => x.id === rvRole);
+      document.getElementById(bodyId).innerHTML = features.map(feat => {
+        const access = feat[rvRole];
+        const cls = access === N ? " rv-none" : access === R ? " rv-readonly" : "";
+
+        let dotStyle, labelStyle, labelText;
+        if (access === F) {
+          dotStyle = `background:${r.color};border-color:${r.color}`;
+          labelStyle = `color:${r.color};border-color:${r.border};background:${r.bg}`;
+          labelText = "Full";
+        } else if (access === R) {
+          dotStyle = `background:transparent;border-color:${r.border}`;
+          labelStyle = `color:#AAA;border-color:#D0CCC6;background:transparent`;
+          labelText = "Read";
+        } else {
+          dotStyle = `background:transparent;border-color:transparent`;
+          labelStyle = `color:#D0CCC6;border-color:#E4E0DC;background:transparent`;
+          labelText = "None";
+        }
+
+        return `<div class="rv-feat${cls}" style="padding:8px 16px 8px 28px;">
+          <span class="rv-access-dot" style="${dotStyle}"></span>
+          <span class="rv-feat-name">${feat.label}</span>
+          <span class="rv-access-label" style="${labelStyle}">${labelText}</span>
+        </div>`;
+      }).join("");
+    }
+
+    function rvRender() {
+      renderRoleBar();
+      renderSpace(RV_ACCT, "rvAcctBody");
+      renderSpace(RV_PLATFORM, "rvPlatformBody");
+    }
+
+    window.rvSetRole = function(id) { rvRole = id; rvRender(); };
+    rvRender();
   })();
   </script>
 
