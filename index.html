@@ -1104,6 +1104,53 @@
       margin-top: 12px;
     }
 
+    /* ── Compact / Full toggle pill ── */
+    .sm-view-toggle {
+      display: flex; align-items: center; gap: 0;
+      border: 1.5px solid #D0CCC6; border-radius: 99px; overflow: hidden;
+      margin-left: auto; flex-shrink: 0;
+    }
+    .sm-view-toggle-btn {
+      padding: 5px 12px; font-size: 11px; font-weight: 600;
+      font-family: inherit; cursor: pointer; border: none;
+      background: transparent; color: #AAA; transition: all 0.15s;
+      line-height: 1;
+    }
+    .sm-view-toggle-btn:hover { color: #666; }
+    .sm-view-toggle-btn.sm-vt-active {
+      background: #2A2A2A; color: #FFF;
+    }
+    .sm-panel-toolbar {
+      display: flex; align-items: center; gap: 12px; margin-bottom: 20px;
+    }
+
+    /* ── Role view sections (expanded) ── */
+    .rv-section { border-bottom: 1px solid #F0EDE9; }
+    .rv-section:last-child { border-bottom: none; }
+    .rv-section.rv-dimmed { opacity: 0.25; pointer-events: none; }
+    .rv-sec-row {
+      display: flex; align-items: center; gap: 10px;
+      padding: 10px 16px; cursor: pointer; background: white; user-select: none;
+    }
+    .rv-sec-row:hover { background: #FAFAF8; }
+    .rv-sec-row.rv-open .rv-sec-chevron { transform: rotate(90deg); }
+    .rv-sec-name { font-size: 13px; font-weight: 600; flex: 1; }
+    .rv-sec-summary { font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 8px; border: 1.5px solid; flex-shrink: 0; min-width: 48px; text-align: center; }
+    .rv-sec-count { font-size: 11.5px; font-weight: 600; min-width: 20px; text-align: right; flex-shrink: 0; color: #CCC; }
+    .rv-sec-chevron { font-size: 9px; color: #CCC; transition: transform 0.15s; flex-shrink: 0; }
+    .rv-feats {
+      padding: 4px 0 10px 28px; display: flex;
+      flex-direction: column; gap: 2px; background: #FDFCFB;
+    }
+
+    /* ── Role view stats bar ── */
+    .rv-stats {
+      display: flex; flex-wrap: wrap; gap: 16px; padding: 10px 16px;
+      border-radius: 10px; background: white; border: 1px solid #E4E0DC;
+      margin-bottom: 24px; align-items: center; font-size: 12px; color: #888;
+    }
+    .rv-stats-val { font-weight: 700; color: #2A2A2A; }
+
     /* ═══════════════════════════════
        DOCUMENT LINKS
     ═══════════════════════════════ */
@@ -4136,7 +4183,13 @@
 
       <!-- Tab 1: Configuration site map -->
       <div id="smTabConfig" class="sm-tab-panel sm-tab-panel--active">
-        <div id="smRoleBar" class="sm-role-bar"></div>
+        <div class="sm-panel-toolbar">
+          <div id="smRoleBar" class="sm-role-bar" style="flex:1;margin-bottom:0"></div>
+          <div class="sm-view-toggle" id="smConfigToggle">
+            <button class="sm-view-toggle-btn" onclick="smSetView('compact')">Compact</button>
+            <button class="sm-view-toggle-btn sm-vt-active" onclick="smSetView('full')">Full</button>
+          </div>
+        </div>
         <div id="smStats" class="sm-stats"></div>
 
         <div class="sm-space sm-space--acct">
@@ -4172,7 +4225,14 @@
       <div id="smTabRole" class="sm-tab-panel">
         <p class="sm-tab-intro">How the platform breaks down by role. Use this to test what each role should see and interact with — independent of configuration. F = Full access, R = Read-only, N = Not accessible.</p>
 
-        <div id="rvRoleBar" class="rv-role-bar"></div>
+        <div class="sm-panel-toolbar">
+          <div id="rvRoleBar" class="rv-role-bar" style="flex:1;margin-bottom:0"></div>
+          <div class="sm-view-toggle" id="rvViewToggle">
+            <button class="sm-view-toggle-btn" onclick="rvSetView('compact')">Compact</button>
+            <button class="sm-view-toggle-btn sm-vt-active" onclick="rvSetView('full')">Full</button>
+          </div>
+        </div>
+        <div id="rvStats" class="rv-stats"></div>
 
         <div class="sm-space sm-space--acct">
           <div class="sm-space-header">
@@ -4469,6 +4529,7 @@
     ];
 
     let smRole = "all";
+    let smViewMode = "full"; // "full" or "compact"
     const smOpen = {};
     [...ACCT, ...PLATFORM].forEach(s => smOpen[s.id] = true);
 
@@ -4511,7 +4572,7 @@
         const active = rid === "all" || sec.children.some(f => getState(f, rid) !== O);
         const pCount = rid === "all" ? sec.children.length : sec.children.filter(f => f[rid] === P).length;
         priTotal += pCount;
-        const isOpen = smOpen[sec.id];
+        const isOpen = smOpen[sec.id] && smViewMode === "full";
 
         const featsHtml = sec.children.map(f => {
           const st = getState(f, rid);
@@ -4552,9 +4613,17 @@
       }
     }
 
+    function renderConfigToggle() {
+      const btns = document.querySelectorAll('#smConfigToggle .sm-view-toggle-btn');
+      btns.forEach(b => {
+        b.classList.toggle('sm-vt-active', b.textContent.trim().toLowerCase() === smViewMode);
+      });
+    }
+
     function smRender() {
       renderRoleBar();
       renderStats();
+      renderConfigToggle();
       renderBody(ACCT, "smAcctBody", "smAcctCount");
       renderBody(PLATFORM, "smPlatformBody", "smPlatformCount");
     }
@@ -4564,6 +4633,15 @@
       smOpen[id] = !smOpen[id];
       renderBody(ACCT, "smAcctBody", "smAcctCount");
       renderBody(PLATFORM, "smPlatformBody", "smPlatformCount");
+    };
+    window.smSetView = function(mode) {
+      smViewMode = mode;
+      if (mode === "compact") {
+        [...ACCT, ...PLATFORM].forEach(s => smOpen[s.id] = false);
+      } else {
+        [...ACCT, ...PLATFORM].forEach(s => smOpen[s.id] = true);
+      }
+      smRender();
     };
 
     window.smSwitchTab = function(tab) {
@@ -4596,25 +4674,127 @@
     ];
 
     const RV_ACCT = [
-      { label:"Onboarding",      principal:F, trader:N, client:R, observer:R, admin:F },
-      { label:"User Management", principal:F, trader:N, client:N, observer:R, admin:F },
-      { label:"Account Types",   principal:F, trader:R, client:R, observer:R, admin:F },
-      { label:"API & Systems",   principal:F, trader:F, client:N, observer:N, admin:F },
-      { label:"Billing",         principal:R, trader:N, client:N, observer:N, admin:F },
+      { id:"rv-onboarding", label:"Onboarding", principal:F, trader:N, client:R, observer:R, admin:F, children:[
+        "Signup & business application",
+        "Related parties & beneficial owners",
+        "Authorised officials (user) onboarding",
+        "Document upload & verification",
+        "Application status & updates",
+        "KYB information requests",
+        "Access to multiple regions",
+        "Transaction monitoring information setup",
+      ]},
+      { id:"rv-usermgmt", label:"User Management & Access Control", principal:F, trader:N, client:N, observer:R, admin:F, children:[
+        "Self-service user setup & management",
+        "Multi-user authentication (2FA, SSO)",
+        "Role-based user access",
+        "Fund allocation & operational limits",
+        "Multi-user authorisation & approvals",
+        "Whitelisted send addresses & withdrawals",
+      ]},
+      { id:"rv-accounttypes", label:"Account Types & Structures", principal:F, trader:R, client:R, observer:R, admin:F, children:[
+        "Main Luno Business Account",
+        "Sub-accounts (separate / additional)",
+        "Treasury & vault accounts",
+        "Client accounts (pay-ins, pay-outs, trading)",
+        "Institutional custody setup",
+        "Sub-account statements & financial activity",
+        "Organisational account hierarchy",
+        "Segregated operational structures",
+        "Banking & settlement infrastructure",
+        "Multi-currency on ramp / off ramp setup",
+        "Beneficiaries address book",
+      ]},
+      { id:"rv-apisystems", label:"API & Systems Integration", principal:F, trader:F, client:N, observer:N, admin:F, children:[
+        "API self-service setup",
+        "API access control",
+        "API logs",
+        "Manage API keys",
+        "Sandbox & production environments",
+      ]},
+      { id:"rv-billing", label:"Commercials & Billing", principal:R, trader:N, client:N, observer:N, admin:F, children:[
+        "Institutional pricing (self-service)",
+        "Flexible billing structures",
+        "Financial reporting (shareable exports)",
+      ]},
     ];
 
     const RV_PLATFORM = [
-      { label:"Dashboard",   principal:F, trader:F, client:R, observer:R, admin:N },
-      { label:"Portfolio",   principal:F, trader:F, client:R, observer:R, admin:N },
-      { label:"Trading",     principal:F, trader:F, client:R, observer:N, admin:N },
-      { label:"Funding",     principal:F, trader:R, client:R, observer:R, admin:N },
-      { label:"Wallets",     principal:F, trader:R, client:R, observer:R, admin:N },
-      { label:"Settlement",  principal:F, trader:R, client:N, observer:R, admin:N },
-      { label:"APIs",        principal:F, trader:F, client:N, observer:N, admin:F },
-      { label:"Governance",  principal:F, trader:R, client:N, observer:F, admin:R },
+      { id:"rv-dashboard", label:"Dashboard", principal:F, trader:F, client:R, observer:R, admin:N, children:[
+        "Performance overview",
+        "Approval queue",
+        "Alerts & notifications",
+        "Recent activity feed",
+        "Exception & error summary",
+      ]},
+      { id:"rv-portfolio", label:"Portfolio", principal:F, trader:F, client:R, observer:R, admin:N, children:[
+        "Portfolio structures",
+        "Portfolio reporting",
+        "Performance dashboard",
+        "Client reporting & exports",
+        "Strategy sub-account P&L",
+      ]},
+      { id:"rv-trading", label:"Trading", principal:F, trader:F, client:R, observer:N, admin:N, children:[
+        "Trading desk",
+        "Quote-driven (RFQ) trading",
+        "Cross-asset conversion",
+        "Exchange — market & order book",
+        "Smart converts",
+        "Direct exchange access",
+        "Batch & allocation execution",
+        "Large trade routing & liquidity sourcing",
+        "Order management",
+      ]},
+      { id:"rv-funding", label:"Funding & Treasury", principal:F, trader:R, client:R, observer:R, admin:N, children:[
+        "Bank & wallet funding",
+        "Multiple funding channels / rails",
+        "Third-party deposits",
+        "Payins",
+        "Payouts & collections",
+        "Domestic & cross-border payments",
+      ]},
+      { id:"rv-wallets", label:"Wallets & Assets", principal:F, trader:R, client:R, observer:R, admin:N, children:[
+        "Wallet creation, naming & grouping",
+        "Wallet transfers & portfolio balancing",
+        "Send address book & whitelist",
+        "Strategy / wallet tagging",
+        "Institutional custody",
+        "Minting & burning (USDC, ZARU, USDT)",
+      ]},
+      { id:"rv-settlement", label:"Settlement", principal:F, trader:R, client:N, observer:R, admin:N, children:[
+        "Automatic settlement for trades",
+        "Settlement preparation",
+        "Settlement & payment flows",
+        "Third-party settlement",
+        "Multi-currency balances",
+        "Balance reservation",
+      ]},
+      { id:"rv-papis", label:"APIs & Integrations", principal:F, trader:F, client:N, observer:N, admin:F, children:[
+        "B2B2C partnerships API",
+        "B2B2B partnerships API",
+        "Institutional API",
+        "Settlements API",
+        "Trading desk API",
+        "Exchange API v2",
+        "Webhooks & events",
+      ]},
+      { id:"rv-governance", label:"Governance & Compliance", principal:F, trader:R, client:N, observer:F, admin:R, children:[
+        "Multi-approver workflows",
+        "Audit trail & read-only access",
+        "AML / KYC checks",
+        "Compliance flag & investigation",
+        "Reconciliation",
+        "Internal transfer controls",
+        "Mandate & fund rules",
+        "Sanctions & PEP screening",
+        "Account intervention",
+      ]},
     ];
 
     let rvRole = "principal";
+    let rvViewMode = "full"; // "full" or "compact"
+    const rvOpen = {};
+    [...RV_ACCT, ...RV_PLATFORM].forEach(s => rvOpen[s.id] = true);
 
     function renderRoleBar() {
       document.getElementById("rvRoleBar").innerHTML = RV_ROLES.map(r =>
@@ -4624,42 +4804,94 @@
       ).join("");
     }
 
-    function renderSpace(features, bodyId) {
-      const r = RV_ROLES.find(x => x.id === rvRole);
-      document.getElementById(bodyId).innerHTML = features.map(feat => {
-        const access = feat[rvRole];
-        const cls = access === N ? " rv-none" : access === R ? " rv-readonly" : "";
+    function renderToggle() {
+      const btns = document.querySelectorAll('#rvViewToggle .sm-view-toggle-btn');
+      btns.forEach(b => {
+        b.classList.toggle('sm-vt-active', b.textContent.trim().toLowerCase() === rvViewMode);
+      });
+    }
 
-        let dotStyle, labelStyle, labelText;
+    function renderStats() {
+      const r = RV_ROLES.find(x => x.id === rvRole);
+      const all = [...RV_ACCT, ...RV_PLATFORM];
+      const totalFeats = all.reduce((a, s) => a + s.children.length, 0);
+      let accessible = 0, restricted = 0;
+      all.forEach(s => {
+        const access = s[rvRole];
+        if (access === N) restricted += s.children.length;
+        else accessible += s.children.length;
+      });
+      document.getElementById("rvStats").innerHTML =
+        `<span><span class="rv-stats-val" style="color:${r.color}">${accessible}</span> accessible</span>` +
+        `<span><span class="rv-stats-val" style="color:#CCC">${restricted}</span> restricted</span>` +
+        `<span style="margin-left:auto;color:#CCC">${totalFeats} total features</span>`;
+    }
+
+    function renderSpace(sections, bodyId) {
+      const r = RV_ROLES.find(x => x.id === rvRole);
+      document.getElementById(bodyId).innerHTML = sections.map(sec => {
+        const access = sec[rvRole];
+        const dimmed = access === N;
+        const isOpen = rvOpen[sec.id] && rvViewMode === "full";
+
+        let dotStyle, labelStyle, labelText, nameColor;
         if (access === F) {
           dotStyle = `background:${r.color};border-color:${r.color}`;
           labelStyle = `color:${r.color};border-color:${r.border};background:${r.bg}`;
           labelText = "Full";
+          nameColor = r.color;
         } else if (access === R) {
           dotStyle = `background:transparent;border-color:${r.border}`;
           labelStyle = `color:#AAA;border-color:#D0CCC6;background:transparent`;
           labelText = "Read";
+          nameColor = "#999";
         } else {
           dotStyle = `background:transparent;border-color:transparent`;
           labelStyle = `color:#D0CCC6;border-color:#E4E0DC;background:transparent`;
           labelText = "None";
+          nameColor = "#CCC";
         }
 
-        return `<div class="rv-feat${cls}" style="padding:8px 16px 8px 28px;">
-          <span class="rv-access-dot" style="${dotStyle}"></span>
-          <span class="rv-feat-name">${feat.label}</span>
-          <span class="rv-access-label" style="${labelStyle}">${labelText}</span>
+        const childCount = sec.children.length;
+        const featsHtml = access !== N ? sec.children.map(child =>
+          `<div class="rv-feat" style="padding:5px 16px 5px 0;">
+            <span class="rv-access-dot" style="${dotStyle};width:8px;height:8px"></span>
+            <span class="rv-feat-name">${child}</span>
+          </div>`
+        ).join("") : "";
+
+        return `<div class="rv-section${dimmed?" rv-dimmed":""}">
+          <div class="rv-sec-row${isOpen?" rv-open":""}" onclick="rvToggle('${sec.id}')">
+            <span class="rv-access-dot" style="${dotStyle}"></span>
+            <span class="rv-sec-name" style="color:${nameColor}">${sec.label}</span>
+            <span class="rv-sec-summary" style="${labelStyle}">${labelText}</span>
+            <span class="rv-sec-count" style="color:${dimmed?"#CCC":r.color}">${childCount}</span>
+            <span class="rv-sec-chevron">▶</span>
+          </div>
+          ${isOpen?`<div class="rv-feats">${featsHtml}</div>`:""}
         </div>`;
       }).join("");
     }
 
     function rvRender() {
       renderRoleBar();
+      renderToggle();
+      renderStats();
       renderSpace(RV_ACCT, "rvAcctBody");
       renderSpace(RV_PLATFORM, "rvPlatformBody");
     }
 
     window.rvSetRole = function(id) { rvRole = id; rvRender(); };
+    window.rvToggle = function(id) { rvOpen[id] = !rvOpen[id]; renderSpace(RV_ACCT, "rvAcctBody"); renderSpace(RV_PLATFORM, "rvPlatformBody"); };
+    window.rvSetView = function(mode) {
+      rvViewMode = mode;
+      if (mode === "compact") {
+        [...RV_ACCT, ...RV_PLATFORM].forEach(s => rvOpen[s.id] = false);
+      } else {
+        [...RV_ACCT, ...RV_PLATFORM].forEach(s => rvOpen[s.id] = true);
+      }
+      rvRender();
+    };
     rvRender();
   })();
   </script>
