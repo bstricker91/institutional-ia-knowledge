@@ -1102,12 +1102,19 @@
     </div>
 
     <div class="nav-group">
+      <div class="nav-item active" onclick="showSection('start')">
+        <div class="nav-item-icon nav-item-icon--purple">▸</div>
+        <span class="nav-item-label">Start</span>
+      </div>
+    </div>
+
+    <div class="nav-group">
       <div class="nav-group-label">Overview</div>
       <div class="nav-item" onclick="showSection('personas')">
         <div class="nav-item-icon nav-item-icon--gray">Pe</div>
         <span class="nav-item-label">Personas</span>
       </div>
-      <div class="nav-item active" onclick="showSection('role-matrix')">
+      <div class="nav-item" onclick="showSection('role-matrix')">
         <div class="nav-item-icon nav-item-icon--purple">⊞</div>
         <span class="nav-item-label">Role Matrix</span>
       </div>
@@ -1197,6 +1204,18 @@
        MAIN CONTENT
   ═══════════════════════════════════ -->
   <main class="main">
+
+
+    <!-- ──────────────────────────────────
+         SECTION: Start
+    ────────────────────────────────── -->
+    <section class="section active" id="start">
+      <div class="section-header">
+        <div class="section-breadcrumb">Start</div>
+        <h1 class="section-title">Luno Institutional IA</h1>
+        <p class="section-desc">To come</p>
+      </div>
+    </section>
 
 
     <!-- ──────────────────────────────────
@@ -1353,7 +1372,7 @@
     <!-- ──────────────────────────────────
          SECTION: Role Matrix
     ────────────────────────────────── -->
-    <section class="section active" id="role-matrix">
+    <section class="section" id="role-matrix">
       <div class="section-header">
         <div class="section-breadcrumb">Overview</div>
         <h1 class="section-title">Role Matrix</h1>
