@@ -179,6 +179,15 @@
       color: var(--nav-text-hover);
     }
 
+    .nav-sub-label {
+      font-size: 9px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #555560;
+      padding: 10px 20px 3px;
+    }
+
     .nav-badge {
       font-size: 9px;
       font-weight: 700;
@@ -517,6 +526,145 @@
     }
     .callout b { font-weight: 700; }
 
+    .concept-callout {
+      background: #F6F5F3;
+      border-left: 3px solid #C0BDB8;
+      border-radius: 0 8px 8px 0;
+      padding: 16px 20px;
+      margin-bottom: 20px;
+      max-width: 860px;
+      font-size: 13px;
+      color: #4A4A4A;
+      line-height: 1.55;
+    }
+    .concept-callout__title {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #3A3A3A;
+      margin-bottom: 10px;
+    }
+    .concept-callout p {
+      margin: 0 0 8px;
+    }
+    .concept-callout p:last-child {
+      margin-bottom: 0;
+      font-style: italic;
+      color: #666;
+    }
+
+    .wf-framing {
+      background: #F6F5F3;
+      border-left: 3px solid #C0BDB8;
+      border-radius: 0 8px 8px 0;
+      padding: 10px 16px;
+      margin-bottom: 16px;
+      font-size: 12px;
+      color: #666;
+      line-height: 1.5;
+      max-width: 680px;
+    }
+    .wf-roles-summary {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+      font-size: 12px;
+      color: #888;
+    }
+    .wf-roles-summary-label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #AAA;
+      margin-right: 2px;
+    }
+    .wf-role-pill {
+      font-size: 10.5px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 8px;
+      white-space: nowrap;
+    }
+    .wf-role-pill--principal { background: #EEEAF8; color: #4A3F8A; }
+    .wf-role-pill--trader    { background: #E3F2ED; color: #1F6B4A; }
+    .wf-role-pill--client    { background: #DDEEF9; color: #1A5C96; }
+    .wf-role-pill--observer  { background: #EFEFED; color: #3A3A3A; }
+    .wf-role-pill--admin     { background: #E8F2FB; color: #1A5C96; }
+    .wf-roles-note {
+      font-size: 11px;
+      color: #AAA;
+      font-style: italic;
+    }
+
+
+    /* ═══════════════════════════════
+       PERSONAS styles
+    ═══════════════════════════════ */
+    .persona-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      max-width: 860px;
+    }
+    .persona-card {
+      background: #FDFCFB;
+      border: 1px solid #E8E4E0;
+      border-radius: 12px;
+      padding: 18px 18px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .persona-card__num {
+      font-size: 10px;
+      font-weight: 700;
+      color: #C0BDB8;
+      margin-bottom: -2px;
+    }
+    .persona-card__name {
+      font-size: 14px;
+      font-weight: 700;
+      color: #2A2A2A;
+      line-height: 1.25;
+    }
+    .persona-card__desc {
+      font-size: 12px;
+      color: #777;
+      line-height: 1.45;
+      flex: 1;
+    }
+    .persona-card__roles {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 4px;
+    }
+    .persona-role-badge {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 8px;
+      white-space: nowrap;
+    }
+    .persona-role-badge--principal { background: #EEEAF8; color: #4A3F8A; }
+    .persona-role-badge--trader    { background: #E3F2ED; color: #1F6B4A; }
+    .persona-role-badge--client    { background: #DDEEF9; color: #1A5C96; }
+    .persona-role-badge--observer  { background: #EFEFED; color: #3A3A3A; }
+    .persona-role-badge--admin     { background: #E8F2FB; color: #1A5C96; }
+
+    .persona-footer {
+      background: #EFEFED;
+      border-radius: 12px;
+      padding: 16px 24px;
+      margin-top: 16px;
+      font-size: 12.5px;
+      color: #888;
+      line-height: 1.55;
+      max-width: 860px;
+    }
+
 
     /* ═══════════════════════════════
        ROLE MATRIX (Image 1) styles
@@ -554,10 +702,20 @@
     .matrix-card-list li { font-size: 13.5px; line-height: 1.4; }
     .matrix-card-list li::before { content: '· '; }
 
-    .card--owner    { background: #EEEAF8; }
-    .card--owner .matrix-card-title    { color: #4A3F8A; }
-    .card--owner .matrix-card-subtitle { color: #6B5FBB; }
-    .card--owner .matrix-card-list li  { color: #4A3F8A; }
+    .matrix-card-note {
+      margin-top: 14px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(0,0,0,0.08);
+      font-size: 11.5px;
+      font-style: italic;
+      line-height: 1.45;
+      color: #888;
+    }
+
+    .card--principal    { background: #EEEAF8; }
+    .card--principal .matrix-card-title    { color: #4A3F8A; }
+    .card--principal .matrix-card-subtitle { color: #6B5FBB; }
+    .card--principal .matrix-card-list li  { color: #4A3F8A; }
 
     .card--trader   { background: #E3F2ED; }
     .card--trader .matrix-card-title    { color: #1F6B4A; }
@@ -573,6 +731,38 @@
     .card--observer .matrix-card-title    { color: #3A3A3A; }
     .card--observer .matrix-card-subtitle { color: #666; }
     .card--observer .matrix-card-list li  { color: #3A3A3A; }
+
+    .card--admin    { background: #E8F2FB; }
+    .card--admin .matrix-card-title    { color: #1A5C96; }
+    .card--admin .matrix-card-subtitle { color: #4A84B0; }
+    .card--admin .matrix-card-list li  { color: #1A5C96; }
+
+    .matrix-admin-row {
+      max-width: 800px;
+      margin-top: 4px;
+      position: relative;
+    }
+    .matrix-admin-separator {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 6px 12px 2px;
+    }
+    .matrix-admin-separator::before,
+    .matrix-admin-separator::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #C8C4BC;
+    }
+    .matrix-admin-separator-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: #999;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
 
     .matrix-axis-row {
       display: flex;
@@ -603,7 +793,7 @@
 
 
     /* ═══════════════════════════════
-       PLATFORM MODES (Image 2) styles
+       PLATFORM CONFIGURATIONS (Image 2) styles
     ═══════════════════════════════ */
     .modes-wrapper { max-width: 860px; display: flex; flex-direction: column; gap: 0; }
 
@@ -759,6 +949,28 @@
     .pm-footnote { background: #EFEFED; border-radius: 10px; padding: 14px 18px; font-size: 12px; color: #888; line-height: 1.65; margin-top: 16px; max-width: 760px; }
     .pm-footnote strong { color: #555; }
 
+    /* Role Permissions — column header colors */
+    .pm-th--principal { color: #4A3F8A; }
+    .pm-th--trader    { color: #1F6B4A; }
+    .pm-th--client    { color: #1A5C96; }
+    .pm-th--observer  { color: #3A3A3A; }
+
+    /* Role Permissions — legend cards */
+    .rp-role-map { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 28px; }
+    .rp-map-card { border-radius: 10px; padding: 10px 14px; border: 1.5px solid; }
+    .rp-map-role { font-size: 12px; font-weight: 700; margin-bottom: 2px; }
+    .rp-map-desc { font-size: 11px; line-height: 1.45; }
+    .rp-map-card--principal { background: #EEEAF8; border-color: #C8C0EC; }
+    .rp-map-card--principal .rp-map-role { color: #4A3F8A; } .rp-map-card--principal .rp-map-desc { color: #7B6FC5; }
+    .rp-map-card--trader    { background: #E3F2ED; border-color: #B0DCC8; }
+    .rp-map-card--trader    .rp-map-role { color: #1F6B4A; } .rp-map-card--trader    .rp-map-desc { color: #2E8F62; }
+    .rp-map-card--client    { background: #DDEEF9; border-color: #A8D4F0; }
+    .rp-map-card--client    .rp-map-role { color: #1A5C96; } .rp-map-card--client    .rp-map-desc { color: #4A84B0; }
+    .rp-map-card--observer  { background: #EFEFED; border-color: #D0CECA; }
+    .rp-map-card--observer  .rp-map-role { color: #3A3A3A; } .rp-map-card--observer  .rp-map-desc { color: #686870; }
+    .rp-map-card--admin     { background: #E8F2FB; border-color: #9DC8E8; }
+    .rp-map-card--admin     .rp-map-role { color: #1A5C96; } .rp-map-card--admin     .rp-map-desc { color: #4A84B0; }
+
     /* ═══════════════════════════════
        SITE MAP
     ═══════════════════════════════ */
@@ -891,22 +1103,35 @@
 
     <div class="nav-group">
       <div class="nav-group-label">Overview</div>
+      <div class="nav-item" onclick="showSection('personas')">
+        <div class="nav-item-icon nav-item-icon--gray">Pe</div>
+        <span class="nav-item-label">Personas</span>
+      </div>
       <div class="nav-item active" onclick="showSection('role-matrix')">
         <div class="nav-item-icon nav-item-icon--purple">⊞</div>
         <span class="nav-item-label">Role Matrix</span>
       </div>
-      <div class="nav-item" onclick="showSection('platform-modes')">
+      <div class="nav-item" onclick="showSection('platform-configurations')">
         <div class="nav-item-icon nav-item-icon--green">◈</div>
-        <span class="nav-item-label">Platform Modes</span>
+        <span class="nav-item-label">Platform Configurations</span>
       </div>
-      <div class="nav-item" onclick="showSection('permissions')">
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">Permissions</div>
+      <div class="nav-item" onclick="showSection('role-permissions')">
+        <div class="nav-item-icon nav-item-icon--purple">Rp</div>
+        <span class="nav-item-label">Role Permissions</span>
+      </div>
+      <div class="nav-item" onclick="showSection('config-matrix')">
         <div class="nav-item-icon nav-item-icon--purple">Px</div>
-        <span class="nav-item-label">Permissions Matrix</span>
+        <span class="nav-item-label">Configuration Matrix</span>
       </div>
     </div>
 
     <div class="nav-group">
       <div class="nav-group-label">Workflows</div>
+      <div class="nav-sub-label">Configuration</div>
       <div class="nav-item" onclick="showSection('wf-dm')">
         <div class="nav-item-icon nav-item-icon--purple">DM</div>
         <span class="nav-item-label">Discretionary Manager</span>
@@ -922,6 +1147,27 @@
       <div class="nav-item" onclick="showSection('wf-gc')">
         <div class="nav-item-icon nav-item-icon--gray">GC</div>
         <span class="nav-item-label">Governance + Compliance</span>
+      </div>
+      <div class="nav-sub-label">Role</div>
+      <div class="nav-item" onclick="showSection('wf-principal')">
+        <div class="nav-item-icon nav-item-icon--purple">Pr</div>
+        <span class="nav-item-label">Principal</span>
+      </div>
+      <div class="nav-item" onclick="showSection('wf-trader')">
+        <div class="nav-item-icon nav-item-icon--green">Tr</div>
+        <span class="nav-item-label">Trader</span>
+      </div>
+      <div class="nav-item" onclick="showSection('wf-client')">
+        <div class="nav-item-icon nav-item-icon--amber">Cl</div>
+        <span class="nav-item-label">Client</span>
+      </div>
+      <div class="nav-item" onclick="showSection('wf-observer')">
+        <div class="nav-item-icon nav-item-icon--gray">Ob</div>
+        <span class="nav-item-label">Observer / Compliance</span>
+      </div>
+      <div class="nav-item" onclick="showSection('wf-admin')">
+        <div class="nav-item-icon nav-item-icon--gray">Ad</div>
+        <span class="nav-item-label">Platform Admin</span>
       </div>
     </div>
 
@@ -954,6 +1200,157 @@
 
 
     <!-- ──────────────────────────────────
+         SECTION: Personas
+    ────────────────────────────────── -->
+    <section class="section" id="personas">
+      <div class="section-header">
+        <div class="section-breadcrumb">Overview</div>
+        <h1 class="section-title">Personas</h1>
+        <p class="section-desc">The real-world actors this product serves. Each persona maps to one or more platform roles — understanding the persona helps clarify why each role is scoped the way it is.</p>
+      </div>
+
+      <div class="persona-grid">
+
+        <div class="persona-card">
+          <div class="persona-card__num">01</div>
+          <div class="persona-card__name">Asset Manager</div>
+          <div class="persona-card__desc">Manages pooled client funds across strategies.</div>
+          <div class="persona-card__roles">
+            <span class="persona-role-badge persona-role-badge--principal">Principal</span>
+          </div>
+        </div>
+
+        <div class="persona-card">
+          <div class="persona-card__num">02</div>
+          <div class="persona-card__name">Fund Manager</div>
+          <div class="persona-card__desc">Runs a specific fund or sleeve; may trade directly.</div>
+          <div class="persona-card__roles">
+            <span class="persona-role-badge persona-role-badge--principal">Principal</span>
+            <span class="persona-role-badge persona-role-badge--trader">Trader</span>
+          </div>
+        </div>
+
+        <div class="persona-card">
+          <div class="persona-card__num">03</div>
+          <div class="persona-card__name">Family Office</div>
+          <div class="persona-card__desc">Manages wealth for a single family or small group.</div>
+          <div class="persona-card__roles">
+            <span class="persona-role-badge persona-role-badge--principal">Principal</span>
+          </div>
+        </div>
+
+        <div class="persona-card">
+          <div class="persona-card__num">04</div>
+          <div class="persona-card__name">Corporate Treasury</div>
+          <div class="persona-card__desc">Manages company's own cash and FX exposure.</div>
+          <div class="persona-card__roles">
+            <span class="persona-role-badge persona-role-badge--principal">Principal</span>
+            <span class="persona-role-badge persona-role-badge--trader">Trader</span>
+          </div>
+        </div>
+
+        <div class="persona-card">
+          <div class="persona-card__num">05</div>
+          <div class="persona-card__name">Independent Financial Advisor (IFA)</div>
+          <div class="persona-card__desc">Advises retail clients; executes on their behalf.</div>
+          <div class="persona-card__roles">
+            <span class="persona-role-badge persona-role-badge--principal">Principal</span>
+            <span class="persona-role-badge persona-role-badge--trader">Trader</span>
+          </div>
+        </div>
+
+        <div class="persona-card">
+          <div class="persona-card__num">06</div>
+          <div class="persona-card__name">Retail Client of IFA</div>
+          <div class="persona-card__desc">End investor whose funds are being managed.</div>
+          <div class="persona-card__roles">
+            <span class="persona-role-badge persona-role-badge--client">Client</span>
+          </div>
+        </div>
+
+        <div class="persona-card">
+          <div class="persona-card__num">07</div>
+          <div class="persona-card__name">Arbitrage / Algo Trader</div>
+          <div class="persona-card__desc">High-frequency or systematic trader, often API-first.</div>
+          <div class="persona-card__roles">
+            <span class="persona-role-badge persona-role-badge--trader">Trader</span>
+          </div>
+        </div>
+
+        <div class="persona-card">
+          <div class="persona-card__num">08</div>
+          <div class="persona-card__name">Multi-Manager Firm — Senior Management</div>
+          <div class="persona-card__desc">Oversees multiple strategies and traders.</div>
+          <div class="persona-card__roles">
+            <span class="persona-role-badge persona-role-badge--principal">Principal</span>
+          </div>
+        </div>
+
+        <div class="persona-card">
+          <div class="persona-card__num">09</div>
+          <div class="persona-card__name">Multi-Manager Firm — Trader</div>
+          <div class="persona-card__desc">Executes within an assigned strategy mandate.</div>
+          <div class="persona-card__roles">
+            <span class="persona-role-badge persona-role-badge--trader">Trader</span>
+          </div>
+        </div>
+
+        <div class="persona-card">
+          <div class="persona-card__num">10</div>
+          <div class="persona-card__name">Algorithmic / Bot Operator</div>
+          <div class="persona-card__desc">Deploys automated trading systems at scale.</div>
+          <div class="persona-card__roles">
+            <span class="persona-role-badge persona-role-badge--trader">Trader (automated)</span>
+          </div>
+        </div>
+
+        <div class="persona-card">
+          <div class="persona-card__num">11</div>
+          <div class="persona-card__name">Sub-account Holder</div>
+          <div class="persona-card__desc">Has economic interest in a specific sub-account or sleeve.</div>
+          <div class="persona-card__roles">
+            <span class="persona-role-badge persona-role-badge--client">Client</span>
+          </div>
+        </div>
+
+        <div class="persona-card">
+          <div class="persona-card__num">12</div>
+          <div class="persona-card__name">Custodian</div>
+          <div class="persona-card__desc">Holds assets on behalf of clients; may require settlement access.</div>
+          <div class="persona-card__roles">
+            <span class="persona-role-badge persona-role-badge--principal">Principal</span>
+            <span class="persona-role-badge persona-role-badge--observer">Observer</span>
+          </div>
+        </div>
+
+        <div class="persona-card">
+          <div class="persona-card__num">13</div>
+          <div class="persona-card__name">Institutional Broker / Desk</div>
+          <div class="persona-card__desc">Executes large block trades for institutional clients.</div>
+          <div class="persona-card__roles">
+            <span class="persona-role-badge persona-role-badge--principal">Principal</span>
+            <span class="persona-role-badge persona-role-badge--trader">Trader</span>
+          </div>
+        </div>
+
+        <div class="persona-card">
+          <div class="persona-card__num">14</div>
+          <div class="persona-card__name">Compliance Officer / Fund Administrator</div>
+          <div class="persona-card__desc">Oversight and audit role; no trading access.</div>
+          <div class="persona-card__roles">
+            <span class="persona-role-badge persona-role-badge--observer">Observer</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="persona-footer">
+        One user may hold multiple roles — e.g. an IFA acts as both Principal (account governance) and Trader (execution). Role assignment is scoped per account.
+      </div>
+    </section>
+
+
+    <!-- ──────────────────────────────────
          SECTION: Role Matrix
     ────────────────────────────────── -->
     <section class="section active" id="role-matrix">
@@ -964,16 +1361,17 @@
       </div>
 
       <div class="matrix-grid">
-        <div class="matrix-card card--owner">
-          <div class="matrix-card-title">Account Owner</div>
-          <div class="matrix-card-subtitle">Sets up and governs the account structure</div>
+        <div class="matrix-card card--principal">
+          <div class="matrix-card-title">Principal</div>
+          <div class="matrix-card-subtitle">The primary decision-maker and commercially accountable party for the account. Defines investment mandates, sets limits and approval thresholds, authorizes significant fund movements, and holds ultimate responsibility for account activity. May also execute trades in smaller firm configurations where the same person sets strategy and executes.</div>
           <ul class="matrix-card-list">
             <li>Asset managers (1, 8)</li>
             <li>Fund managers (4, 5)</li>
-            <li>Family office, corp treasury (7, 11)</li>
-            <li>Custodians, brokers (12, 13)</li>
-            <li>Multi-manager firm — senior mgmt (9)</li>
+            <li>Family office leads, corporate treasury heads (7, 11)</li>
+            <li>Senior management in multi-manager firms (9)</li>
+            <li>Custodians and institutional brokers acting as primary account holder (12, 13)</li>
           </ul>
+          <div class="matrix-card-note">Distinct from Platform Admin, who handles technical account configuration. The Principal owns the mandate; the Admin configures the platform.</div>
         </div>
         <div class="matrix-card card--trader">
           <div class="matrix-card-title">Trader / Executor</div>
@@ -1022,21 +1420,44 @@
         <span class="matrix-axis-arrow">↑ execution or view only</span>
       </div>
 
+      <div class="matrix-admin-row">
+        <div class="matrix-admin-separator">
+          <span class="matrix-admin-separator-label">Administrative overlay</span>
+        </div>
+        <div class="matrix-card card--admin">
+          <div class="matrix-card-title">Platform Admin</div>
+          <div class="matrix-card-subtitle">Manages the account structure, RBAC templates, user access, org settings, and billing. Operates in Account Management space only — not an operational/trading role.</div>
+          <ul class="matrix-card-list">
+            <li>Ops leads</li>
+            <li>Compliance leads</li>
+            <li>IT administrators</li>
+            <li>Senior account managers</li>
+          </ul>
+        </div>
+      </div>
+
       <div class="matrix-footer">
-        <div class="matrix-footer-title">Personas covered: 1–14 across all four roles</div>
-        <div class="matrix-footer-sub">One user may hold multiple roles (e.g. an IFA is both account owner and trader; multi-manager senior mgmt is both account owner and observer)</div>
+        <div class="matrix-footer-title">Personas covered: 1–14 across all four operational roles, plus Platform Admin</div>
+        <div class="matrix-footer-sub">One user may hold multiple roles (e.g. an IFA is both Principal and Trader; multi-manager senior mgmt is both Principal and Observer). Platform Admin is not a platform configuration — it is an administrative overlay that sits above all configurations in Account Management.</div>
       </div>
     </section>
 
 
     <!-- ──────────────────────────────────
-         SECTION: Platform Modes
+         SECTION: Platform Configurations
     ────────────────────────────────── -->
-    <section class="section" id="platform-modes">
+    <section class="section" id="platform-configurations">
       <div class="section-header">
         <div class="section-breadcrumb">Overview</div>
-        <h1 class="section-title">Platform Modes</h1>
-        <p class="section-desc">Four discrete modes that each carry their own navigation, permissions, and mental model. A user may hold more than one mode, scoped to specific accounts.</p>
+        <h1 class="section-title">Platform Configurations</h1>
+        <p class="section-desc">Four discrete configurations that each carry their own navigation, permissions, and mental model. A user may hold more than one configuration, scoped to specific accounts.</p>
+      </div>
+
+      <div class="concept-callout">
+        <div class="concept-callout__title">Two organizing layers</div>
+        <p><strong>Roles</strong> define what a user can do — they are the testable unit. A tester logs in as a Trader, or as a Principal, and validates capabilities at that level.</p>
+        <p><strong>Configurations</strong> define how a firm has set up the product — they are the commercial and product packaging layer. A DM configuration bundles Principal + Trader roles for an asset management firm context.</p>
+        <p>Testing happens at role level. Product discussions happen at configuration level.</p>
       </div>
 
       <div class="modes-wrapper">
@@ -1067,7 +1488,7 @@
         </div>
 
         <div class="modes-connector-label-row">
-          <span class="modes-connector-label">Each role = a discrete platform mode with its own navigation, permissions, and mental model</span>
+          <span class="modes-connector-label">Each role = a discrete platform configuration with its own navigation, permissions, and mental model</span>
         </div>
 
         <div class="modes-connector">
@@ -1080,15 +1501,15 @@
         <div class="modes-principles">
           <div class="principle-card">
             <div class="principle-card__title">Permissions layer</div>
-            <div class="principle-card__body">Determines which platform modes a given user can access — handles multi-hat employees without muddying the IA. A user's role is a combination of these modes, scoped to specific accounts or funds.</div>
+            <div class="principle-card__body">Determines which platform configurations a given user can access — handles multi-hat employees without muddying the IA. A user's role is a combination of these configurations, scoped to specific accounts or funds.</div>
           </div>
           <div class="principle-card">
             <div class="principle-card__title">Design principle</div>
-            <div class="principle-card__body">Design each mode as if it is the only thing that person does. Complexity lives in settings and permissions, not in the navigation. A trader should never see governance queues; a compliance officer should never see an order entry form.</div>
+            <div class="principle-card__body">Design each configuration as if it is the only thing that person does. Complexity lives in settings and permissions, not in the navigation. A trader should never see governance queues; a compliance officer should never see an order entry form.</div>
           </div>
           <div class="principle-card principle-card--exception">
             <div class="principle-card__title">One structural exception</div>
-            <div class="principle-card__body">The Wealth Advisor / IFA mode must surface client account data within its own view — this is not hat-switching, it is core to the role. Implement via a dedicated client panel inside the advisor's navigation, not by blending the client's account view into the advisor's.</div>
+            <div class="principle-card__body">The Wealth Advisor / IFA configuration must surface client account data within its own view — this is not hat-switching, it is core to the role. Implement via a dedicated client panel inside the advisor's navigation, not by blending the client's account view into the advisor's.</div>
           </div>
         </div>
       </div>
@@ -1096,13 +1517,164 @@
 
 
     <!-- ──────────────────────────────────
+         SECTION: Role Permissions
+    ────────────────────────────────── -->
+    <section class="section" id="role-permissions">
+      <div class="section-header">
+        <div class="section-breadcrumb">Permissions</div>
+        <h1 class="section-title">Role Permissions</h1>
+        <p class="section-desc">The base permissions for each platform role. These are the testable units — what a user assigned to this role can and cannot do, independent of which configuration their firm uses.</p>
+      </div>
+
+      <!-- Role legend -->
+      <div class="rp-role-map">
+        <div class="rp-map-card rp-map-card--principal">
+          <div class="rp-map-role">Principal</div>
+          <div class="rp-map-desc">Decision-maker; owns mandate, authorizes fund movements</div>
+        </div>
+        <div class="rp-map-card rp-map-card--trader">
+          <div class="rp-map-role">Trader</div>
+          <div class="rp-map-desc">Executes trades and manages positions within limits</div>
+        </div>
+        <div class="rp-map-card rp-map-card--client">
+          <div class="rp-map-role">Client</div>
+          <div class="rp-map-desc">End investor; view-only or limited trading access</div>
+        </div>
+        <div class="rp-map-card rp-map-card--observer">
+          <div class="rp-map-role">Observer</div>
+          <div class="rp-map-desc">Compliance and audit oversight; no execution access</div>
+        </div>
+        <div class="rp-map-card rp-map-card--admin">
+          <div class="rp-map-role">Platform Admin</div>
+          <div class="rp-map-desc">Technical account setup; RBAC, org settings, billing</div>
+        </div>
+      </div>
+
+      <!-- Legend -->
+      <div class="pm-legend">
+        <div class="pm-legend-item"><span class="pm-state pm-state--A">✓</span> Allowed by default</div>
+        <div class="pm-legend-item"><span class="pm-state pm-state--N">✕</span> Not permitted</div>
+        <div class="pm-legend-item"><span class="pm-state pm-state--C">~</span> Configurable — policy-level</div>
+      </div>
+
+      <!-- Matrix -->
+      <div class="pm-wrap">
+        <div class="pm-hrow" id="rpHRow">
+          <div class="pm-th-action">Action / Capability</div>
+          <div class="pm-th pm-th--principal" onclick="rpFocusCol(0)">Principal</div>
+          <div class="pm-th pm-th--trader"    onclick="rpFocusCol(1)">Trader</div>
+          <div class="pm-th pm-th--client"    onclick="rpFocusCol(2)">Client</div>
+          <div class="pm-th pm-th--observer"  onclick="rpFocusCol(3)">Observer</div>
+          <div class="pm-th pm-th--adm"       onclick="rpFocusCol(4)">Admin</div>
+        </div>
+        <div id="rpBody"></div>
+      </div>
+
+      <p class="pm-footnote">
+        <strong>~</strong> denotes configurable permissions — these are enabled or restricted at the configuration or account level by the Principal or Platform Admin.
+      </p>
+    </section>
+
+  <script>
+  /* ─── Role Permissions Matrix ─── */
+  (function () {
+    const A = "A", N = "N", C = "C";
+
+    const RP = [
+      { id:"rp1", num:1, title:"Account & Structure", rows:[
+        { a:"Create or modify account / sub-account structure",  p:{s:A}, t:{s:N}, c:{s:N}, o:{s:N}, adm:{s:A} },
+        { a:"Assign or modify user roles (RBAC)",                p:{s:C}, t:{s:N}, c:{s:N}, o:{s:N}, adm:{s:A} },
+        { a:"Set investment mandate and trading limits",          p:{s:A}, t:{s:N}, c:{s:N}, o:{s:N}, adm:{s:N} },
+        { a:"Configure approval thresholds",                     p:{s:A}, t:{s:N}, c:{s:N}, o:{s:N}, adm:{s:C} },
+      ]},
+      { id:"rp2", num:2, title:"Trading & Execution", rows:[
+        { a:"Place and execute trades",                          p:{s:C}, t:{s:A}, c:{s:C}, o:{s:N}, adm:{s:N} },
+        { a:"Approve trades above threshold",                    p:{s:A}, t:{s:N}, c:{s:N}, o:{s:N}, adm:{s:N} },
+        { a:"Cancel or amend open orders",                       p:{s:A}, t:{s:A}, c:{s:N}, o:{s:N}, adm:{s:N} },
+        { a:"Access trading interface",                          p:{s:C}, t:{s:A}, c:{s:C}, o:{s:N}, adm:{s:N} },
+      ]},
+      { id:"rp3", num:3, title:"Funds & Movements", rows:[
+        { a:"Initiate deposits or withdrawals",                  p:{s:A}, t:{s:N}, c:{s:C}, o:{s:N}, adm:{s:N} },
+        { a:"Approve large fund movements",                      p:{s:A}, t:{s:N}, c:{s:N}, o:{s:N}, adm:{s:N} },
+        { a:"View wallet balances",                              p:{s:A}, t:{s:A}, c:{s:A}, o:{s:A}, adm:{s:A} },
+        { a:"Configure settlement rules",                        p:{s:A}, t:{s:N}, c:{s:N}, o:{s:N}, adm:{s:C} },
+      ]},
+      { id:"rp4", num:4, title:"Compliance & KYC", rows:[
+        { a:"Submit KYC documents",                              p:{s:A}, t:{s:N}, c:{s:C}, o:{s:N}, adm:{s:C} },
+        { a:"View KYC / compliance status",                      p:{s:A}, t:{s:N}, c:{s:N}, o:{s:A}, adm:{s:A} },
+        { a:"Freeze or restrict an account",                     p:{s:N}, t:{s:N}, c:{s:N}, o:{s:C}, adm:{s:A} },
+        { a:"Approve or reject escalated actions",               p:{s:N}, t:{s:N}, c:{s:N}, o:{s:C}, adm:{s:N} },
+      ]},
+      { id:"rp5", num:5, title:"Reporting & Audit", rows:[
+        { a:"View portfolio performance",                        p:{s:A}, t:{s:A}, c:{s:A}, o:{s:A}, adm:{s:N} },
+        { a:"Generate compliance reports",                       p:{s:A}, t:{s:N}, c:{s:N}, o:{s:A}, adm:{s:N} },
+        { a:"Access full audit trail",                           p:{s:C}, t:{s:N}, c:{s:N}, o:{s:A}, adm:{s:A} },
+        { a:"Export transaction history",                        p:{s:A}, t:{s:C}, c:{s:C}, o:{s:A}, adm:{s:C} },
+      ]},
+      { id:"rp6", num:6, title:"Platform & Administration", rows:[
+        { a:"Manage billing and subscription",                   p:{s:N}, t:{s:N}, c:{s:N}, o:{s:N}, adm:{s:A} },
+        { a:"Configure RBAC templates",                          p:{s:N}, t:{s:N}, c:{s:N}, o:{s:N}, adm:{s:A} },
+        { a:"Manage org-level settings",                         p:{s:N}, t:{s:N}, c:{s:N}, o:{s:N}, adm:{s:A} },
+      ]},
+    ];
+
+    const COLS = ["p","t","c","o","adm"];
+    const ICONS = { A:"✓", N:"✕", C:"~" };
+    const rpOpen = {}; RP.forEach(s => rpOpen[s.id] = true);
+    let rpActiveCol = -1;
+
+    function rpRenderRow(row) {
+      const cells = COLS.map((col, ci) => {
+        const cell = row[col] || {s:N};
+        const active = rpActiveCol === ci ? " pm-col-active" : "";
+        const note = cell.n ? `<div class="pm-note">${cell.n}</div>` : "";
+        return `<div class="pm-cell${active}"><span class="pm-state pm-state--${cell.s}">${ICONS[cell.s]}</span>${note}</div>`;
+      }).join("");
+      return `<div class="pm-row"><div class="pm-action">${row.a}</div>${cells}</div>`;
+    }
+
+    function rpRender() {
+      document.getElementById("rpBody").innerHTML = RP.map(sec => {
+        const isOpen = rpOpen[sec.id];
+        const rows = isOpen ? sec.rows.map(rpRenderRow).join("") : "";
+        return `<div>
+          <div class="pm-sec-hdr${isOpen?" pm-open":""}" onclick="rpToggleSec('${sec.id}')">
+            <div class="pm-sec-num">${sec.num}</div>
+            <div class="pm-sec-title">${sec.title}</div>
+            <span class="pm-sec-chev">▶</span>
+          </div>
+          ${rows}
+        </div>`;
+      }).join("");
+      const ths = document.querySelectorAll("#rpHRow .pm-th");
+      ths.forEach((th, i) => th.classList.toggle("pm-th-active", i === rpActiveCol));
+    }
+
+    window.rpToggleSec = function(id) { rpOpen[id] = !rpOpen[id]; rpRender(); };
+    window.rpFocusCol  = function(idx) { rpActiveCol = rpActiveCol === idx ? -1 : idx; rpRender(); };
+
+    rpRender();
+  })();
+  </script>
+
+
+    <!-- ──────────────────────────────────
          SECTION: Discretionary Manager Workflows
     ────────────────────────────────── -->
     <section class="section" id="wf-dm">
       <div class="section-header">
-        <div class="section-breadcrumb">Workflows</div>
+        <div class="section-breadcrumb">Workflows · Configuration</div>
         <h1 class="section-title">Discretionary Manager</h1>
         <p class="section-desc">Six day-to-day workflows. Clients do not have platform access — the manager and their trading team handle all operations. One-off setup flows documented separately.</p>
+      </div>
+
+      <div class="wf-framing">This is a configuration workflow — it shows how the DM platform configuration is typically used end-to-end. For the individual role steps within this flow, see Role Workflows.</div>
+
+      <div class="wf-roles-summary">
+        <span class="wf-roles-summary-label">Roles in this configuration</span>
+        <span class="wf-role-pill wf-role-pill--principal">Principal</span>
+        <span class="wf-role-pill wf-role-pill--trader">Trader</span>
+        <span class="wf-roles-note">may be the same person in smaller firms</span>
       </div>
 
       <div style="display:flex;gap:12px;margin-bottom:40px;flex-wrap:wrap;">
@@ -1322,9 +1894,21 @@
     ────────────────────────────────── -->
     <section class="section" id="wf-ifa">
       <div class="section-header">
-        <div class="section-breadcrumb">Workflows</div>
+        <div class="section-breadcrumb">Workflows · Configuration</div>
         <h1 class="section-title">Wealth Advisor / IFA</h1>
         <p class="section-desc">Six day-to-day workflows. Key distinction: clients may be present on the platform. Each workflow branches based on client access level.</p>
+      </div>
+
+      <div class="wf-framing">This is a configuration workflow — it shows how the IFA platform configuration is typically used end-to-end. For the individual role steps within this flow, see Role Workflows.</div>
+
+      <div class="wf-roles-summary">
+        <span class="wf-roles-summary-label">Roles in this configuration</span>
+        <span class="wf-role-pill wf-role-pill--principal">Principal</span>
+        <span class="wf-role-pill wf-role-pill--trader">Trader</span>
+        <span class="wf-roles-note">advisor-side</span>
+        <span style="color:#C0BDB8;">·</span>
+        <span class="wf-role-pill wf-role-pill--client">Client</span>
+        <span class="wf-roles-note">investor-side, optional</span>
       </div>
 
       <div class="access-model">
@@ -1367,7 +1951,7 @@
           <div class="arr">→</div>
           <div class="step step--end"><div class="step-name">Visibility maintained</div><div class="step-desc">Advisor has current view; any open actions noted</div><span class="badge badge--system">System</span></div>
         </div>
-        <div class="callout"><b>Client panel note:</b> This is the advisor's primary daily surface. The client list and drill-down must live within the advisor's own navigation — not as a separate mode or hat-switch.</div>
+        <div class="callout"><b>Client panel note:</b> This is the advisor's primary daily surface. The client list and drill-down must live within the advisor's own navigation — not as a separate configuration or hat-switch.</div>
       </div>
 
       <!-- WF2 -->
@@ -1550,9 +2134,18 @@
     ────────────────────────────────── -->
     <section class="section" id="wf-po">
       <div class="section-header">
-        <div class="section-breadcrumb">Workflows</div>
+        <div class="section-breadcrumb">Workflows · Configuration</div>
         <h1 class="section-title">Programmatic Operator</h1>
         <p class="section-desc">Six day-to-day workflows. Primary interface is the API — the UI is for monitoring and exception handling. Clients never log in; all operations are automated or operator-managed at scale.</p>
+      </div>
+
+      <div class="wf-framing">This is a configuration workflow — it shows how the PO platform configuration is typically used end-to-end. For the individual role steps within this flow, see Role Workflows.</div>
+
+      <div class="wf-roles-summary">
+        <span class="wf-roles-summary-label">Roles in this configuration</span>
+        <span class="wf-role-pill wf-role-pill--principal">Principal</span>
+        <span class="wf-role-pill wf-role-pill--trader">Trader</span>
+        <span class="wf-roles-note">automated / system</span>
       </div>
 
       <!-- Primary interface note -->
@@ -1788,9 +2381,17 @@
     ────────────────────────────────── -->
     <section class="section" id="wf-gc">
       <div class="section-header">
-        <div class="section-breadcrumb">Workflows</div>
+        <div class="section-breadcrumb">Workflows · Configuration</div>
         <h1 class="section-title">Governance + Compliance</h1>
         <p class="section-desc">Six day-to-day workflows. This role never trades or moves funds directly — it approves, oversees, investigates, and reports. Two sub-types apply across every workflow.</p>
+      </div>
+
+      <div class="wf-framing">This is a configuration workflow — it shows how the GC platform configuration is typically used end-to-end. For the individual role steps within this flow, see Role Workflows.</div>
+
+      <div class="wf-roles-summary">
+        <span class="wf-roles-summary-label">Roles in this configuration</span>
+        <span class="wf-role-pill wf-role-pill--observer">Observer / Compliance</span>
+        <span class="wf-roles-note">Controller sub-type + Read-Only sub-type</span>
       </div>
 
       <!-- Sub-type key -->
@@ -2005,7 +2606,7 @@
             <div class="branch-row">
               <div class="branch-path"><span class="branch-tag branch-tag--yes">Yes</span><div class="step step--approval"><div class="step-name">Senior sign-off</div><div class="step-desc">Intervention request routed to senior compliance; applied once approved</div><span class="badge" style="background:#F5ECEA;color:#8A3A3A;">Senior Compliance</span></div></div>
               <div class="branch-divider"></div>
-              <div class="branch-path"><span class="branch-tag branch-tag--no">No</span><div class="step"><div class="step-name">Applied immediately</div><div class="step-desc">Approver applies intervention directly; affected operator and account owner notified</div><span class="badge" style="background:#E8EDF5;color:#3A4A7A;">Approver</span></div></div>
+              <div class="branch-path"><span class="branch-tag branch-tag--no">No</span><div class="step"><div class="step-name">Applied immediately</div><div class="step-desc">Approver applies intervention directly; affected operator and Principal notified</div><span class="badge" style="background:#E8EDF5;color:#3A4A7A;">Approver</span></div></div>
             </div>
           </div>
           <div class="arr">→</div>
@@ -2050,6 +2651,552 @@
       </div>
 
     </section>
+
+
+    <!-- ──────────────────────────────────
+         SECTION: Principal Workflow
+    ────────────────────────────────── -->
+    <section class="section" id="wf-principal">
+      <div class="section-header">
+        <div class="section-breadcrumb">Workflows · Role</div>
+        <h1 class="section-title">Principal Workflow</h1>
+        <p class="section-desc">The Principal defines the mandate, governs the account structure, and holds final approval authority. This workflow covers the full lifecycle from account setup through to ongoing mandate management.</p>
+      </div>
+
+      <div class="legend">
+        <div class="legend-item"><div class="legend-dot" style="background:#4A3F8A"></div> Principal</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#AAAAAA"></div> System</div>
+        <div class="legend-item"><div class="legend-dot" style="background:none;border:1.5px dashed #D4A86A;width:11px;height:11px;border-radius:2px;"></div> Decision point</div>
+      </div>
+
+      <!-- WF1: Account & Mandate Setup -->
+      <div class="workflow">
+        <div class="wf-header"><div class="wf-num" style="background:#4A3F8A;">1</div><div class="wf-title">Account &amp; Mandate Setup</div></div>
+        <div class="wf-meta">
+          <div class="wf-meta-item">Trigger: <b>New account required</b></div>
+          <div class="wf-meta-item">End state: <b>Mandate active, Traders assigned</b></div>
+          <div class="wf-meta-item">Frequency: <b>Per new account or fund</b></div>
+        </div>
+        <div class="flow">
+          <div class="step step--start"><div class="step-name">New account required</div><div class="step-desc">Business need identified for a new account or sub-account</div><span class="badge" style="background:#EEEAF8;color:#4A3F8A;">Principal</span></div>
+          <div class="arr">→</div>
+          <div class="step"><div class="step-name">Create account structure</div><div class="step-desc">Set up account, sub-accounts, or fund sleeves as required</div><span class="badge" style="background:#EEEAF8;color:#4A3F8A;">Principal</span></div>
+          <div class="arr">→</div>
+          <div class="step"><div class="step-name">Define investment mandate</div><div class="step-desc">Specify asset classes, strategy parameters, and risk limits</div><span class="badge" style="background:#EEEAF8;color:#4A3F8A;">Principal</span></div>
+          <div class="arr">→</div>
+          <div class="step"><div class="step-name">Configure trading parameters</div><div class="step-desc">Set position limits, thresholds, and restricted assets</div><span class="badge" style="background:#EEEAF8;color:#4A3F8A;">Principal</span></div>
+          <div class="arr">→</div>
+          <div class="decision"><div class="decision-label">Decision</div><div class="decision-q">Dual-approval required on large trades?</div></div>
+          <div class="arr">→</div>
+          <div class="branch-block">
+            <div class="branch-row">
+              <div class="branch-path"><span class="branch-tag branch-tag--yes">Yes</span><div class="step"><div class="step-name">Configure approval rules</div><div class="step-desc">Define thresholds, approver chain, and escalation path</div><span class="badge" style="background:#EEEAF8;color:#4A3F8A;">Principal</span></div></div>
+              <div class="branch-divider"></div>
+              <div class="branch-path"><span class="branch-tag branch-tag--no">No</span><div class="step"><div class="step-name">Proceed</div><div class="step-desc">No approval gate needed; trades execute within mandate limits</div><span class="badge badge--system">System</span></div></div>
+            </div>
+          </div>
+          <div class="arr">→</div>
+          <div class="step"><div class="step-name">Assign Traders to accounts</div><div class="step-desc">Grant Trader role to specific users, scoped to this account</div><span class="badge" style="background:#EEEAF8;color:#4A3F8A;">Principal</span></div>
+          <div class="arr">→</div>
+          <div class="step step--end"><div class="step-name">Go live</div><div class="step-desc">Account active; mandate parameters enforced; Traders notified</div><span class="badge badge--system">System</span></div>
+        </div>
+      </div>
+
+      <!-- WF2: Trade Approval -->
+      <div class="workflow">
+        <div class="wf-header"><div class="wf-num" style="background:#4A3F8A;">2</div><div class="wf-title">Trade Approval</div></div>
+        <div class="wf-meta">
+          <div class="wf-meta-item">Trigger: <b>Trade flagged for approval</b></div>
+          <div class="wf-meta-item">End state: <b>Trade executed or cancelled</b></div>
+          <div class="wf-meta-item">Frequency: <b>Per flagged trade</b></div>
+        </div>
+        <div class="flow">
+          <div class="step step--start"><div class="step-name">Trade flagged for approval</div><div class="step-desc">Trade exceeds threshold or policy gate; held pending review</div><span class="badge badge--system">System</span></div>
+          <div class="arr">→</div>
+          <div class="step"><div class="step-name">Review trade details</div><div class="step-desc">Principal reviews size, asset, rationale, and mandate alignment</div><span class="badge" style="background:#EEEAF8;color:#4A3F8A;">Principal</span></div>
+          <div class="arr">→</div>
+          <div class="decision"><div class="decision-label">Decision</div><div class="decision-q">Within mandate?</div></div>
+          <div class="arr">→</div>
+          <div class="branch-block">
+            <div class="branch-row">
+              <div class="branch-path"><span class="branch-tag branch-tag--no">No</span><div class="step"><div class="step-name">Reject with reason</div><div class="step-desc">Trade rejected; Trader notified with explanation</div><span class="badge" style="background:#EEEAF8;color:#4A3F8A;">Principal</span></div></div>
+              <div class="branch-divider"></div>
+              <div class="branch-path"><span class="branch-tag branch-tag--yes">Yes</span>
+                <div class="decision"><div class="decision-label">Decision</div><div class="decision-q">Above approval threshold?</div></div>
+              </div>
+            </div>
+          </div>
+          <div class="arr">→</div>
+          <div class="branch-block">
+            <div class="branch-row">
+              <div class="branch-path"><span class="branch-tag branch-tag--no">No — below threshold</span><div class="step"><div class="step-name">Auto-approve</div><div class="step-desc">System releases trade for execution</div><span class="badge badge--system">System</span></div></div>
+              <div class="branch-divider"></div>
+              <div class="branch-path"><span class="branch-tag branch-tag--yes">Yes — above threshold</span><div class="step step--approval"><div class="step-name">Principal approves or rejects</div><div class="step-desc">Explicit sign-off required before execution</div><span class="badge" style="background:#EEEAF8;color:#4A3F8A;">Principal</span></div></div>
+            </div>
+          </div>
+          <div class="arr">→</div>
+          <div class="step step--end"><div class="step-name">Trade executed or cancelled</div><div class="step-desc">Outcome recorded in audit trail; Trader notified</div><span class="badge badge--system">System</span></div>
+        </div>
+      </div>
+
+      <!-- WF3: Performance Review & Mandate Update -->
+      <div class="workflow">
+        <div class="wf-header"><div class="wf-num" style="background:#4A3F8A;">3</div><div class="wf-title">Performance Review &amp; Mandate Update</div></div>
+        <div class="wf-meta">
+          <div class="wf-meta-item">Trigger: <b>Scheduled review or performance trigger</b></div>
+          <div class="wf-meta-item">End state: <b>Mandate confirmed or updated</b></div>
+          <div class="wf-meta-item">Frequency: <b>Weekly / monthly or ad-hoc</b></div>
+        </div>
+        <div class="flow">
+          <div class="step step--start"><div class="step-name">Review triggered</div><div class="step-desc">Scheduled review date or performance threshold breached</div><span class="badge badge--system">System</span></div>
+          <div class="arr">→</div>
+          <div class="step"><div class="step-name">Access portfolio dashboard</div><div class="step-desc">Principal opens portfolio-level view across relevant accounts</div><span class="badge" style="background:#EEEAF8;color:#4A3F8A;">Principal</span></div>
+          <div class="arr">→</div>
+          <div class="step"><div class="step-name">Review P&amp;L, positions, exposure</div><div class="step-desc">Analyse performance against mandate targets and risk limits</div><span class="badge" style="background:#EEEAF8;color:#4A3F8A;">Principal</span></div>
+          <div class="arr">→</div>
+          <div class="decision"><div class="decision-label">Decision</div><div class="decision-q">Mandate adjustment needed?</div></div>
+          <div class="arr">→</div>
+          <div class="branch-block">
+            <div class="branch-row">
+              <div class="branch-path"><span class="branch-tag branch-tag--no">No</span><div class="step"><div class="step-name">Log review, no action</div><div class="step-desc">Record that review was completed; no changes required</div><span class="badge" style="background:#EEEAF8;color:#4A3F8A;">Principal</span></div></div>
+              <div class="branch-divider"></div>
+              <div class="branch-path"><span class="branch-tag branch-tag--yes">Yes</span><div class="step"><div class="step-name">Update mandate parameters</div><div class="step-desc">Adjust limits, asset classes, or strategy parameters</div><span class="badge" style="background:#EEEAF8;color:#4A3F8A;">Principal</span></div></div>
+            </div>
+          </div>
+          <div class="arr">→</div>
+          <div class="step"><div class="step-name">Notify Traders of changes</div><div class="step-desc">Updated mandate pushed to assigned Traders; effective immediately</div><span class="badge badge--system">System</span></div>
+          <div class="arr">→</div>
+          <div class="step step--end"><div class="step-name">Updated mandate active</div><div class="step-desc">New parameters enforced; audit trail updated</div><span class="badge badge--system">System</span></div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ──────────────────────────────────
+         SECTION: Trader Workflow
+    ────────────────────────────────── -->
+    <section class="section" id="wf-trader">
+      <div class="section-header">
+        <div class="section-breadcrumb">Workflows · Role</div>
+        <h1 class="section-title">Trader Workflow</h1>
+        <p class="section-desc">The Trader executes within the mandate defined by the Principal. This workflow covers trade execution from opportunity identification through to position management and reporting.</p>
+      </div>
+
+      <div class="legend">
+        <div class="legend-item"><div class="legend-dot" style="background:#1F6B4A"></div> Trader</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#AAAAAA"></div> System</div>
+        <div class="legend-item"><div class="legend-dot" style="background:none;border:1.5px dashed #D4A86A;width:11px;height:11px;border-radius:2px;"></div> Decision point</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#F0C070"></div> Approval gate</div>
+      </div>
+
+      <!-- WF1: Trade Execution -->
+      <div class="workflow">
+        <div class="wf-header"><div class="wf-num" style="background:#1F6B4A;">1</div><div class="wf-title">Trade Execution</div></div>
+        <div class="wf-meta">
+          <div class="wf-meta-item">Trigger: <b>Trading opportunity identified</b></div>
+          <div class="wf-meta-item">End state: <b>Trade recorded</b></div>
+          <div class="wf-meta-item">Frequency: <b>Daily / as opportunities arise</b></div>
+        </div>
+        <div class="flow">
+          <div class="step step--start"><div class="step-name">Opportunity identified</div><div class="step-desc">Market conditions or strategy signal triggers trade consideration</div><span class="badge" style="background:#E3F2ED;color:#1F6B4A;">Trader</span></div>
+          <div class="arr">→</div>
+          <div class="step"><div class="step-name">Review mandate</div><div class="step-desc">Check limits, approved assets, and remaining capacity</div><span class="badge" style="background:#E3F2ED;color:#1F6B4A;">Trader</span></div>
+          <div class="arr">→</div>
+          <div class="decision"><div class="decision-label">Decision</div><div class="decision-q">Trade within mandate limits?</div></div>
+          <div class="arr">→</div>
+          <div class="branch-block">
+            <div class="branch-row">
+              <div class="branch-path"><span class="branch-tag branch-tag--no">No</span><div class="step step--approval"><div class="step-name">Request Principal approval</div><div class="step-desc">Trade exceeds mandate; submitted for Principal review</div><span class="badge" style="background:#E3F2ED;color:#1F6B4A;">Trader</span></div></div>
+              <div class="branch-divider"></div>
+              <div class="branch-path"><span class="branch-tag branch-tag--yes">Yes</span><div class="step"><div class="step-name">Proceed to order</div><div class="step-desc">Trade within limits; no approval required</div><span class="badge badge--system">System</span></div></div>
+            </div>
+          </div>
+          <div class="arr">→</div>
+          <div class="branch-block">
+            <div class="branch-row">
+              <div class="branch-path"><span class="branch-tag" style="background:#F0C070;color:#5A3A10;">Awaiting approval</span><div class="decision"><div class="decision-label">Decision</div><div class="decision-q">Approved?</div></div></div>
+              <div class="branch-divider"></div>
+              <div class="branch-path"><span class="branch-tag branch-tag--no">No — rejected</span><div class="step step--end"><div class="step-name">Trade not executed</div><div class="step-desc">Rejection reason logged; Trader notified</div><span class="badge badge--system">System</span></div></div>
+            </div>
+          </div>
+          <div class="arr">→</div>
+          <div class="step"><div class="step-name">Place order on platform</div><div class="step-desc">Trader enters order: asset, size, type (market/limit)</div><span class="badge" style="background:#E3F2ED;color:#1F6B4A;">Trader</span></div>
+          <div class="arr">→</div>
+          <div class="step"><div class="step-name">Order fills</div><div class="step-desc">Exchange confirms execution; partial fills handled</div><span class="badge badge--system">System</span></div>
+          <div class="arr">→</div>
+          <div class="step"><div class="step-name">Confirm execution</div><div class="step-desc">Verify fill price and size against order parameters</div><span class="badge" style="background:#E3F2ED;color:#1F6B4A;">Trader</span></div>
+          <div class="arr">→</div>
+          <div class="step step--end"><div class="step-name">Trade recorded</div><div class="step-desc">Position and P&amp;L updated; audit trail logged</div><span class="badge badge--system">System</span></div>
+        </div>
+      </div>
+
+      <!-- WF2: Position Management -->
+      <div class="workflow">
+        <div class="wf-header"><div class="wf-num" style="background:#1F6B4A;">2</div><div class="wf-title">Position Management</div></div>
+        <div class="wf-meta">
+          <div class="wf-meta-item">Trigger: <b>Open position active</b></div>
+          <div class="wf-meta-item">End state: <b>Position closed or maintained</b></div>
+          <div class="wf-meta-item">Frequency: <b>Ongoing</b></div>
+        </div>
+        <div class="flow">
+          <div class="step step--start"><div class="step-name">Open position active</div><div class="step-desc">Trader has one or more active positions to manage</div><span class="badge" style="background:#E3F2ED;color:#1F6B4A;">Trader</span></div>
+          <div class="arr">→</div>
+          <div class="step"><div class="step-name">Monitor position against limits</div><div class="step-desc">Track P&amp;L, exposure, and mandate thresholds</div><span class="badge" style="background:#E3F2ED;color:#1F6B4A;">Trader</span></div>
+          <div class="arr">→</div>
+          <div class="decision"><div class="decision-label">Decision</div><div class="decision-q">Stop-loss or limit hit?</div></div>
+          <div class="arr">→</div>
+          <div class="branch-block">
+            <div class="branch-row">
+              <div class="branch-path"><span class="branch-tag branch-tag--yes">Yes</span><div class="step"><div class="step-name">Close or reduce position</div><div class="step-desc">Execute closing trade to bring exposure within limits</div><span class="badge" style="background:#E3F2ED;color:#1F6B4A;">Trader</span></div></div>
+              <div class="branch-divider"></div>
+              <div class="branch-path"><span class="branch-tag branch-tag--no">No</span>
+                <div class="decision"><div class="decision-label">Decision</div><div class="decision-q">Rebalance required?</div></div>
+              </div>
+            </div>
+          </div>
+          <div class="arr">→</div>
+          <div class="branch-block">
+            <div class="branch-row">
+              <div class="branch-path"><span class="branch-tag" style="background:#EEEAF8;color:#4A3F8A;">Position closed</span><div class="step"><div class="step-name">Report to Principal</div><div class="step-desc">Notify Principal of position closure and reason</div><span class="badge badge--system">System</span></div></div>
+              <div class="branch-divider"></div>
+              <div class="branch-path"><span class="branch-tag branch-tag--yes">Yes — rebalance</span><div class="step"><div class="step-name">Execute rebalance within mandate</div><div class="step-desc">Adjust positions to restore target allocations</div><span class="badge" style="background:#E3F2ED;color:#1F6B4A;">Trader</span></div></div>
+              <div class="branch-divider"></div>
+              <div class="branch-path"><span class="branch-tag branch-tag--no">No</span><div class="step"><div class="step-name">Continue monitoring</div><div class="step-desc">Position within limits; no action required</div><span class="badge" style="background:#E3F2ED;color:#1F6B4A;">Trader</span></div></div>
+            </div>
+          </div>
+          <div class="arr">→</div>
+          <div class="step step--end"><div class="step-name">Position maintained</div><div class="step-desc">Status updated; audit trail recorded</div><span class="badge badge--system">System</span></div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ──────────────────────────────────
+         SECTION: Client Workflow
+    ────────────────────────────────── -->
+    <section class="section" id="wf-client">
+      <div class="section-header">
+        <div class="section-breadcrumb">Workflows · Role</div>
+        <h1 class="section-title">Client Workflow</h1>
+        <p class="section-desc">The Client holds funds and may have limited platform access depending on configuration. This workflow is specific to the IFA configuration where clients have a direct platform presence.</p>
+      </div>
+
+      <div class="legend">
+        <div class="legend-item"><div class="legend-dot" style="background:#1A5C96"></div> Client</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#4A3F8A"></div> Principal / Advisor</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#1A5C96;border:2px solid #9DC8E8;width:8px;height:8px;"></div> Platform Admin</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#AAAAAA"></div> System</div>
+        <div class="legend-item"><div class="legend-dot" style="background:none;border:1.5px dashed #D4A86A;width:11px;height:11px;border-radius:2px;"></div> Decision point</div>
+      </div>
+
+      <!-- WF1: Onboarding -->
+      <div class="workflow">
+        <div class="wf-header"><div class="wf-num" style="background:#1A5C96;">1</div><div class="wf-title">Onboarding</div></div>
+        <div class="wf-meta">
+          <div class="wf-meta-item">Trigger: <b>Advisor initiates client onboarding</b></div>
+          <div class="wf-meta-item">End state: <b>Client active on platform</b></div>
+          <div class="wf-meta-item">Frequency: <b>Per new client</b></div>
+        </div>
+        <div class="flow">
+          <div class="step step--start"><div class="step-name">Advisor initiates onboarding</div><div class="step-desc">Advisor creates a client record and triggers the invitation flow</div><span class="badge" style="background:#EEEAF8;color:#4A3F8A;">Principal</span></div>
+          <div class="arr">→</div>
+          <div class="step"><div class="step-name">Platform invitation sent</div><div class="step-desc">Client receives email/link to register on the platform</div><span class="badge badge--system">System</span></div>
+          <div class="arr">→</div>
+          <div class="step"><div class="step-name">Complete KYC verification</div><div class="step-desc">Client submits identity documents and completes verification</div><span class="badge" style="background:#DDEEF9;color:#1A5C96;">Client</span></div>
+          <div class="arr">→</div>
+          <div class="step"><div class="step-name">Assign Client role</div><div class="step-desc">Platform Admin assigns Client role scoped to the advisor's account</div><span class="badge" style="background:#E8F2FB;color:#1A5C96;">Platform Admin</span></div>
+          <div class="arr">→</div>
+          <div class="decision"><div class="decision-label">Decision</div><div class="decision-q">Access level configured?</div></div>
+          <div class="arr">→</div>
+          <div class="branch-block">
+            <div class="branch-row">
+              <div class="branch-path"><span class="branch-tag" style="background:#EFEFED;color:#555;">View only</span><div class="step"><div class="step-name">Read-only portfolio view</div><div class="step-desc">Client can see holdings and performance but cannot trade</div><span class="badge" style="background:#DDEEF9;color:#1A5C96;">Client</span></div></div>
+              <div class="branch-divider"></div>
+              <div class="branch-path"><span class="branch-tag" style="background:#E3F2ED;color:#1F6B4A;">Co-trading</span><div class="step"><div class="step-name">Portfolio + trade approval</div><div class="step-desc">Client can view portfolio and co-sign trades proposed by advisor</div><span class="badge" style="background:#DDEEF9;color:#1A5C96;">Client</span></div></div>
+            </div>
+          </div>
+          <div class="arr">→</div>
+          <div class="step step--end"><div class="step-name">Client active on platform</div><div class="step-desc">Client can log in with assigned access level</div><span class="badge badge--system">System</span></div>
+        </div>
+      </div>
+
+      <!-- WF2: Ongoing Access (View-Only) -->
+      <div class="workflow">
+        <div class="wf-header"><div class="wf-num" style="background:#1A5C96;">2</div><div class="wf-title">Ongoing Access (View-Only)</div></div>
+        <div class="wf-meta">
+          <div class="wf-meta-item">Trigger: <b>Client logs in</b></div>
+          <div class="wf-meta-item">End state: <b>Session complete or withdrawal processed</b></div>
+          <div class="wf-meta-item">Frequency: <b>Ad-hoc</b></div>
+        </div>
+        <div class="flow">
+          <div class="step step--start"><div class="step-name">Client logs in</div><div class="step-desc">Client authenticates and enters their portfolio view</div><span class="badge" style="background:#DDEEF9;color:#1A5C96;">Client</span></div>
+          <div class="arr">→</div>
+          <div class="step"><div class="step-name">View positions and balances</div><div class="step-desc">Review current holdings, asset allocation, and valuations</div><span class="badge" style="background:#DDEEF9;color:#1A5C96;">Client</span></div>
+          <div class="arr">→</div>
+          <div class="step"><div class="step-name">Review performance reports</div><div class="step-desc">Access historical performance, returns, and fee summaries</div><span class="badge" style="background:#DDEEF9;color:#1A5C96;">Client</span></div>
+          <div class="arr">→</div>
+          <div class="decision"><div class="decision-label">Decision</div><div class="decision-q">Withdrawal request?</div></div>
+          <div class="arr">→</div>
+          <div class="branch-block">
+            <div class="branch-row">
+              <div class="branch-path"><span class="branch-tag branch-tag--yes">Yes</span><div class="step"><div class="step-name">Submit withdrawal request</div><div class="step-desc">Client initiates request specifying amount and destination</div><span class="badge" style="background:#DDEEF9;color:#1A5C96;">Client</span></div></div>
+              <div class="branch-divider"></div>
+              <div class="branch-path"><span class="branch-tag branch-tag--no">No</span><div class="step step--end"><div class="step-name">Session complete</div><div class="step-desc">Client logs out; no action required</div><span class="badge" style="background:#DDEEF9;color:#1A5C96;">Client</span></div></div>
+            </div>
+          </div>
+          <div class="arr">→</div>
+          <div class="step step--approval"><div class="step-name">Advisor reviews and approves</div><div class="step-desc">Principal reviews withdrawal request and authorizes</div><span class="badge" style="background:#EEEAF8;color:#4A3F8A;">Principal</span></div>
+          <div class="arr">→</div>
+          <div class="step step--end"><div class="step-name">Withdrawal processed</div><div class="step-desc">Funds released; Client and Advisor notified</div><span class="badge badge--system">System</span></div>
+        </div>
+      </div>
+
+      <!-- WF3: Co-Trading (if enabled) -->
+      <div class="workflow">
+        <div class="wf-header"><div class="wf-num" style="background:#1A5C96;">3</div><div class="wf-title">Co-Trading (if enabled)</div></div>
+        <div class="wf-meta">
+          <div class="wf-meta-item">Trigger: <b>Advisor proposes trade</b></div>
+          <div class="wf-meta-item">End state: <b>Trade confirmed or rejected</b></div>
+          <div class="wf-meta-item">Frequency: <b>Per trade requiring co-sign</b></div>
+        </div>
+        <div class="flow">
+          <div class="step step--start"><div class="step-name">Advisor proposes trade</div><div class="step-desc">Advisor creates trade proposal requiring Client co-sign</div><span class="badge" style="background:#EEEAF8;color:#4A3F8A;">Principal</span></div>
+          <div class="arr">→</div>
+          <div class="step"><div class="step-name">Client notified</div><div class="step-desc">Notification sent with trade details and action required</div><span class="badge badge--system">System</span></div>
+          <div class="arr">→</div>
+          <div class="step"><div class="step-name">Review trade details</div><div class="step-desc">Client reviews asset, size, rationale, and expected impact</div><span class="badge" style="background:#DDEEF9;color:#1A5C96;">Client</span></div>
+          <div class="arr">→</div>
+          <div class="decision"><div class="decision-label">Decision</div><div class="decision-q">Approve?</div></div>
+          <div class="arr">→</div>
+          <div class="branch-block">
+            <div class="branch-row">
+              <div class="branch-path"><span class="branch-tag branch-tag--no">No</span><div class="step"><div class="step-name">Reject with note</div><div class="step-desc">Client declines; reason sent to Advisor</div><span class="badge" style="background:#DDEEF9;color:#1A5C96;">Client</span></div></div>
+              <div class="branch-divider"></div>
+              <div class="branch-path"><span class="branch-tag branch-tag--yes">Yes</span><div class="step"><div class="step-name">Client co-signs</div><div class="step-desc">Client confirms trade; dual approval complete</div><span class="badge" style="background:#DDEEF9;color:#1A5C96;">Client</span></div></div>
+            </div>
+          </div>
+          <div class="arr">→</div>
+          <div class="step"><div class="step-name">Trade executed</div><div class="step-desc">Order submitted and filled on exchange</div><span class="badge badge--system">System</span></div>
+          <div class="arr">→</div>
+          <div class="step step--end"><div class="step-name">Trade confirmed</div><div class="step-desc">Both Client and Advisor notified; positions updated</div><span class="badge badge--system">System</span></div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ──────────────────────────────────
+         SECTION: Observer / Compliance Workflow
+    ────────────────────────────────── -->
+    <section class="section" id="wf-observer">
+      <div class="section-header">
+        <div class="section-breadcrumb">Workflows · Role</div>
+        <h1 class="section-title">Observer / Compliance Workflow</h1>
+        <p class="section-desc">The Observer holds read-only access across accounts. The Controller sub-type can approve and intervene; the Read-Only sub-type monitors and reports only. Neither role can trade or move funds.</p>
+      </div>
+
+      <div class="legend">
+        <div class="legend-item"><div class="legend-dot" style="background:#555570"></div> Observer (Read-Only)</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#3A4A7A"></div> Controller</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#AAAAAA"></div> System</div>
+        <div class="legend-item"><div class="legend-dot" style="background:none;border:1.5px dashed #D4A86A;width:11px;height:11px;border-radius:2px;"></div> Decision point</div>
+      </div>
+
+      <!-- WF1: Routine Compliance Review -->
+      <div class="workflow">
+        <div class="wf-header"><div class="wf-num" style="background:#3A3A3A;">1</div><div class="wf-title">Routine Compliance Review</div></div>
+        <div class="wf-meta">
+          <div class="wf-meta-item">Trigger: <b>Scheduled review or activity trigger</b></div>
+          <div class="wf-meta-item">End state: <b>Review complete or case resolved</b></div>
+          <div class="wf-meta-item">Frequency: <b>Daily / weekly</b></div>
+        </div>
+        <div class="flow">
+          <div class="step step--start"><div class="step-name">Review triggered</div><div class="step-desc">Scheduled compliance check or activity threshold breached</div><span class="badge badge--system">System</span></div>
+          <div class="arr">→</div>
+          <div class="step"><div class="step-name">Access read-only dashboard</div><div class="step-desc">Observer opens compliance monitoring view</div><span class="badge" style="background:#EFEFED;color:#555570;">Observer</span></div>
+          <div class="arr">→</div>
+          <div class="step"><div class="step-name">Review transaction history</div><div class="step-desc">Scan transactions across accounts for anomalies or breaches</div><span class="badge" style="background:#EFEFED;color:#555570;">Observer</span></div>
+          <div class="arr">→</div>
+          <div class="decision"><div class="decision-label">Decision</div><div class="decision-q">Anomaly or policy breach detected?</div></div>
+          <div class="arr">→</div>
+          <div class="branch-block">
+            <div class="branch-row">
+              <div class="branch-path"><span class="branch-tag branch-tag--no">No</span><div class="step"><div class="step-name">Generate clean report</div><div class="step-desc">Compliance report confirms no issues; archived</div><span class="badge" style="background:#EFEFED;color:#555570;">Observer</span></div></div>
+              <div class="branch-divider"></div>
+              <div class="branch-path"><span class="branch-tag branch-tag--yes">Yes</span><div class="step"><div class="step-name">Flag and document</div><div class="step-desc">Transaction flagged; evidence and context recorded</div><span class="badge" style="background:#EFEFED;color:#555570;">Observer</span></div></div>
+            </div>
+          </div>
+          <div class="arr">→</div>
+          <div class="decision"><div class="decision-label">Decision</div><div class="decision-q">Intervention required?</div></div>
+          <div class="arr">→</div>
+          <div class="branch-block">
+            <div class="branch-row">
+              <div class="branch-path"><span class="branch-tag branch-tag--no">No</span><div class="step"><div class="step-name">Log in audit trail</div><div class="step-desc">Finding recorded but no action needed</div><span class="badge" style="background:#EFEFED;color:#555570;">Observer</span></div></div>
+              <div class="branch-divider"></div>
+              <div class="branch-path"><span class="branch-tag branch-tag--yes">Yes</span><div class="step"><div class="step-name">Escalate to Controller</div><div class="step-desc">Case routed to Controller sub-type for action</div><span class="badge" style="background:#EFEFED;color:#555570;">Observer</span></div></div>
+            </div>
+          </div>
+          <div class="arr">→</div>
+          <div class="step"><div class="step-name">Controller reviews</div><div class="step-desc">Controller assesses the case and determines appropriate action</div><span class="badge" style="background:#E8EDF5;color:#3A4A7A;">Controller</span></div>
+          <div class="arr">→</div>
+          <div class="decision"><div class="decision-label">Decision</div><div class="decision-q">Action required?</div></div>
+          <div class="arr">→</div>
+          <div class="branch-block">
+            <div class="branch-row">
+              <div class="branch-path"><span class="branch-tag branch-tag--no">No</span><div class="step"><div class="step-name">Close case, log outcome</div><div class="step-desc">No further action; case closed with documented rationale</div><span class="badge" style="background:#E8EDF5;color:#3A4A7A;">Controller</span></div></div>
+              <div class="branch-divider"></div>
+              <div class="branch-path"><span class="branch-tag branch-tag--yes">Yes</span><div class="step step--approval"><div class="step-name">Freeze account or reject transaction</div><div class="step-desc">Controller applies intervention; affected parties notified</div><span class="badge" style="background:#E8EDF5;color:#3A4A7A;">Controller</span></div></div>
+            </div>
+          </div>
+          <div class="arr">→</div>
+          <div class="step step--end"><div class="step-name">Case resolved</div><div class="step-desc">Full audit trail recorded; outcome archived</div><span class="badge badge--system">System</span></div>
+        </div>
+      </div>
+
+      <!-- WF2: Audit Trail & Reporting -->
+      <div class="workflow">
+        <div class="wf-header"><div class="wf-num" style="background:#3A3A3A;">2</div><div class="wf-title">Audit Trail &amp; Reporting</div></div>
+        <div class="wf-meta">
+          <div class="wf-meta-item">Trigger: <b>Audit or reporting request</b></div>
+          <div class="wf-meta-item">End state: <b>Report complete</b></div>
+          <div class="wf-meta-item">Frequency: <b>Monthly / quarterly or on request</b></div>
+        </div>
+        <div class="flow">
+          <div class="step step--start"><div class="step-name">Audit request received</div><div class="step-desc">Internal or external request for compliance reporting</div><span class="badge" style="background:#EFEFED;color:#555570;">Observer</span></div>
+          <div class="arr">→</div>
+          <div class="step"><div class="step-name">Access full transaction history</div><div class="step-desc">Observer queries comprehensive audit log across accounts</div><span class="badge" style="background:#EFEFED;color:#555570;">Observer</span></div>
+          <div class="arr">→</div>
+          <div class="step"><div class="step-name">Filter and scope</div><div class="step-desc">Narrow by account, date range, asset type, or transaction type</div><span class="badge" style="background:#EFEFED;color:#555570;">Observer</span></div>
+          <div class="arr">→</div>
+          <div class="step"><div class="step-name">Export report</div><div class="step-desc">Generate report in required format (PDF, CSV, etc.)</div><span class="badge" style="background:#EFEFED;color:#555570;">Observer</span></div>
+          <div class="arr">→</div>
+          <div class="decision"><div class="decision-label">Decision</div><div class="decision-q">Findings to share?</div></div>
+          <div class="arr">→</div>
+          <div class="branch-block">
+            <div class="branch-row">
+              <div class="branch-path"><span class="branch-tag branch-tag--yes">Yes</span><div class="step"><div class="step-name">Submit to stakeholder</div><div class="step-desc">Send to Principal, external auditor, or regulator</div><span class="badge" style="background:#EFEFED;color:#555570;">Observer</span></div></div>
+              <div class="branch-divider"></div>
+              <div class="branch-path"><span class="branch-tag branch-tag--no">No</span><div class="step"><div class="step-name">Archive internally</div><div class="step-desc">Report stored for internal records</div><span class="badge badge--system">System</span></div></div>
+            </div>
+          </div>
+          <div class="arr">→</div>
+          <div class="step step--end"><div class="step-name">Report complete</div><div class="step-desc">Delivery logged; report archived with metadata</div><span class="badge badge--system">System</span></div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ──────────────────────────────────
+         SECTION: Platform Admin Workflow
+    ────────────────────────────────── -->
+    <section class="section" id="wf-admin">
+      <div class="section-header">
+        <div class="section-breadcrumb">Workflows · Role</div>
+        <h1 class="section-title">Platform Admin Workflow</h1>
+        <p class="section-desc">Platform Admin operates exclusively in Account Management space. This role configures the platform, manages users, and maintains RBAC — it is not an operational trading role.</p>
+      </div>
+
+      <div class="legend">
+        <div class="legend-item"><div class="legend-dot" style="background:#1A5C96"></div> Platform Admin</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#AAAAAA"></div> System</div>
+        <div class="legend-item"><div class="legend-dot" style="background:none;border:1.5px dashed #D4A86A;width:11px;height:11px;border-radius:2px;"></div> Decision point</div>
+      </div>
+
+      <!-- WF1: New Firm Onboarding -->
+      <div class="workflow">
+        <div class="wf-header"><div class="wf-num" style="background:#1A5C96;">1</div><div class="wf-title">New Firm Onboarding</div></div>
+        <div class="wf-meta">
+          <div class="wf-meta-item">Trigger: <b>New client firm signed up</b></div>
+          <div class="wf-meta-item">End state: <b>Firm active on platform</b></div>
+          <div class="wf-meta-item">Frequency: <b>Per new firm</b></div>
+        </div>
+        <div class="flow">
+          <div class="step step--start"><div class="step-name">New firm signed up</div><div class="step-desc">Sales or onboarding team confirms new client firm</div><span class="badge" style="background:#E8F2FB;color:#1A5C96;">Platform Admin</span></div>
+          <div class="arr">→</div>
+          <div class="step"><div class="step-name">Create organisation account</div><div class="step-desc">Set up top-level business account for the firm</div><span class="badge" style="background:#E8F2FB;color:#1A5C96;">Platform Admin</span></div>
+          <div class="arr">→</div>
+          <div class="step"><div class="step-name">Configure RBAC templates</div><div class="step-desc">Define role tiers and permission sets for the organisation</div><span class="badge" style="background:#E8F2FB;color:#1A5C96;">Platform Admin</span></div>
+          <div class="arr">→</div>
+          <div class="decision"><div class="decision-label">Decision</div><div class="decision-q">Standard configuration or custom?</div></div>
+          <div class="arr">→</div>
+          <div class="branch-block">
+            <div class="branch-row">
+              <div class="branch-path"><span class="branch-tag" style="background:#E3F2ED;color:#1F6B4A;">Standard</span><div class="step"><div class="step-name">Apply configuration template</div><div class="step-desc">Use pre-built DM, IFA, PO, or GC template</div><span class="badge" style="background:#E8F2FB;color:#1A5C96;">Platform Admin</span></div></div>
+              <div class="branch-divider"></div>
+              <div class="branch-path"><span class="branch-tag" style="background:#FDF3E7;color:#7A4A10;">Custom</span><div class="step"><div class="step-name">Configure permissions manually</div><div class="step-desc">Define custom role-permission combinations for the firm</div><span class="badge" style="background:#E8F2FB;color:#1A5C96;">Platform Admin</span></div></div>
+            </div>
+          </div>
+          <div class="arr">→</div>
+          <div class="step"><div class="step-name">Create user accounts and assign roles</div><div class="step-desc">Set up Principal, Trader, Observer accounts with appropriate access</div><span class="badge" style="background:#E8F2FB;color:#1A5C96;">Platform Admin</span></div>
+          <div class="arr">→</div>
+          <div class="step"><div class="step-name">Set billing and subscription</div><div class="step-desc">Configure billing plan, payment method, and subscription tier</div><span class="badge" style="background:#E8F2FB;color:#1A5C96;">Platform Admin</span></div>
+          <div class="arr">→</div>
+          <div class="step"><div class="step-name">Send user invitations</div><div class="step-desc">Invitation emails dispatched to all configured users</div><span class="badge badge--system">System</span></div>
+          <div class="arr">→</div>
+          <div class="step step--end"><div class="step-name">Firm active on platform</div><div class="step-desc">Organisation ready; users can log in and begin operations</div><span class="badge badge--system">System</span></div>
+        </div>
+      </div>
+
+      <!-- WF2: User & Role Management -->
+      <div class="workflow">
+        <div class="wf-header"><div class="wf-num" style="background:#1A5C96;">2</div><div class="wf-title">User &amp; Role Management</div></div>
+        <div class="wf-meta">
+          <div class="wf-meta-item">Trigger: <b>Role change or access request</b></div>
+          <div class="wf-meta-item">End state: <b>Access updated or request rejected</b></div>
+          <div class="wf-meta-item">Frequency: <b>As needed</b></div>
+        </div>
+        <div class="flow">
+          <div class="step step--start"><div class="step-name">Request received</div><div class="step-desc">Role change or access request from Principal or Compliance</div><span class="badge" style="background:#E8F2FB;color:#1A5C96;">Platform Admin</span></div>
+          <div class="arr">→</div>
+          <div class="step"><div class="step-name">Review request</div><div class="step-desc">Verify request source, target user, and requested role changes</div><span class="badge" style="background:#E8F2FB;color:#1A5C96;">Platform Admin</span></div>
+          <div class="arr">→</div>
+          <div class="decision"><div class="decision-label">Decision</div><div class="decision-q">Request valid and within policy?</div></div>
+          <div class="arr">→</div>
+          <div class="branch-block">
+            <div class="branch-row">
+              <div class="branch-path"><span class="branch-tag branch-tag--no">No</span><div class="step"><div class="step-name">Reject with reason</div><div class="step-desc">Request denied; requester notified with explanation</div><span class="badge" style="background:#E8F2FB;color:#1A5C96;">Platform Admin</span></div></div>
+              <div class="branch-divider"></div>
+              <div class="branch-path"><span class="branch-tag branch-tag--yes">Yes</span><div class="step"><div class="step-name">Update role assignment</div><div class="step-desc">Modify user's role in RBAC; effective immediately</div><span class="badge" style="background:#E8F2FB;color:#1A5C96;">Platform Admin</span></div></div>
+            </div>
+          </div>
+          <div class="arr">→</div>
+          <div class="step"><div class="step-name">Notify affected user</div><div class="step-desc">User informed of role change via notification</div><span class="badge badge--system">System</span></div>
+          <div class="arr">→</div>
+          <div class="step step--end"><div class="step-name">Access updated</div><div class="step-desc">New permissions active; change logged in audit trail</div><span class="badge badge--system">System</span></div>
+        </div>
+      </div>
+
+      <!-- WF3: User Offboarding -->
+      <div class="workflow">
+        <div class="wf-header"><div class="wf-num" style="background:#1A5C96;">3</div><div class="wf-title">User Offboarding</div></div>
+        <div class="wf-meta">
+          <div class="wf-meta-item">Trigger: <b>User departure or access revocation</b></div>
+          <div class="wf-meta-item">End state: <b>User offboarded</b></div>
+          <div class="wf-meta-item">Frequency: <b>As needed</b></div>
+        </div>
+        <div class="flow">
+          <div class="step step--start"><div class="step-name">Offboarding required</div><div class="step-desc">User departure confirmed or access revocation requested</div><span class="badge" style="background:#E8F2FB;color:#1A5C96;">Platform Admin</span></div>
+          <div class="arr">→</div>
+          <div class="step"><div class="step-name">Identify accounts and roles</div><div class="step-desc">Audit all accounts, roles, and permissions held by this user</div><span class="badge" style="background:#E8F2FB;color:#1A5C96;">Platform Admin</span></div>
+          <div class="arr">→</div>
+          <div class="decision"><div class="decision-label">Decision</div><div class="decision-q">Account ownership transfer needed?</div></div>
+          <div class="arr">→</div>
+          <div class="branch-block">
+            <div class="branch-row">
+              <div class="branch-path"><span class="branch-tag branch-tag--yes">Yes</span><div class="step"><div class="step-name">Transfer Principal ownership</div><div class="step-desc">Reassign Principal role to another user before revoking access</div><span class="badge" style="background:#E8F2FB;color:#1A5C96;">Platform Admin</span></div></div>
+              <div class="branch-divider"></div>
+              <div class="branch-path"><span class="branch-tag branch-tag--no">No</span><div class="step"><div class="step-name">Proceed</div><div class="step-desc">No ownership dependencies; safe to revoke</div><span class="badge badge--system">System</span></div></div>
+            </div>
+          </div>
+          <div class="arr">→</div>
+          <div class="step"><div class="step-name">Revoke all access</div><div class="step-desc">Remove all role assignments and deactivate user account</div><span class="badge" style="background:#E8F2FB;color:#1A5C96;">Platform Admin</span></div>
+          <div class="arr">→</div>
+          <div class="step"><div class="step-name">Confirm removal in audit log</div><div class="step-desc">System records full offboarding action with timestamp</div><span class="badge badge--system">System</span></div>
+          <div class="arr">→</div>
+          <div class="step step--end"><div class="step-name">User offboarded</div><div class="step-desc">Access fully revoked; audit trail complete</div><span class="badge badge--system">System</span></div>
+        </div>
+      </div>
+    </section>
+
 
     <!-- ──────────────────────────────────
          SECTION: Glossary
@@ -2101,9 +3248,9 @@
         }
       </style>
 
-      <!-- ── 1. Platform Modes & Roles ── -->
+      <!-- ── 1. Platform Configurations & Roles ── -->
       <div class="gloss-section">
-        <div class="gloss-section-title">1 · Platform Modes &amp; Roles</div>
+        <div class="gloss-section-title">1 · Platform Configurations &amp; Roles</div>
 
         <div class="gloss-entry">
           <div><div class="gloss-term">Account Holder</div><div class="gloss-badges"></div></div>
@@ -2127,17 +3274,17 @@
 
         <div class="gloss-entry">
           <div><div class="gloss-term">Controller / Approver</div><div class="gloss-badges"><span class="gloss-badge gloss-badge--new">New</span></div></div>
-          <div><div class="gloss-def">A sub-type of the Governance + Compliance platform mode with authority to approve, reject, freeze accounts, and escalate issues. Cannot trade or move funds directly. Distinct from the Read-Only Observer sub-type, which has no action capability. See also: Segregation of Duties.</div><div class="gloss-source">Source: Luno Institutional IA</div></div>
+          <div><div class="gloss-def">A sub-type of the Governance + Compliance platform configuration with authority to approve, reject, freeze accounts, and escalate issues. Cannot trade or move funds directly. Distinct from the Read-Only Observer sub-type, which has no action capability. See also: Segregation of Duties.</div><div class="gloss-source">Source: Luno Institutional IA</div></div>
         </div>
 
         <div class="gloss-entry">
           <div><div class="gloss-term">Discretionary Manager</div><div class="gloss-badges"><span class="gloss-badge gloss-badge--new">New</span></div></div>
-          <div><div class="gloss-def">Platform mode for operators who both govern account structures and execute fund operations on behalf of clients. Clients typically have no platform access. The manager is supported by a trading team executing within defined mandates. Absorbs personas: Asset Manager, Fund Manager, Family Office / Wealth Manager, Bundle-Based Asset Manager, Algorithmic Trader.</div><div class="gloss-source">Source: Luno Institutional IA</div></div>
+          <div><div class="gloss-def">Platform configuration for operators who both govern account structures and execute fund operations on behalf of clients. Clients typically have no platform access. The manager is supported by a trading team executing within defined mandates. Absorbs personas: Asset Manager, Fund Manager, Family Office / Wealth Manager, Bundle-Based Asset Manager, Algorithmic Trader.</div><div class="gloss-source">Source: Luno Institutional IA</div></div>
         </div>
 
         <div class="gloss-entry">
           <div><div class="gloss-term">Governance + Compliance</div><div class="gloss-badges"><span class="gloss-badge gloss-badge--new">New</span></div></div>
-          <div><div class="gloss-def">Platform mode providing approvals, audit trails, and read-only oversight. Has two sub-types: Read-Only Observer and Controller / Approver. This role never executes trades or moves funds directly. Hard rule: a person who moves funds or trades on an account cannot hold this role on the same accounts.</div><div class="gloss-source">Source: Luno Institutional IA</div></div>
+          <div><div class="gloss-def">Platform configuration providing approvals, audit trails, and read-only oversight. Has two sub-types: Read-Only Observer and Controller / Approver. This role never executes trades or moves funds directly. Hard rule: a person who moves funds or trades on an account cannot hold this role on the same accounts.</div><div class="gloss-source">Source: Luno Institutional IA</div></div>
         </div>
 
         <div class="gloss-entry">
@@ -2152,22 +3299,22 @@
 
         <div class="gloss-entry">
           <div><div class="gloss-term">Operator / Business Operator</div><div class="gloss-badges"><span class="gloss-badge gloss-badge--updated">Updated</span></div></div>
-          <div><div class="gloss-def">Historically, a user authorised to operate on a business account via a limited legacy "operator" system. In the new architecture this concept is replaced by the generalised User Login + Identity + RBAC model and the four Platform Modes. The term "operator" may still appear in legacy API and code references.</div><div class="gloss-source">Source: B2B 2026 Workshop Day 2; Luno Institutional IA</div></div>
+          <div><div class="gloss-def">Historically, a user authorised to operate on a business account via a limited legacy "operator" system. In the new architecture this concept is replaced by the generalised User Login + Identity + RBAC model and the four Platform Configurations. The term "operator" may still appear in legacy API and code references.</div><div class="gloss-source">Source: B2B 2026 Workshop Day 2; Luno Institutional IA</div></div>
         </div>
 
         <div class="gloss-entry">
-          <div><div class="gloss-term">Platform Mode</div><div class="gloss-badges"><span class="gloss-badge gloss-badge--new">New</span></div></div>
-          <div><div class="gloss-def">One of four discrete operational contexts on the Institutional platform — Discretionary Manager, Wealth Advisor / IFA, Programmatic Operator, and Governance + Compliance — each with its own navigation, permissions, and mental model. A single user may hold more than one mode, scoped to specific accounts or funds. Complexity lives in settings and permissions, not in the navigation.</div><div class="gloss-source">Source: Luno Institutional IA</div></div>
+          <div><div class="gloss-term">Platform Configuration</div><div class="gloss-badges"><span class="gloss-badge gloss-badge--new">New</span></div></div>
+          <div><div class="gloss-def">One of four discrete operational contexts on the Institutional platform — Discretionary Manager, Wealth Advisor / IFA, Programmatic Operator, and Governance + Compliance — each with its own navigation, permissions, and mental model. A single user may hold more than one configuration, scoped to specific accounts or funds. Complexity lives in settings and permissions, not in the navigation.</div><div class="gloss-source">Source: Luno Institutional IA</div></div>
         </div>
 
         <div class="gloss-entry">
           <div><div class="gloss-term">Programmatic Operator</div><div class="gloss-badges"><span class="gloss-badge gloss-badge--new">New</span></div></div>
-          <div><div class="gloss-def">Platform mode for API-first, high-volume, automated operations. Primary interface is the API and developer tooling, not a UI dashboard. Used by arbitrage traders, algorithmic / bot traders, and operators managing potentially thousands of sub-accounts at scale. Supports bulk distribution, bulk collection, and per-strategy P&L tracking.</div><div class="gloss-source">Source: Luno Institutional IA</div></div>
+          <div><div class="gloss-def">Platform configuration for API-first, high-volume, automated operations. Primary interface is the API and developer tooling, not a UI dashboard. Used by arbitrage traders, algorithmic / bot traders, and operators managing potentially thousands of sub-accounts at scale. Supports bulk distribution, bulk collection, and per-strategy P&L tracking.</div><div class="gloss-source">Source: Luno Institutional IA</div></div>
         </div>
 
         <div class="gloss-entry">
           <div><div class="gloss-term">Read-Only Observer</div><div class="gloss-badges"><span class="gloss-badge gloss-badge--new">New</span></div></div>
-          <div><div class="gloss-def">A sub-type of the Governance + Compliance platform mode with view-only access across accounts. Can monitor, reconcile, and generate reports, but cannot approve actions or intervene in operations. May not require individual KYC if strictly observational. See also: Controller / Approver.</div><div class="gloss-source">Source: Luno Institutional IA; Sub-accounts Persona and resources</div></div>
+          <div><div class="gloss-def">A sub-type of the Governance + Compliance platform configuration with view-only access across accounts. Can monitor, reconcile, and generate reports, but cannot approve actions or intervene in operations. May not require individual KYC if strictly observational. See also: Controller / Approver.</div><div class="gloss-source">Source: Luno Institutional IA; Sub-accounts Persona and resources</div></div>
         </div>
 
         <div class="gloss-entry">
@@ -2182,12 +3329,12 @@
 
         <div class="gloss-entry">
           <div><div class="gloss-term">View-Only Role Access</div><div class="gloss-badges"><span class="gloss-badge gloss-badge--updated">Updated</span></div></div>
-          <div><div class="gloss-def">Access pattern providing read-only views on accounts or portfolios with no ability to trade or move funds. In the Institutional IA this is formalised as the Read-Only Observer sub-type of the Governance + Compliance platform mode. May not require KYC if the user performs no transactions. See also: Controller / Approver for the action-capable variant.</div><div class="gloss-source">Source: Sub-accounts Persona and resources; Luno Institutional IA</div></div>
+          <div><div class="gloss-def">Access pattern providing read-only views on accounts or portfolios with no ability to trade or move funds. In the Institutional IA this is formalised as the Read-Only Observer sub-type of the Governance + Compliance platform configuration. May not require KYC if the user performs no transactions. See also: Controller / Approver for the action-capable variant.</div><div class="gloss-source">Source: Sub-accounts Persona and resources; Luno Institutional IA</div></div>
         </div>
 
         <div class="gloss-entry">
           <div><div class="gloss-term">Wealth Advisor / IFA</div><div class="gloss-badges"><span class="gloss-badge gloss-badge--new">New</span></div></div>
-          <div><div class="gloss-def">Platform mode for client-facing advisory and portfolio management. The only platform mode where clients may have direct access (view-only or full trading). Contains a dedicated Client Panel as a core structural component — surfacing client account data within the advisor's own navigation, not as a separate mode. Absorbs personas: Financial Advisory Firm, Independent Financial Advisor, Broker / Institutional Desk.</div><div class="gloss-source">Source: Luno Institutional IA</div></div>
+          <div><div class="gloss-def">Platform configuration for client-facing advisory and portfolio management. The only platform configuration where clients may have direct access (view-only or full trading). Contains a dedicated Client Panel as a core structural component — surfacing client account data within the advisor's own navigation, not as a separate configuration. Absorbs personas: Financial Advisory Firm, Independent Financial Advisor, Broker / Institutional Desk.</div><div class="gloss-source">Source: Luno Institutional IA</div></div>
         </div>
       </div>
 
@@ -2203,7 +3350,7 @@
 
         <div class="gloss-entry">
           <div><div class="gloss-term">Corporate Treasury (persona)</div><div class="gloss-badges"></div></div>
-          <div><div class="gloss-def">Business customer managing liquidity across entities or subsidiaries, often using Business-to-Business Sharing and sub-accounts for segregation. Typically requires multi-approver withdrawal policies and inter-entity transfers. Maps to Account Owner role in the Institutional IA.</div><div class="gloss-source">Source: Sub-accounts Persona and resources</div></div>
+          <div><div class="gloss-def">Business customer managing liquidity across entities or subsidiaries, often using Business-to-Business Sharing and sub-accounts for segregation. Typically requires multi-approver withdrawal policies and inter-entity transfers. Maps to Principal role in the Institutional IA.</div><div class="gloss-source">Source: Sub-accounts Persona and resources</div></div>
         </div>
 
         <div class="gloss-entry">
@@ -2223,12 +3370,12 @@
 
         <div class="gloss-entry">
           <div><div class="gloss-term">Family Office / Wealth Manager (persona)</div><div class="gloss-badges"></div></div>
-          <div><div class="gloss-def">Manages funds across multiple businesses or individuals, often using Business-to-Business Sharing and sub-accounts / client accounts. May involve optional ownership transfer of accounts between entities. Maps to Discretionary Manager or Wealth Advisor / IFA platform mode depending on client access model.</div><div class="gloss-source">Source: Sub-accounts Persona and resources</div></div>
+          <div><div class="gloss-def">Manages funds across multiple businesses or individuals, often using Business-to-Business Sharing and sub-accounts / client accounts. May involve optional ownership transfer of accounts between entities. Maps to Discretionary Manager or Wealth Advisor / IFA platform configuration depending on client access model.</div><div class="gloss-source">Source: Sub-accounts Persona and resources</div></div>
         </div>
 
         <div class="gloss-entry">
           <div><div class="gloss-term">Fund Manager (persona)</div><div class="gloss-badges"></div></div>
-          <div><div class="gloss-def">A professional entity or individual managing client funds, often via sub-accounts or portfolios. Operates on behalf of the customer account. Maps to Discretionary Manager platform mode in the Institutional IA.</div><div class="gloss-source">Source: B2B 2026 Workshop Day 2</div></div>
+          <div><div class="gloss-def">A professional entity or individual managing client funds, often via sub-accounts or portfolios. Operates on behalf of the customer account. Maps to Discretionary Manager platform configuration in the Institutional IA.</div><div class="gloss-source">Source: B2B 2026 Workshop Day 2</div></div>
         </div>
 
         <div class="gloss-entry">
@@ -2248,7 +3395,7 @@
 
         <div class="gloss-entry">
           <div><div class="gloss-term">Intermediary / Channel Customer</div><div class="gloss-badges"></div></div>
-          <div><div class="gloss-def">A business entity that holds the Luno Business Account and manages indirect customers on their behalf. Examples: asset managers, advisors, brokers, custodians. Equivalent to the Account Owner role in the Institutional IA.</div><div class="gloss-source">Source: Sub-accounts Persona and resources</div></div>
+          <div><div class="gloss-def">A business entity that holds the Luno Business Account and manages indirect customers on their behalf. Examples: asset managers, advisors, brokers, custodians. Equivalent to the Principal role in the Institutional IA.</div><div class="gloss-source">Source: Sub-accounts Persona and resources</div></div>
         </div>
       </div>
 
@@ -2279,7 +3426,7 @@
 
         <div class="gloss-entry">
           <div><div class="gloss-term">Client Access Model</div><div class="gloss-badges"><span class="gloss-badge gloss-badge--new">New</span></div></div>
-          <div><div class="gloss-def">The three-tier model for client platform access used in the Wealth Advisor / IFA mode: (1) No Access — advisor manages everything, client receives reports only; (2) View-Only — client can see their portfolio but cannot trade or move funds; (3) Full Trading Access — client can trade and move funds independently alongside the advisor.</div><div class="gloss-source">Source: Luno Institutional IA</div></div>
+          <div><div class="gloss-def">The three-tier model for client platform access used in the Wealth Advisor / IFA configuration: (1) No Access — advisor manages everything, client receives reports only; (2) View-Only — client can see their portfolio but cannot trade or move funds; (3) Full Trading Access — client can trade and move funds independently alongside the advisor.</div><div class="gloss-source">Source: Luno Institutional IA</div></div>
         </div>
 
         <div class="gloss-entry">
@@ -2289,7 +3436,7 @@
 
         <div class="gloss-entry">
           <div><div class="gloss-term">Client Panel</div><div class="gloss-badges"><span class="gloss-badge gloss-badge--new">New</span></div></div>
-          <div><div class="gloss-def">The dedicated interface within the Wealth Advisor / IFA platform mode for viewing and managing individual client accounts. Client account data surfaces here as a core feature of the advisor's workflow — not a hat-switch to a separate mode. Must show: holdings, performance, allocation drift, transaction history, and a space to document recommendations.</div><div class="gloss-source">Source: Luno Institutional IA</div></div>
+          <div><div class="gloss-def">The dedicated interface within the Wealth Advisor / IFA platform configuration for viewing and managing individual client accounts. Client account data surfaces here as a core feature of the advisor's workflow — not a hat-switch to a separate configuration. Must show: holdings, performance, allocation drift, transaction history, and a space to document recommendations.</div><div class="gloss-source">Source: Luno Institutional IA</div></div>
         </div>
 
         <div class="gloss-entry">
@@ -2466,28 +3613,28 @@
 
 
     <!-- ──────────────────────────────────
-         SECTION: Permissions Matrix
+         SECTION: Configuration Matrix
     ────────────────────────────────── -->
-    <section class="section" id="permissions">
+    <section class="section" id="config-matrix">
       <div class="section-header">
-        <div class="section-breadcrumb">Overview</div>
-        <h1 class="section-title">Permissions Matrix</h1>
-        <p class="section-desc">What each platform mode can do, mapped across six capability domains. Click any column header to focus that role. Sections are collapsible.</p>
+        <div class="section-breadcrumb">Permissions</div>
+        <h1 class="section-title">Configuration Matrix</h1>
+        <p class="section-desc">Capabilities mapped by platform configuration. This matrix shows what each configuration type enables — use the Role Permissions matrix for a role-level view of what individual users can do.</p>
       </div>
 
       <!-- Role → base role mapping -->
       <div class="pm-role-map">
         <div class="pm-map-card pm-map-card--dm">
           <div class="pm-map-mode">Discretionary Manager</div>
-          <div class="pm-map-base">AO + T — account owner and trader; often the same person in smaller firms, structurally separate for audit</div>
+          <div class="pm-map-base">P + T — Principal and Trader; often the same person in smaller firms, structurally separate for audit</div>
         </div>
         <div class="pm-map-card pm-map-card--ifa">
           <div class="pm-map-mode">Wealth Advisor / IFA</div>
-          <div class="pm-map-base">AO + T (advisor) — client holds C sub-role with view-only or co-trading access per configuration</div>
+          <div class="pm-map-base">P + T (advisor) — client holds C sub-role with view-only or co-trading access per configuration</div>
         </div>
         <div class="pm-map-card pm-map-card--po">
           <div class="pm-map-mode">Programmatic Operator</div>
-          <div class="pm-map-base">AO + T (automated) — operator may be human or system; permissions scoped per strategy or sub-account</div>
+          <div class="pm-map-base">P + T (automated) — operator may be human or system; permissions scoped per strategy or sub-account</div>
         </div>
         <div class="pm-map-card pm-map-card--gc">
           <div class="pm-map-mode">Governance + Compliance</div>
@@ -2495,7 +3642,7 @@
         </div>
         <div class="pm-map-card pm-map-card--adm">
           <div class="pm-map-mode">Platform Admin</div>
-          <div class="pm-map-base">Above all modes — lives in Account Management; manages RBAC templates, org settings, billing. Not an operational role</div>
+          <div class="pm-map-base">Above all configurations — lives in Account Management; manages RBAC templates, org settings, billing. Not an operational role</div>
         </div>
       </div>
 
@@ -2521,13 +3668,13 @@
 
       <p class="pm-footnote">
         <strong>Scope:</strong> All permissions are scoped per account, fund, or sub-account — not global blanket rights. A trader's "allowed" applies only within explicitly assigned accounts. &ensp;
-        <strong>Same person, multiple roles:</strong> In many orgs the same human holds both AO and T. Keep them structurally separate to support larger orgs and maintain a clean audit trail. &ensp;
-        <strong>Client (C) sub-role:</strong> In IFA mode, client access depends on the three-tier model — No Access, View-Only, or Full Trading — configured per client by the advisor.
+        <strong>Same person, multiple roles:</strong> In many orgs the same human holds both P and T (Principal and Trader). Keep them structurally separate to support larger orgs and maintain a clean audit trail. &ensp;
+        <strong>Client (C) sub-role:</strong> In the IFA configuration, client access depends on the three-tier model — No Access, View-Only, or Full Trading — configured per client by the advisor.
       </p>
     </section>
 
   <script>
-  /* ─── Permissions Matrix ─── */
+  /* ─── Configuration Matrix ─── */
   (function () {
     const A = "A", N = "N", C = "C";
 
@@ -2539,7 +3686,7 @@
         { a:"Define / edit investment mandate &amp; risk limits",   dm:{s:A},           ifa:{s:A,n:"+ client approves"}, po:{s:C,n:"within limits"}, gc:{s:C,n:"compliance sign-off"}, adm:{s:A} },
         { a:"Assign &amp; revoke user roles",                       dm:{s:A},           ifa:{s:A},              po:{s:A},          gc:{s:N},                           adm:{s:A} },
         { a:"Configure allowed assets / products per account",      dm:{s:A},           ifa:{s:A},              po:{s:A},          gc:{s:C,n:"compliance"},            adm:{s:A} },
-        { a:"Close / archive an account or fund",                   dm:{s:A},           ifa:{s:A},              po:{s:A},          gc:{s:C,n:"ops + AO approval"},     adm:{s:A} },
+        { a:"Close / archive an account or fund",                   dm:{s:A},           ifa:{s:A},              po:{s:A},          gc:{s:C,n:"ops + Principal approval"},     adm:{s:A} },
         { a:"Lock / freeze an account",                             dm:{s:C,n:"own accounts"}, ifa:{s:C,n:"own accounts"}, po:{s:C,n:"own accounts"}, gc:{s:A},       adm:{s:A} },
       ]},
       { id:"pm2", num:2, title:"Trading &amp; Portfolio Management", rows:[
@@ -2631,9 +3778,9 @@
     ────────────────────────────────── -->
     <section class="section" id="site-map">
       <div class="section-header">
-        <div class="section-breadcrumb">Reference</div>
+        <div class="section-breadcrumb">Institutional IA</div>
         <h1 class="section-title">Site Map</h1>
-        <p class="section-desc">Full platform feature inventory across both product spaces — Account Management and Platform. Use the role filter to see the feature scope for each platform mode.</p>
+        <p class="section-desc">Full platform feature inventory across both product spaces — Account Management and Platform. Use the role filter to see the feature scope for each platform configuration.</p>
       </div>
 
       <div id="smRoleBar" class="sm-role-bar"></div>
@@ -2644,7 +3791,7 @@
           <div class="sm-space-icon">⚙</div>
           <div class="sm-space-meta">
             <div class="sm-space-title">Account Management</div>
-            <div class="sm-space-tagline">Global org setup — accessible from main platform, persists across all operational modes</div>
+            <div class="sm-space-tagline">Global org setup — accessible from main platform, persists across all operational configurations</div>
           </div>
           <span class="sm-space-count" id="smAcctCount"></span>
         </div>
@@ -2664,7 +3811,7 @@
       </div>
 
       <p class="sm-note">
-        <strong>Two-space model:</strong> Account Management handles org setup, onboarding, and billing — it is reachable from the main nav but operates as a distinct space. Platform houses all day-to-day operational features. Sections marked "shared" appear across all role modes — only the feature subset and permission depth changes per role. Features marked ✦ were added beyond the feature boards, derived from workflow analysis.
+        <strong>Two-space model:</strong> Account Management handles org setup, onboarding, and billing — it is reachable from the main nav but operates as a distinct space. Platform houses all day-to-day operational features. Sections marked "shared" appear across all role configurations — only the feature subset and permission depth changes per role. Features marked ✦ were added beyond the feature boards, derived from workflow analysis.
       </p>
     </section>
 
@@ -2709,12 +3856,12 @@
             <tr class="dl-row">
               <td><div class="dl-doc-name">Feature Board — Account Management</div><div class="dl-doc-desc">Sticky-note feature map covering the Account Management space: Onboarding, User Management &amp; Access Control, Account Types, API &amp; Systems Integration, Commercials &amp; Billing</div></td>
               <td><span class="dl-type-pill dl-type--internal">Internal</span></td>
-              <td class="dl-used">Site Map — Account Management space (all 5 sections); Permissions Matrix — Structural &amp; Governance, Onboarding sections</td>
+              <td class="dl-used">Site Map — Account Management space (all 5 sections); Configuration Matrix — Structural &amp; Governance, Onboarding sections</td>
             </tr>
             <tr class="dl-row">
               <td><div class="dl-doc-name">Pre-built IA Site Map (ia_sitemap_html)</div><div class="dl-doc-desc">Earlier role-lens IA site map with interactive role filter. Reviewed as a starting point; structure and feature coverage used as reference, then rebuilt around the two-space model</div></td>
               <td><span class="dl-type-pill dl-type--internal">Internal</span></td>
-              <td class="dl-used">Site Map — informed section taxonomy and role-filter interaction pattern; Permissions Matrix — feature domain groupings</td>
+              <td class="dl-used">Site Map — informed section taxonomy and role-filter interaction pattern; Configuration Matrix — feature domain groupings</td>
             </tr>
           </tbody>
         </table>
@@ -2735,7 +3882,7 @@
             <tr class="dl-row">
               <td><div class="dl-doc-name">luno-institutional-ia.html</div><div class="dl-doc-desc">This document — the primary unified IA artefact for the Luno Institutional product</div></td>
               <td><span class="dl-type-pill dl-type--artefact">Artefact</span></td>
-              <td class="dl-used">Role Matrix · Platform Modes · Permissions Matrix · Site Map · Workflows (DM, IFA, PO, GC) · Glossary · Document Links</td>
+              <td class="dl-used">Role Matrix · Platform Configurations · Configuration Matrix · Site Map · Workflows (DM, IFA, PO, GC) · Glossary · Document Links</td>
             </tr>
             <tr class="dl-row">
               <td><div class="dl-doc-name">role-matrix.html</div><div class="dl-doc-desc">Standalone role matrix diagram (superseded — content merged into luno-institutional-ia.html)</div></td>
@@ -2743,9 +3890,9 @@
               <td class="dl-used">2×2 matrix mapping 14 original personas to 4 platform roles across fund movement and structural control axes</td>
             </tr>
             <tr class="dl-row">
-              <td><div class="dl-doc-name">platform-modes.html</div><div class="dl-doc-desc">Standalone platform modes diagram (superseded — content merged into luno-institutional-ia.html)</div></td>
+              <td><div class="dl-doc-name">platform-modes.html</div><div class="dl-doc-desc">Standalone platform configurations diagram (superseded — content merged into luno-institutional-ia.html)</div></td>
               <td><span class="dl-type-pill dl-type--artefact">Artefact</span></td>
-              <td class="dl-used">4 mode cards with connector arrows to shared permission layer, design principle, and structural exception</td>
+              <td class="dl-used">4 configuration cards with connector arrows to shared permission layer, design principle, and structural exception</td>
             </tr>
             <tr class="dl-row">
               <td><div class="dl-doc-name">discretionary-manager-workflows.html</div><div class="dl-doc-desc">Standalone DM workflow diagrams (superseded — content merged)</div></td>
@@ -2781,7 +3928,7 @@
             <tr class="dl-row">
               <td><div class="dl-doc-name">UN &amp; EU Consolidated Sanctions Lists</div><div class="dl-doc-desc">United Nations and European Union consolidated lists of sanctioned individuals, entities, and jurisdictions</div></td>
               <td><span class="dl-type-pill dl-type--external">Regulatory</span></td>
-              <td class="dl-used">Glossary — Sanctions Screening; Permissions Matrix — Onboarding, KYC &amp; Compliance</td>
+              <td class="dl-used">Glossary — Sanctions Screening; Configuration Matrix — Onboarding, KYC &amp; Compliance</td>
             </tr>
             <tr class="dl-row">
               <td><div class="dl-doc-name">FATF AML Recommendations</div><div class="dl-doc-desc">Financial Action Task Force — 40 Recommendations forming the international standard for AML/CFT compliance</div></td>
@@ -2791,7 +3938,7 @@
             <tr class="dl-row">
               <td><div class="dl-doc-name">MiCA (Markets in Crypto-Assets Regulation)</div><div class="dl-doc-desc">EU regulatory framework for crypto-asset service providers — relevant to custody, trading, and compliance obligations for Luno's European operations</div></td>
               <td><span class="dl-type-pill dl-type--external">Regulatory</span></td>
-              <td class="dl-used">Glossary — Institutional Custody, Segregation of Duties; Permissions Matrix — Structural &amp; Governance</td>
+              <td class="dl-used">Glossary — Institutional Custody, Segregation of Duties; Configuration Matrix — Structural &amp; Governance</td>
             </tr>
           </tbody>
         </table>
