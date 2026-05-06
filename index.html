@@ -652,6 +652,7 @@
     .persona-role-badge--trader    { background: #E3F2ED; color: #1F6B4A; }
     .persona-role-badge--client    { background: #DDEEF9; color: #1A5C96; }
     .persona-role-badge--observer  { background: #EFEFED; color: #3A3A3A; }
+    .persona-role-badge--merchant { background: #FFF0E0; color: #8A4A10; border: 1px solid #F0C090; }
     .persona-role-badge--admin     { background: #E8F2FB; color: #1A5C96; }
 
     .persona-footer {
@@ -1422,6 +1423,26 @@
         <span class="nav-item-label">Document Links</span>
       </div>
     </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">Luno Pay</div>
+      <div class="nav-item" onclick="showSection('merchants')">
+        <div class="nav-item-icon nav-item-icon--amber">Me</div>
+        <span class="nav-item-label">Merchants</span>
+      </div>
+      <div class="nav-item" onclick="showSection('merchant-role')">
+        <div class="nav-item-icon nav-item-icon--amber">Rp</div>
+        <span class="nav-item-label">Role & Permissions</span>
+      </div>
+      <div class="nav-item" onclick="showSection('merchant-workflows')">
+        <div class="nav-item-icon nav-item-icon--amber">Wf</div>
+        <span class="nav-item-label">Workflows</span>
+      </div>
+      <div class="nav-item" onclick="showSection('merchant-sitemap')">
+        <div class="nav-item-icon nav-item-icon--amber">SM</div>
+        <span class="nav-item-label">Site Map</span>
+      </div>
+    </div>
   </nav>
 
 
@@ -1732,6 +1753,15 @@
           <div class="persona-card__desc">Oversight and audit role; no trading access.</div>
           <div class="persona-card__roles">
             <span class="persona-role-badge persona-role-badge--observer">Observer</span>
+          </div>
+        </div>
+
+        <div class="persona-card" onclick="openPersonaModal(14)">
+          <div class="persona-card__num">15</div>
+          <div class="persona-card__name">Luno Pay Merchant</div>
+          <div class="persona-card__desc">Retail or online business accepting cryptocurrency payments via Luno Pay and the ZARU network.</div>
+          <div class="persona-card__roles">
+            <span class="persona-role-badge persona-role-badge--merchant">Merchant</span>
           </div>
         </div>
 
@@ -4394,6 +4424,494 @@
       </p>
     </section>
 
+    <!-- ═══════════════════════════════════
+         SECTION: Merchants
+    ═══════════════════════════════════ -->
+    <section class="section" id="merchants">
+      <div class="section-header">
+        <div class="section-breadcrumb">Luno Pay</div>
+        <h1 class="section-title">Merchants</h1>
+        <p class="section-desc">Retail and online businesses that accept cryptocurrency payments through Luno Pay and the ZARU network. Unlike institutional roles, merchants are not investors — they receive ZAR settlement from crypto-denominated customer purchases.</p>
+      </div>
+
+      <!-- Block 1: Definition callout -->
+      <div style="margin-bottom: 40px;">
+        <div style="background: var(--amber-light); border-left: 4px solid #C07A20; border-radius: 0 10px 10px 0; padding: 20px 24px; max-width: 860px;">
+          <div style="font-size: 13px; font-weight: 700; color: var(--amber); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.06em;">What is a Luno Pay Merchant?</div>
+          <p style="font-size: 13px; color: #5A3A10; line-height: 1.6; margin: 0;">A Luno Pay Merchant is a registered business that accepts crypto payments at point-of-sale or online via the ZARU network. Customers pay with BTC, ETH, USDT, or other supported assets. The merchant receives ZAR settlement to their bank account and never holds crypto directly. Onboarding includes business KYC and Luno Pay integration via QR code, API, or a payment partner such as Zapper or MoneyBadger.</p>
+        </div>
+      </div>
+
+      <!-- Block 2: Merchant types — 3-column grid -->
+      <div style="margin-bottom: 40px;">
+        <h2 style="font-size: 16px; font-weight: 700; color: #1A1A1A; margin-bottom: 20px;">Merchant types</h2>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+
+          <div style="background: #fff; border: 1px solid #E4E0DC; border-top: 3px solid #C07A20; border-radius: 10px; padding: 20px;">
+            <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--amber); margin-bottom: 10px;">1 — Independent Retailer</div>
+            <p style="font-size: 13px; color: #444; line-height: 1.6; margin: 0 0 12px;">Bricks-and-mortar or online store accepting crypto as an alternative payment method, typically driven by customer demand or Luno co-marketing.</p>
+            <div style="font-size: 11.5px; color: #888;"><strong style="color: #555;">Examples:</strong> GeeWiz Electronics, specialist retail.</div>
+          </div>
+
+          <div style="background: #fff; border: 1px solid #E4E0DC; border-top: 3px solid #C07A20; border-radius: 10px; padding: 20px;">
+            <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--amber); margin-bottom: 10px;">2 — Franchise / Chain</div>
+            <p style="font-size: 13px; color: #444; line-height: 1.6; margin: 0 0 12px;">Multi-location business with centralised reporting needs. Settlement may flow to a single entity with per-store transaction breakdowns required.</p>
+            <div style="font-size: 11.5px; color: #888;"><strong style="color: #555;">Examples:</strong> Pick n Pay, major grocery chains.</div>
+          </div>
+
+          <div style="background: #fff; border: 1px solid #E4E0DC; border-top: 3px solid #C07A20; border-radius: 10px; padding: 20px;">
+            <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--amber); margin-bottom: 10px;">3 — Partner Network Merchant</div>
+            <p style="font-size: 13px; color: #444; line-height: 1.6; margin: 0 0 12px;">Business onboarded via a Luno Pay partner (e.g. Zapper, MoneyBadger). May have different integration and reporting flows.</p>
+            <div style="font-size: 11.5px; color: #888;"><strong style="color: #555;">Examples:</strong> Zapper merchants, MoneyBadger-integrated stores.</div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Block 3: Merchant needs — 2-column -->
+      <div style="margin-bottom: 40px;">
+        <h2 style="font-size: 16px; font-weight: 700; color: #1A1A1A; margin-bottom: 20px;">Merchant needs</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 860px;">
+
+          <div style="background: #fff; border: 1px solid #E4E0DC; border-radius: 10px; padding: 20px;">
+            <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #3A3A3A; margin-bottom: 14px;">Core needs</div>
+            <ul style="margin: 0; padding: 0 0 0 18px; font-size: 13px; color: #444; line-height: 1.7;">
+              <li>Real-time transaction visibility (pending / complete / expired)</li>
+              <li>Settlement status and disbursement history</li>
+              <li>CSV/Excel export for accounting reconciliation</li>
+              <li>Crypto breakdown by asset type</li>
+              <li>New vs. returning customer split</li>
+            </ul>
+          </div>
+
+          <div style="background: #fff; border: 1px solid #E4E0DC; border-radius: 10px; padding: 20px;">
+            <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #3A3A3A; margin-bottom: 14px;">Emerging needs</div>
+            <ul style="margin: 0; padding: 0 0 0 18px; font-size: 13px; color: #444; line-height: 1.7;">
+              <li>Active promotion visibility and redemption counts</li>
+              <li>Incremental uplift from Luno-driven campaigns</li>
+              <li>Store discoverability within the Luno app</li>
+              <li>Fraud ratio monitoring and dispute management</li>
+              <li>Geographic breakdown of paying customers</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Block 4: Merchant voice — pull-quote -->
+      <div style="max-width: 860px;">
+        <div style="background: #FFFAF4; border-left: 4px solid #C07A20; border-radius: 0 10px 10px 0; padding: 24px 28px;">
+          <p style="font-size: 14.5px; color: #3A2510; line-height: 1.7; margin: 0 0 16px; font-style: italic;">"I run a retail store that accepts crypto through Luno Pay. My customers pay with BTC or USDT at checkout and I receive ZAR settlement. I'm not a crypto investor — I need to see which payments came through today, when the money will hit my bank account, how the Luno promotions are performing for my store, and whether any suspicious transactions need my attention. I want simple reports I can hand to my accountant."</p>
+          <div style="font-size: 11.5px; color: #8A6030; font-weight: 600;">Composite merchant voice — GeeWiz Electronics and Pick n Pay Luno Pay integration (2024)</div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ═══════════════════════════════════
+         SECTION: Merchant Role & Permissions
+    ═══════════════════════════════════ -->
+    <section class="section" id="merchant-role">
+      <div class="section-header">
+        <div class="section-breadcrumb">Luno Pay</div>
+        <h1 class="section-title">Merchant Role &amp; Permissions</h1>
+        <p class="section-desc">The Merchant is a new platform role scoped entirely to Luno Pay. Unlike the institutional roles (Principal, Trader, Client, Observer), the Merchant never trades, moves crypto, or accesses any institutional features. Access is read-only with a single export action.</p>
+      </div>
+
+      <!-- Block 1: Role summary card -->
+      <div style="margin-bottom: 40px;">
+        <div style="background: #fff; border: 1px solid #E4E0DC; border-top: 4px solid #C07A20; border-radius: 10px; padding: 24px; max-width: 640px;">
+          <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--amber); margin-bottom: 16px;">Role summary</div>
+          <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
+            <tbody>
+              <tr style="border-bottom: 1px solid #F2EFEB;">
+                <td style="padding: 9px 0; color: #888; width: 160px; vertical-align: top;">Role name</td>
+                <td style="padding: 9px 0; color: #1A1A1A; font-weight: 600;">Merchant</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #F2EFEB;">
+                <td style="padding: 9px 0; color: #888; vertical-align: top;">Product</td>
+                <td style="padding: 9px 0; color: #1A1A1A;">Luno Pay Merchant Portal</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #F2EFEB;">
+                <td style="padding: 9px 0; color: #888; vertical-align: top;">Access level</td>
+                <td style="padding: 9px 0; color: #1A1A1A;">Read-only + export</td>
+              </tr>
+              <tr>
+                <td style="padding: 9px 0; color: #888; vertical-align: top;">Does NOT have access to</td>
+                <td style="padding: 9px 0; color: #1A1A1A;">Trading, wallets, OTC, fund management, client management, compliance tools, or any institutional platform features.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Block 2: Permissions table -->
+      <div style="margin-bottom: 40px;">
+        <h2 style="font-size: 16px; font-weight: 700; color: #1A1A1A; margin-bottom: 20px;">Permissions</h2>
+        <div style="background: #fff; border: 1px solid #E4E0DC; border-radius: 10px; overflow: hidden; max-width: 860px;">
+          <table class="dl-table">
+            <thead>
+              <tr>
+                <th style="width: 52%;">Capability</th>
+                <th style="width: 12%; text-align: center;">Merchant</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="dl-row">
+                <td style="font-size: 13px; color: #2A2A2A;">View transaction feed (real-time)</td>
+                <td style="text-align: center; font-size: 15px; font-weight: 700; color: #2E8F62;">✓</td>
+                <td style="font-size: 12px; color: #888;">Pending, complete, expired states</td>
+              </tr>
+              <tr class="dl-row">
+                <td style="font-size: 13px; color: #2A2A2A;">View settlement status</td>
+                <td style="text-align: center; font-size: 15px; font-weight: 700; color: #2E8F62;">✓</td>
+                <td style="font-size: 12px; color: #888;">Per-transaction and aggregate</td>
+              </tr>
+              <tr class="dl-row">
+                <td style="font-size: 13px; color: #2A2A2A;">View disbursement history</td>
+                <td style="text-align: center; font-size: 15px; font-weight: 700; color: #2E8F62;">✓</td>
+                <td style="font-size: 12px; color: #888;">Historical ZAR payouts</td>
+              </tr>
+              <tr class="dl-row">
+                <td style="font-size: 13px; color: #2A2A2A;">Export transactions (CSV / Excel)</td>
+                <td style="text-align: center; font-size: 15px; font-weight: 700; color: #2E8F62;">✓</td>
+                <td style="font-size: 12px; color: #888;">Full date-range export</td>
+              </tr>
+              <tr class="dl-row">
+                <td style="font-size: 13px; color: #2A2A2A;">View analytics dashboard</td>
+                <td style="text-align: center; font-size: 15px; font-weight: 700; color: #2E8F62;">✓</td>
+                <td style="font-size: 12px; color: #888;">Crypto mix, customer segments, geographic</td>
+              </tr>
+              <tr class="dl-row">
+                <td style="font-size: 13px; color: #2A2A2A;">View active promotions</td>
+                <td style="text-align: center; font-size: 15px; font-weight: 700; color: #2E8F62;">✓</td>
+                <td style="font-size: 12px; color: #888;">Read-only; campaigns managed by Luno</td>
+              </tr>
+              <tr class="dl-row">
+                <td style="font-size: 13px; color: #2A2A2A;">View fraud alerts</td>
+                <td style="text-align: center; font-size: 15px; font-weight: 700; color: #2E8F62;">✓</td>
+                <td style="font-size: 12px; color: #888;">Flagged transactions visible; cannot resolve</td>
+              </tr>
+              <tr class="dl-row" style="background: #FAFAF8;">
+                <td style="font-size: 13px; color: #888;">Configure payment integration</td>
+                <td style="text-align: center; font-size: 15px; font-weight: 700; color: #C05050;">✗</td>
+                <td style="font-size: 12px; color: #AAA;">Managed by Luno Pay onboarding team</td>
+              </tr>
+              <tr class="dl-row" style="background: #FAFAF8;">
+                <td style="font-size: 13px; color: #888;">Move or withdraw funds</td>
+                <td style="text-align: center; font-size: 15px; font-weight: 700; color: #C05050;">✗</td>
+                <td style="font-size: 12px; color: #AAA;">Settlement is automated; no merchant action</td>
+              </tr>
+              <tr class="dl-row" style="background: #FAFAF8;">
+                <td style="font-size: 13px; color: #888;">Set pricing or conversion rates</td>
+                <td style="text-align: center; font-size: 15px; font-weight: 700; color: #C05050;">✗</td>
+                <td style="font-size: 12px; color: #AAA;">Rates set by Luno</td>
+              </tr>
+              <tr class="dl-row" style="background: #FAFAF8;">
+                <td style="font-size: 13px; color: #888;">Access other merchants' data</td>
+                <td style="text-align: center; font-size: 15px; font-weight: 700; color: #C05050;">✗</td>
+                <td style="font-size: 12px; color: #AAA;">Fully isolated per merchant account</td>
+              </tr>
+              <tr class="dl-row" style="background: #FAFAF8;">
+                <td style="font-size: 13px; color: #888;">Access institutional platform</td>
+                <td style="text-align: center; font-size: 15px; font-weight: 700; color: #C05050;">✗</td>
+                <td style="font-size: 12px; color: #AAA;">Entirely separate product surface</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Block 3: Key design principle callout -->
+      <div style="max-width: 860px;">
+        <div class="callout" style="background: var(--amber-light); border-left-color: #C07A20; color: #5A3A10; margin-left: 0; max-width: 100%;">
+          <b>Key design principle:</b> "The Merchant role is intentionally narrow. Merchants are operators, not investors. The platform surface should feel closer to a payment analytics dashboard than a financial platform — clarity over configurability."
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ═══════════════════════════════════
+         SECTION: Merchant Workflows
+    ═══════════════════════════════════ -->
+    <section class="section" id="merchant-workflows">
+      <div class="section-header">
+        <div class="section-breadcrumb">Luno Pay</div>
+        <h1 class="section-title">Merchant Workflows</h1>
+        <p class="section-desc">Six day-to-day workflows for a Luno Pay Merchant. All workflows are read-only or export-only — the merchant observes and reconciles; they do not initiate payments or move funds.</p>
+      </div>
+
+      <div class="legend">
+        <div class="legend-item"><div class="legend-dot" style="background:#C07A20"></div> Merchant</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#AAAAAA"></div> System</div>
+        <div class="legend-item"><div class="legend-dot" style="background:none;border:1.5px dashed #D4A86A;width:11px;height:11px;border-radius:2px;"></div> Decision point</div>
+      </div>
+
+      <!-- WF1: Receive & Verify Payment -->
+      <div class="workflow">
+        <div class="wf-header"><div class="wf-num" style="background:#C07A20;">1</div><div class="wf-title">Receive &amp; Verify Payment</div></div>
+        <div class="wf-meta">
+          <div class="wf-meta-item">Trigger: <b>Customer initiates crypto payment at POS or online checkout</b></div>
+          <div class="wf-meta-item">End state: <b>Payment confirmed or expired</b></div>
+          <div class="wf-meta-item">Frequency: <b>Per transaction, throughout the trading day</b></div>
+        </div>
+        <div class="flow">
+          <div class="step step--start"><div class="step-name">Payment request created</div><div class="step-desc">Customer scans QR / initiates payment — 2.5-minute window opens</div><span class="badge badge--system">System</span></div>
+          <div class="arr">→</div>
+          <div class="step"><div class="step-name">Pending transaction visible</div><div class="step-desc">Merchant dashboard shows "Pending" entry for the transaction</div><span class="badge badge--system">System</span></div>
+          <div class="arr">→</div>
+          <div class="decision"><div class="decision-label">Decision</div><div class="decision-q">Payment received within window?</div></div>
+          <div class="arr">→</div>
+          <div class="branch-block">
+            <div class="branch-row">
+              <div class="branch-path"><span class="branch-tag branch-tag--yes">Yes</span><div class="step step--end"><div class="step-name">Transaction confirmed</div><div class="step-desc">Marked "Complete"; merchant sees crypto amount and ZAR value</div><span class="badge badge--system">System</span></div></div>
+              <div class="branch-divider"></div>
+              <div class="branch-path"><span class="branch-tag branch-tag--no">No</span><div class="step step--end"><div class="step-name">Transaction expired</div><div class="step-desc">Marked "Expired"; merchant notified — customer must retry</div><span class="badge badge--system">System</span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- WF2: Daily Reconciliation & Export -->
+      <div class="workflow">
+        <div class="wf-header"><div class="wf-num" style="background:#C07A20;">2</div><div class="wf-title">Daily Reconciliation &amp; Export</div></div>
+        <div class="wf-meta">
+          <div class="wf-meta-item">Trigger: <b>End of business day or accounting run</b></div>
+          <div class="wf-meta-item">End state: <b>CSV/Excel report downloaded and reconciled</b></div>
+          <div class="wf-meta-item">Frequency: <b>Daily</b></div>
+        </div>
+        <div class="flow">
+          <div class="step step--start"><div class="step-name">Open Transactions page</div><div class="step-desc">Merchant navigates to the transaction feed</div><span class="badge" style="background:#FDF3E7;color:#7A4A10;">Merchant</span></div>
+          <div class="arr">→</div>
+          <div class="step"><div class="step-name">Apply filters</div><div class="step-desc">Sets date range, filters by status and asset type</div><span class="badge" style="background:#FDF3E7;color:#7A4A10;">Merchant</span></div>
+          <div class="arr">→</div>
+          <div class="step"><div class="step-name">Review totals</div><div class="step-desc">Cross-checks transaction list against POS system totals</div><span class="badge" style="background:#FDF3E7;color:#7A4A10;">Merchant</span></div>
+          <div class="arr">→</div>
+          <div class="decision"><div class="decision-label">Decision</div><div class="decision-q">Discrepancy found?</div></div>
+          <div class="arr">→</div>
+          <div class="branch-block">
+            <div class="branch-row">
+              <div class="branch-path"><span class="branch-tag branch-tag--yes">Yes</span><div class="step"><div class="step-name">Log for follow-up</div><div class="step-desc">Notes transaction IDs for follow-up with Luno Pay support</div><span class="badge" style="background:#FDF3E7;color:#7A4A10;">Merchant</span></div></div>
+              <div class="branch-divider"></div>
+              <div class="branch-path"><span class="branch-tag branch-tag--no">No</span><div class="step"><div class="step-name">Proceed to export</div><div class="step-desc">Totals reconcile; ready to export</div><span class="badge" style="background:#FDF3E7;color:#7A4A10;">Merchant</span></div></div>
+            </div>
+          </div>
+          <div class="arr">→</div>
+          <div class="step"><div class="step-name">Export report</div><div class="step-desc">Downloads CSV or Excel file with full date-range data</div><span class="badge" style="background:#FDF3E7;color:#7A4A10;">Merchant</span></div>
+          <div class="arr">→</div>
+          <div class="step step--end"><div class="step-name">Report sent to accountant</div><div class="step-desc">File forwarded or imported into accounting system</div><span class="badge" style="background:#FDF3E7;color:#7A4A10;">Merchant</span></div>
+        </div>
+      </div>
+
+      <!-- WF3: Settlement Tracking -->
+      <div class="workflow">
+        <div class="wf-header"><div class="wf-num" style="background:#C07A20;">3</div><div class="wf-title">Settlement Tracking</div></div>
+        <div class="wf-meta">
+          <div class="wf-meta-item">Trigger: <b>Merchant checks when ZAR will arrive in bank account</b></div>
+          <div class="wf-meta-item">End state: <b>Settlement status confirmed</b></div>
+          <div class="wf-meta-item">Frequency: <b>Daily or per disbursement cycle</b></div>
+        </div>
+        <div class="flow">
+          <div class="step step--start"><div class="step-name">Open Settlement page</div><div class="step-desc">Merchant navigates to the settlement dashboard</div><span class="badge" style="background:#FDF3E7;color:#7A4A10;">Merchant</span></div>
+          <div class="arr">→</div>
+          <div class="step"><div class="step-name">Review pending balance</div><div class="step-desc">Crypto received but not yet converted and settled to ZAR</div><span class="badge" style="background:#FDF3E7;color:#7A4A10;">Merchant</span></div>
+          <div class="arr">→</div>
+          <div class="step"><div class="step-name">Review disbursement history</div><div class="step-desc">Views past ZAR payouts with dates and amounts</div><span class="badge" style="background:#FDF3E7;color:#7A4A10;">Merchant</span></div>
+          <div class="arr">→</div>
+          <div class="decision"><div class="decision-label">Decision</div><div class="decision-q">Expected disbursement missing or delayed?</div></div>
+          <div class="arr">→</div>
+          <div class="branch-block">
+            <div class="branch-row">
+              <div class="branch-path"><span class="branch-tag branch-tag--yes">Yes</span><div class="step step--end"><div class="step-name">Contact Luno Pay support</div><div class="step-desc">Merchant raises query with disbursement ID for investigation</div><span class="badge" style="background:#FDF3E7;color:#7A4A10;">Merchant</span></div></div>
+              <div class="branch-divider"></div>
+              <div class="branch-path"><span class="branch-tag branch-tag--no">No</span><div class="step step--end"><div class="step-name">No action required</div><div class="step-desc">Settlement on track; merchant satisfied</div><span class="badge" style="background:#FDF3E7;color:#7A4A10;">Merchant</span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- WF4: Promotion & Campaign Review -->
+      <div class="workflow">
+        <div class="wf-header"><div class="wf-num" style="background:#C07A20;">4</div><div class="wf-title">Promotion &amp; Campaign Review</div></div>
+        <div class="wf-meta">
+          <div class="wf-meta-item">Trigger: <b>Merchant wants to understand how a Luno campaign is performing at their store</b></div>
+          <div class="wf-meta-item">End state: <b>Campaign performance understood; no action required from merchant</b></div>
+          <div class="wf-meta-item">Frequency: <b>Weekly or when campaign is active</b></div>
+        </div>
+        <div class="flow">
+          <div class="step step--start"><div class="step-name">Open Store &amp; Promotions page</div><div class="step-desc">Merchant navigates to the promotions section</div><span class="badge" style="background:#FDF3E7;color:#7A4A10;">Merchant</span></div>
+          <div class="arr">→</div>
+          <div class="step"><div class="step-name">Active promotions listed</div><div class="step-desc">System displays campaigns applicable to this merchant's store</div><span class="badge badge--system">System</span></div>
+          <div class="arr">→</div>
+          <div class="step"><div class="step-name">Review redemption data</div><div class="step-desc">Checks redemption count and total reward volume per campaign</div><span class="badge" style="background:#FDF3E7;color:#7A4A10;">Merchant</span></div>
+          <div class="arr">→</div>
+          <div class="step"><div class="step-name">Review incremental volume</div><div class="step-desc">Assesses transaction uplift attributed to the campaign period</div><span class="badge" style="background:#FDF3E7;color:#7A4A10;">Merchant</span></div>
+          <div class="arr">→</div>
+          <div class="step step--end"><div class="step-name">Performance noted</div><div class="step-desc">Merchant records insights to inform future co-marketing conversations with Luno</div><span class="badge" style="background:#FDF3E7;color:#7A4A10;">Merchant</span></div>
+        </div>
+      </div>
+
+      <!-- WF5: Fraud Alert Review -->
+      <div class="workflow">
+        <div class="wf-header"><div class="wf-num" style="background:#C07A20;">5</div><div class="wf-title">Fraud Alert Review</div></div>
+        <div class="wf-meta">
+          <div class="wf-meta-item">Trigger: <b>System flags a suspicious transaction or merchant notices anomaly</b></div>
+          <div class="wf-meta-item">End state: <b>Alert reviewed and escalated if needed</b></div>
+          <div class="wf-meta-item">Frequency: <b>As alerts arise; reviewed daily</b></div>
+        </div>
+        <div class="flow">
+          <div class="step step--start"><div class="step-name">Fraud alert triggered</div><div class="step-desc">System detects suspicious pattern (rapid repeat payments, compromised account) — alert appears in dashboard</div><span class="badge badge--system">System</span></div>
+          <div class="arr">→</div>
+          <div class="step"><div class="step-name">Review flagged transaction</div><div class="step-desc">Merchant inspects the flagged transaction details</div><span class="badge" style="background:#FDF3E7;color:#7A4A10;">Merchant</span></div>
+          <div class="arr">→</div>
+          <div class="decision"><div class="decision-label">Decision</div><div class="decision-q">Transaction appears fraudulent?</div></div>
+          <div class="arr">→</div>
+          <div class="branch-block">
+            <div class="branch-row">
+              <div class="branch-path"><span class="branch-tag branch-tag--yes">Yes</span>
+                <div class="step"><div class="step-name">Raise dispute</div><div class="step-desc">Merchant contacts Luno Pay support with transaction details</div><span class="badge" style="background:#FDF3E7;color:#7A4A10;">Merchant</span></div>
+                <div class="arr">→</div>
+                <div class="step step--end"><div class="step-name">Chargeback / freeze initiated</div><div class="step-desc">Luno processes the dispute and applies account freeze if warranted</div><span class="badge badge--system">System</span></div>
+              </div>
+              <div class="branch-divider"></div>
+              <div class="branch-path"><span class="branch-tag branch-tag--no">No</span><div class="step step--end"><div class="step-name">Alert dismissed</div><div class="step-desc">Merchant marks as false positive; noted for pattern monitoring</div><span class="badge" style="background:#FDF3E7;color:#7A4A10;">Merchant</span></div></div>
+            </div>
+          </div>
+          <div class="arr">→</div>
+          <div class="step step--end"><div class="step-name">Monitor fraud ratio</div><div class="step-desc">Merchant reviews overall fraud ratio on analytics dashboard</div><span class="badge" style="background:#FDF3E7;color:#7A4A10;">Merchant</span></div>
+        </div>
+      </div>
+
+      <!-- WF6: Store Visibility Check -->
+      <div class="workflow">
+        <div class="wf-header"><div class="wf-num" style="background:#C07A20;">6</div><div class="wf-title">Store Visibility Check</div></div>
+        <div class="wf-meta">
+          <div class="wf-meta-item">Trigger: <b>Merchant wants to confirm they are listed and discoverable within the Luno app</b></div>
+          <div class="wf-meta-item">End state: <b>Merchant confirms listing status and any active featured placements</b></div>
+          <div class="wf-meta-item">Frequency: <b>Ad hoc; typically after onboarding or when a campaign launches</b></div>
+        </div>
+        <div class="flow">
+          <div class="step step--start"><div class="step-name">Open Store &amp; Promotions page</div><div class="step-desc">Merchant navigates to their store listing section</div><span class="badge" style="background:#FDF3E7;color:#7A4A10;">Merchant</span></div>
+          <div class="arr">→</div>
+          <div class="step"><div class="step-name">Review listing status</div><div class="step-desc">Checks whether store is shown as live or not listed in the Luno app</div><span class="badge" style="background:#FDF3E7;color:#7A4A10;">Merchant</span></div>
+          <div class="arr">→</div>
+          <div class="step"><div class="step-name">Review featured placements</div><div class="step-desc">Checks any active featured positions or campaign associations in the Luno app</div><span class="badge" style="background:#FDF3E7;color:#7A4A10;">Merchant</span></div>
+          <div class="arr">→</div>
+          <div class="decision"><div class="decision-label">Decision</div><div class="decision-q">Store not listed or listing incorrect?</div></div>
+          <div class="arr">→</div>
+          <div class="branch-block">
+            <div class="branch-row">
+              <div class="branch-path"><span class="branch-tag branch-tag--yes">Yes</span><div class="step step--end"><div class="step-name">Contact partner manager</div><div class="step-desc">Merchant raises listing issue with Luno Pay partner manager for correction</div><span class="badge" style="background:#FDF3E7;color:#7A4A10;">Merchant</span></div></div>
+              <div class="branch-divider"></div>
+              <div class="branch-path"><span class="branch-tag branch-tag--no">No</span><div class="step step--end"><div class="step-name">No action required</div><div class="step-desc">Listing confirmed correct; merchant satisfied</div><span class="badge" style="background:#FDF3E7;color:#7A4A10;">Merchant</span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ═══════════════════════════════════
+         SECTION: Merchant Site Map
+    ═══════════════════════════════════ -->
+    <section class="section" id="merchant-sitemap">
+      <div class="section-header">
+        <div class="section-breadcrumb">Luno Pay</div>
+        <h1 class="section-title">Merchant Site Map</h1>
+        <p class="section-desc">The four-page structure of the Luno Pay Merchant Portal. Each page maps directly to a merchant job-to-be-done. The portal is a separate product surface from the institutional platform — merchants never see institutional navigation.</p>
+      </div>
+
+      <!-- Merchant Portal space -->
+      <div class="sm-space" style="margin-bottom: 28px;">
+        <div class="sm-space-header" style="background: #FDF3E7; border: 1.5px solid #E0A050; border-radius: 12px 12px 0 0; display: flex; align-items: flex-start; gap: 14px; padding: 14px 18px;">
+          <div class="sm-space-icon" style="font-size: 19px; flex-shrink: 0; margin-top: 1px;">◈</div>
+          <div class="sm-space-meta" style="flex: 1;">
+            <div class="sm-space-title" style="font-size: 15px; font-weight: 700; margin-bottom: 2px; color: #7A4A10;">Merchant Portal</div>
+            <div class="sm-space-tagline" style="font-size: 11.5px; color: #A06830;">Four pages — read-only access to payment activity, settlement, analytics, and store visibility. No institutional features.</div>
+          </div>
+          <span style="font-size: 12px; font-weight: 600; white-space: nowrap; padding-top: 3px; color: #7A4A10;">4 pages</span>
+        </div>
+        <div class="sm-space-body" style="border: 1.5px solid #E0A050; border-top: none; border-radius: 0 0 12px 12px; overflow: hidden;">
+
+          <!-- Page 1: Overview -->
+          <div class="sm-section">
+            <div class="sm-sec-row" style="cursor: default;">
+              <div style="font-size: 11px; font-weight: 700; background: #FDF3E7; color: #7A4A10; border: 1.5px solid #E0A050; border-radius: 6px; padding: 2px 8px; flex-shrink: 0;">1</div>
+              <div class="sm-sec-name">Overview (Dashboard)</div>
+              <div style="font-size: 11px; color: #AAA; font-family: monospace;">/merchant/overview</div>
+              <div style="font-size: 11px; color: #888; font-style: italic; flex-shrink: 0;">Understand today's payment activity at a glance</div>
+            </div>
+            <div class="sm-feats">
+              <div class="sm-feat"><div class="sm-feat-name">KPI tiles — total payments today (count + ZAR value), pending payments, settlement due, active promotions</div></div>
+              <div class="sm-feat"><div class="sm-feat-name">Recent transactions feed (last 10, with status badges)</div></div>
+              <div class="sm-feat"><div class="sm-feat-name">Settlement status summary — pending balance, next disbursement date</div></div>
+              <div class="sm-feat"><div class="sm-feat-name">Active promotion highlight — top campaign by redemption count</div></div>
+              <div class="sm-feat sm-secondary"><div class="sm-feat-name"><strong style="color: #C07A20; font-weight: 600;">Primary action:</strong> Navigate to Transactions or Settlement for detail</div></div>
+            </div>
+          </div>
+
+          <!-- Page 2: Transactions -->
+          <div class="sm-section">
+            <div class="sm-sec-row" style="cursor: default;">
+              <div style="font-size: 11px; font-weight: 700; background: #FDF3E7; color: #7A4A10; border: 1.5px solid #E0A050; border-radius: 6px; padding: 2px 8px; flex-shrink: 0;">2</div>
+              <div class="sm-sec-name">Transactions</div>
+              <div style="font-size: 11px; color: #AAA; font-family: monospace;">/merchant/transactions</div>
+              <div style="font-size: 11px; color: #888; font-style: italic; flex-shrink: 0;">Review, filter, and export the full payment history</div>
+            </div>
+            <div class="sm-feats">
+              <div class="sm-feat"><div class="sm-feat-name">Full transaction table — date, customer ref, asset, crypto amount, ZAR value, status</div></div>
+              <div class="sm-feat"><div class="sm-feat-name">Filter bar — date range, status (pending / complete / expired), asset type</div></div>
+              <div class="sm-feat"><div class="sm-feat-name">Transaction detail drawer — payment lifecycle timing, crypto conversion rate</div></div>
+              <div class="sm-feat"><div class="sm-feat-name">Fraud alert flags inline on flagged transactions</div></div>
+              <div class="sm-feat sm-secondary"><div class="sm-feat-name"><strong style="color: #C07A20; font-weight: 600;">Primary action:</strong> Export CSV / Excel</div></div>
+            </div>
+          </div>
+
+          <!-- Page 3: Analytics -->
+          <div class="sm-section">
+            <div class="sm-sec-row" style="cursor: default;">
+              <div style="font-size: 11px; font-weight: 700; background: #FDF3E7; color: #7A4A10; border: 1.5px solid #E0A050; border-radius: 6px; padding: 2px 8px; flex-shrink: 0;">3</div>
+              <div class="sm-sec-name">Analytics</div>
+              <div style="font-size: 11px; color: #AAA; font-family: monospace;">/merchant/analytics</div>
+              <div style="font-size: 11px; color: #888; font-style: italic; flex-shrink: 0;">Understand who is paying with crypto and with what</div>
+            </div>
+            <div class="sm-feats">
+              <div class="sm-feat"><div class="sm-feat-name">Crypto asset breakdown — BTC vs ETH vs USDT vs other, by volume and count</div></div>
+              <div class="sm-feat"><div class="sm-feat-name">New vs. returning customer split</div></div>
+              <div class="sm-feat"><div class="sm-feat-name">Geographic breakdown — province / city level</div></div>
+              <div class="sm-feat"><div class="sm-feat-name">Transaction volume trend — daily / weekly / monthly toggle</div></div>
+              <div class="sm-feat"><div class="sm-feat-name">Average basket size over time</div></div>
+              <div class="sm-feat sm-secondary"><div class="sm-feat-name"><strong style="color: #C07A20; font-weight: 600;">Primary action:</strong> Change date range / toggle chart view</div></div>
+            </div>
+          </div>
+
+          <!-- Page 4: Store & Promotions -->
+          <div class="sm-section">
+            <div class="sm-sec-row" style="cursor: default;">
+              <div style="font-size: 11px; font-weight: 700; background: #FDF3E7; color: #7A4A10; border: 1.5px solid #E0A050; border-radius: 6px; padding: 2px 8px; flex-shrink: 0;">4</div>
+              <div class="sm-sec-name">Store &amp; Promotions</div>
+              <div style="font-size: 11px; color: #AAA; font-family: monospace;">/merchant/store</div>
+              <div style="font-size: 11px; color: #888; font-style: italic; flex-shrink: 0;">Check store visibility, campaign performance, and fraud alerts</div>
+            </div>
+            <div class="sm-feats">
+              <div class="sm-feat"><div class="sm-feat-name">Store listing status — live in Luno app / not listed</div></div>
+              <div class="sm-feat"><div class="sm-feat-name">Active promotions table — campaign name, type, redemptions, reward volume, uplift %</div></div>
+              <div class="sm-feat"><div class="sm-feat-name">Fraud alerts panel — flagged transactions requiring review, fraud ratio indicator</div></div>
+              <div class="sm-feat"><div class="sm-feat-name">Dispute management — open disputes, status, resolution timeline</div></div>
+              <div class="sm-feat sm-secondary"><div class="sm-feat-name"><strong style="color: #C07A20; font-weight: 600;">Primary action:</strong> Raise dispute / contact support</div></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <p class="sm-note">
+        <strong>Separate product surface:</strong> The Merchant Portal is intentionally separate from the institutional platform. A user cannot hold both a Merchant role and an institutional role (Principal, Trader, etc.) — these are distinct product surfaces with no shared navigation.
+      </p>
+
+    </section>
+
   </main>
 
   <script>
@@ -5110,6 +5628,18 @@
           { label: "Key Requirement", value: "Read-only access across multiple accounts for auditing, valuation, and compliance reporting" }
         ],
         examples: "Fund auditors, administrators, compliance officers"
+      },
+      {
+        num: "15", name: "Luno Pay Merchant",
+        roles: [{ label: "Merchant", cls: "merchant" }],
+        voice: "I run a retail business that accepts cryptocurrency through Luno Pay. My customers pay with BTC, ETH, or USDT at checkout and I receive ZAR settlement into my bank account. I'm not a crypto investor — I need to see which payments came through today, when my settlement will arrive, how Luno promotional campaigns are driving volume to my store, and whether any suspicious transactions need my attention. I want simple reports I can hand to my accountant.",
+        details: [
+          { label: "Luno Product", value: "Luno Pay — ZARU network merchant" },
+          { label: "Verification", value: "Business KYC via Luno Pay merchant onboarding" },
+          { label: "Fund Flow", value: "Customer pays in crypto → Luno converts → ZAR settled to merchant bank account" },
+          { label: "Platform Access", value: "Merchant Portal — transaction feed, settlement status, analytics, promotion performance, fraud monitoring" }
+        ],
+        examples: "GeeWiz Electronics, Pick n Pay (USDT cashback programme), Zapper-network retailers"
       }
     ];
 
